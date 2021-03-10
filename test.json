@@ -1,0 +1,155 @@
+[{
+    "override_flag": true,
+    "field": {
+        "name": "Ruckman's",
+        "description": "Austin Testing API",
+        "producer": "aarrington@ecosystemservicesmarket.org",
+        "boundary": {
+            "type": "Feature",
+            "id": 1,
+            "geometry": {
+                "type": "GeometryCollection",
+                "geometries": [{
+                    "type": "Polygon",
+                    "coordinates": [
+                        [
+                            [
+                                -89.07762088031207,
+                                40.476825237321094
+                            ],
+                            [
+                                -89.08232951686792,
+                                40.476734809258595
+                            ],
+                            [
+                                -89.08224104378613,
+                                40.473061021297355
+                            ],
+                            [
+                                -89.08702455181088,
+                                40.472998159267114
+                            ],
+                            [
+                                -89.08706074954523,
+                                40.47480236147316
+                            ],
+                            [
+                                -89.08716925915053,
+                                40.48021111104516
+                            ],
+                            [
+                                -89.08122442548834,
+                                40.480329211855036
+                            ],
+                            [
+                                -89.08117093158151,
+                                40.478597691005106
+                            ],
+                            [
+                                -89.07883542565376,
+                                40.47865118810144
+                            ],
+                            [
+                                -89.07881672070813,
+                                40.48037696522556
+                            ],
+                            [
+                                -89.07769079654203,
+                                40.48039927302462
+                            ],
+                            [
+                                -89.07762088031207,
+                                40.476825237321094
+                            ]
+                        ]
+                    ]
+                }]
+            },
+            "properties": { }
+        },
+        "subboundaries": [],
+        "area": 0,
+        "crops": [
+            {
+                "name": "corn",
+                "type": "corn",
+                "yield": 100,
+                "growingSeason": {
+                    "startDate": "2019-05-10",
+                    "endDate": "2019-10-28",
+                    "year": 2019
+                },
+                "annualIrrigation": {
+                    "usage": {
+                        "discriminator": "actual-dates",
+                        "cycles": [
+                            {
+                                "date": "2019-08-24",
+                                "depth": 10
+                            }
+                        ]
+                    }
+                },
+                "coverCrop": {
+                    "name": "string",
+                    "seedMixture": [
+                        {
+                            "species": "annual-rye-grass",
+                            "speciesOtherName": "rye-grass",
+                            "percent": 0
+                        }
+                    ],
+                    "plantingDate": "2019-03-20",
+                    "establishmentSuccess": "excellent",
+                    "terminationDate": "2019-05-10"
+                },
+                "residue": {
+                    "coveredPercent": ">80",
+                    "removedPercent": 0
+                },
+                "programName": "Rye corn rotation",
+                "programDescription": "I like my corn with my rye dog, YKTV.",
+                "operations": [
+                    {
+                        "discriminator": "non-manure",
+                        "date": "2019-07-15",
+                        "product": "ammonium-sulfate",
+                        "name": "ChemDog 91",
+                        "applicationRate": {
+                            "type": "solid",
+                            "amount": 10,
+                            "hasVariableRate": "false"
+                        },
+                        "applicationMethod": "banded-and-incorporated",
+                        "applicationMethodOtherName": "Banded, Inc.",
+                        "applicationMethodInjectionDepth": 0,
+                        "liquidDensity": 8,
+                        "nutrients": {
+                            "percentN": 10,
+                            "percentP": 5,
+                            "percentK": 5,
+                            "hasStabilizer": "false"
+                        },
+                        "typeOfN": {
+                            "percentAmmonia": 2,
+                            "percentAmmonium": 2,
+                            "percentNitrate": 2,
+                            "percentUrea": 2
+                        },
+                        "timeReleaseProduct": {
+                            "name": "time-release",
+                            "rate": 0
+                        },
+                        "nitrogenInhibitor": {
+                            "name": "nitrogen-inhibitor",
+                            "rate": 0
+                        }
+                    }
+                ]
+            }
+        ],
+        "tract": "Conservation Tract",
+        "ownershipType": "corporation-owned",
+        "leaseRentTermExpirationYear": 2022
+    }
+}]
