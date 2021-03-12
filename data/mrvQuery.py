@@ -40,6 +40,11 @@ for i in data["producers"]:
     for k in fields:
         for l in k["crops"]:
             print(k["fieldByProjectId"], "| Area: ", k["area"], "| Type: ", l["type"], "| Yield: ", l["yield"])
+            # write Crop Dictionary 
+            cropDic["FieldID"].append(k["fieldByProjectId"])
+            cropDic["CropType"].append(l["type"])
+            cropDic["Yield"].append(l["yield"])
+            
     print("==================")
 
 print("--------------------------------------------------------")
@@ -50,4 +55,17 @@ for item in unique:
         print(item, "|", statusCheck.count(item), "|", statusSubmitted["ProducerID"])
     else:
         print(item, "|", statusCheck.count(item), "|", statusInProgress["ProducerID"])
-        
+
+cropList = cropDic["CropType"]
+fieldList = cropDic["FieldID"]
+
+### FIELD STATS #### 
+print("Total Fields: ", len(fieldList))
+#### CROP STATS #######
+# find frequency of string in list 
+def countCrop(lst, x):
+    return lst.count(x)
+# enter your crops 
+crops = ["corn", "soybean"]
+for crop in crops:
+    print('{} grown on {} fields'.format(crop, countCrop(cropList, crop))) 
