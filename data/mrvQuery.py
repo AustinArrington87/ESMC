@@ -14,7 +14,7 @@ statusCheck = []
 #statusSubmitted = []
 statusInProgress = {"ProducerID": [], "Status": []}
 statusSubmitted = {"ProducerID": [], "Status": []}
-
+cropDic = {"FieldID": [], "CropType": [], "Yield": []}
 # iterate through Producers 
 for i in data["producers"]:
     # check status 
@@ -38,7 +38,8 @@ for i in data["producers"]:
     print("Fields")
     fields = i["fields"]
     for k in fields:
-        print(k["fieldByProjectId"])
+        for l in k["crops"]:
+            print(k["fieldByProjectId"], "| Area: ", k["area"], "| Type: ", l["type"], "| Yield: ", l["yield"])
     print("==================")
 
 print("--------------------------------------------------------")
@@ -49,7 +50,4 @@ for item in unique:
         print(item, "|", statusCheck.count(item), "|", statusSubmitted["ProducerID"])
     else:
         print(item, "|", statusCheck.count(item), "|", statusInProgress["ProducerID"])
-        
-
-        
         
