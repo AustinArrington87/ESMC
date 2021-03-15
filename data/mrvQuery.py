@@ -66,6 +66,6 @@ print("Total Fields: ", len(fieldList))
 def countCrop(lst, x):
     return lst.count(x)
 # enter your crops 
-crops = ["corn", "soybean"]
+crops = ["corn", "soybean", "wheat"]
 for crop in crops:
     print('{} grown on {} fields'.format(crop, countCrop(cropList, crop))) 
