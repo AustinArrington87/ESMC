@@ -12,8 +12,8 @@ print("Number of Producers: ", len(data["producers"]))
 # check Status Later 
 statusCheck = []
 #statusSubmitted = []
-statusInProgress = {"ProducerID": [], "Status": []}
-statusSubmitted = {"ProducerID": [], "Status": []}
+statusInProgress = {"ProducerID": [], "Status": [], "ProducerAgreement": []}
+statusSubmitted = {"ProducerID": [], "Status": [], "ProducerAgreement": []}
 cropDic = {"FieldID": [], "CropType": [], "Yield": []}
 # iterate through Producers 
 for i in data["producers"]:
@@ -22,9 +22,11 @@ for i in data["producers"]:
     if i["narrative"]["status"] == "Submitted":
         statusSubmitted["Status"].append(i["narrative"]["status"])
         statusSubmitted["ProducerID"].append(i["userByProjectId"])
+        statusSubmitted["ProducerAgreement"].append(i["narrative"]["has_agreed_to_producer_agreement"])
     else:
         statusInProgress["Status"].append(i["narrative"]["status"])
         statusInProgress["ProducerID"].append(i["userByProjectId"])
+        statusInProgress["ProducerAgreement"].append(i["narrative"]["has_agreed_to_producer_agreement"])
     
     # Producer ID 
     print(i["userByProjectId"])
@@ -52,9 +54,9 @@ print("STATUS CHECK")
 unique = set(statusCheck)
 for item in unique:
     if item == "Submitted":
-        print(item, "|", statusCheck.count(item), "|", statusSubmitted["ProducerID"])
+        print(item, "|", statusCheck.count(item), "|", statusSubmitted["ProducerID"], "| SignedAgreement:", statusSubmitted["ProducerAgreement"])
     else:
-        print(item, "|", statusCheck.count(item), "|", statusInProgress["ProducerID"])
+        print(item, "|", statusCheck.count(item), "|", statusInProgress["ProducerID"], "| SignedAgreement:", statusInProgress["ProducerAgreement"])
 
 cropList = cropDic["CropType"]
 fieldList = cropDic["FieldID"]
