@@ -1,6 +1,9 @@
 import json
 # open JSON file
-f = open('allFields-2021-04-29.json',)
+#f = open('GM-2020-Fields-2021-04-29.json',)
+#f = open('ILC-2020-Fields-2021-04-29.json',)
+#f = open('TNCMN-2020-Fields-2021-04-29.json',)
+f = open('GM-ILC-TNCMN-2020-Fields-2021-04-29.json')
 # retrun JSON obj as dictionary 
 projects = json.load(f)
 # general mills
@@ -63,7 +66,7 @@ gmKnownProducers = 21
 gmKnownFields = 94
 print(qualityControl(pilotName, gmProducers, gmKnownProducers, gmKnownFields))
 
-# IL Corn 
+#IL Corn 
 pilotName = "Illinois Corn Growers Project"
 ILKnownProducers = 10
 ILKnownFields = 34
@@ -74,3 +77,4 @@ pilotName = "TNC Minnesota Project"
 tncKnownProducers = 4
 tncKnownFields = 4
 print(qualityControl(pilotName, tncProducers, tncKnownProducers, tncKnownFields))
+
