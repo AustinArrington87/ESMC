@@ -1,9 +1,9 @@
 import json
 # open JSON file
 #f = open('GM-2020-Fields-2021-04-29.json',)
-#f = open('ILC-2020-Fields-2021-04-29.json',)
+#f = open('ILC-2020-Fields-2021-05-03.json',)
 #f = open('TNCMN-2020-Fields-2021-04-29.json',)
-f = open('GM-ILC-TNCMN-2020-Fields-2021-04-29.json')
+f = open('GM-ILC-TNCMN-2020-Fields-2021-05-03.json')
 # retrun JSON obj as dictionary 
 projects = json.load(f)
 # general mills
@@ -61,20 +61,28 @@ def qualityControl(pilotName, pilotData, knownProducers, knownFields):
 
 # Feed data through function 
 # General Mills 
-pilotName = "General Mills Project"
-gmKnownProducers = 21
-gmKnownFields = 94
-print(qualityControl(pilotName, gmProducers, gmKnownProducers, gmKnownFields))
+try:
+    pilotName = "General Mills Project"
+    gmKnownProducers = 21
+    gmKnownFields = 94
+    print(qualityControl(pilotName, gmProducers, gmKnownProducers, gmKnownFields))
+except:
+    pass
 
 #IL Corn 
-pilotName = "Illinois Corn Growers Project"
-ILKnownProducers = 10
-ILKnownFields = 34
-print(qualityControl(pilotName, ILProducers, ILKnownProducers, ILKnownFields))
+try:
+    pilotName = "Illinois Corn Growers Project"
+    ILKnownProducers = 10
+    ILKnownFields = 32
+    print(qualityControl(pilotName, ILProducers, ILKnownProducers, ILKnownFields))
+except:
+    pass
 
 # TNC MN
-pilotName = "TNC Minnesota Project"
-tncKnownProducers = 4
-tncKnownFields = 4
-print(qualityControl(pilotName, tncProducers, tncKnownProducers, tncKnownFields))
-
+try:   
+    pilotName = "TNC Minnesota Project"
+    tncKnownProducers = 4
+    tncKnownFields = 4
+    print(qualityControl(pilotName, tncProducers, tncKnownProducers, tncKnownFields))
+except:
+    pass
