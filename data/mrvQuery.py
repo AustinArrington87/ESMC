@@ -1,6 +1,8 @@
 import json
 # open JSON file
-f = open('IL-Corn-Data-2021-03-11.json',)
+#f = open('IL-Corn-Data-2021-03-11.json',)
+f = open('IL-Corn-Data-2021-05-11-without-fields-24-25.json')
+#f = open('anonymized_data-2021-02-15.json',)
 # retrun JSON obj as dictionary 
 data = json.load(f)[0]
 # Project Name
@@ -18,15 +20,15 @@ cropDic = {"FieldID": [], "CropType": [], "Yield": []}
 # iterate through Producers 
 for i in data["producers"]:
     # check status 
-    statusCheck.append(i["narrative"]["status"])
-    if i["narrative"]["status"] == "Submitted":
-        statusSubmitted["Status"].append(i["narrative"]["status"])
+    statusCheck.append(i["status"])
+    if i["status"] == "Submitted":
+        statusSubmitted["Status"].append(i["status"])
         statusSubmitted["ProducerID"].append(i["userByProjectId"])
-        statusSubmitted["ProducerAgreement"].append(i["narrative"]["has_agreed_to_producer_agreement"])
+        statusSubmitted["ProducerAgreement"].append(i["has_agreed_to_producer_agreement"])
     else:
-        statusInProgress["Status"].append(i["narrative"]["status"])
+        statusInProgress["Status"].append(i["status"])
         statusInProgress["ProducerID"].append(i["userByProjectId"])
-        statusInProgress["ProducerAgreement"].append(i["narrative"]["has_agreed_to_producer_agreement"])
+        statusInProgress["ProducerAgreement"].append(i["has_agreed_to_producer_agreement"])
     
     # Producer ID 
     print(i["userByProjectId"])
@@ -35,7 +37,7 @@ for i in data["producers"]:
     histYields = i["narrative"]["historical_yields"]
     #print(histYields)
     for j in histYields:
-        print(j["commodity__id"], "| Year 1: ", j["yield_1"], "| Year 2: ", j["yield_2"], "| Year 3: ", j["yield_3"])
+        print(j["crop"], "| Year 1: ", j["yield_1"], "| Year 2: ", j["yield_2"], "| Year 3: ", j["yield_3"])
     # Fields
     print("Fields")
     fields = i["fields"]
@@ -60,6 +62,17 @@ for item in unique:
 
 cropList = cropDic["CropType"]
 fieldList = cropDic["FieldID"]
+
+### FIELD STATS #### 
+print("Total Fields: ", len(fieldList))
+#### CROP STATS #######
+# find frequency of string in list 
+def countCrop(lst, x):
+    return lst.count(x)
+# enter your crops 
+crops = ["corn", "soybean", "wheat"]
+for crop in crops:
+    print('{} grown on {} fields'.format(crop, countCrop(cropList, crop)))
 
 ### FIELD STATS #### 
 print("Total Fields: ", len(fieldList))
