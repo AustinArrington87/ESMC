@@ -68,7 +68,7 @@ for i in data["producers"]:
         if k["whatsNew"]["conservationPractices"] == None:
             print("No new conservation practices")
         else:
-            newPractices.append(["conservationPractices"])
+            newPractices.append([i["userByProjectId"], "conservationPractices"])
         if k["whatsNew"]["tillage"] == None:
             print("No new tillage practices")
         else:
@@ -78,6 +78,17 @@ for i in data["producers"]:
         else:
             newPractices.append([i["userByProjectId"], "prescribedGrazing"])
         
+        # check if no new practices added 
+        if k["whatsNew"]["nutrientManagement"] == None and \
+            k["whatsNew"]["coverCrop"] == None and \
+            k["whatsNew"]["conservationPractices"] == None and \
+            k["whatsNew"]["tillage"] == None and \
+            k["whatsNew"]["prescribedGrazing"] == None:
+            noNewPractice.append(i["userByProjectId"])
+            noNewPracticeClean = []
+            [noNewPracticeClean.append(x) for x in noNewPractice if x not in noNewPracticeClean]
+
+
         print("-----------------------------------------------")
 
 print("=======================================================")
@@ -96,6 +107,8 @@ fieldList = cropDic["FieldID"]
 print("Total Fields: ", len(fieldList))
 ### new practices 
 print("New Practices: ", newPractices)
+### no new practices
+print("Still missing What's New: ", noNewPracticeClean)
 #### CROP STATS #######
 # find frequency of string in list 
 def countCrop(lst, x):
