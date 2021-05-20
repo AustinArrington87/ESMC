@@ -60,23 +60,23 @@ for i in data["producers"]:
         if k["whatsNew"]["nutrientManagement"] == None:
             print("No new nutrient management practice")
         else:
-            newPractices.append([i["userByProjectId"], "nutrientManagement"])
+            newPractices.append([i["userByProjectId"], k["fieldByProjectId"], "nutrientManagement"])
         if k["whatsNew"]["coverCrop"] == None:
             print("No new cover crop practices")
         else:
-            newPractices.append([i["userByProjectId"], "coverCrop"])
+            newPractices.append([i["userByProjectId"], k["fieldByProjectId"],"coverCrop"])
         if k["whatsNew"]["conservationPractices"] == None:
             print("No new conservation practices")
         else:
-            newPractices.append([i["userByProjectId"], "conservationPractices"])
+            newPractices.append([i["userByProjectId"], k["fieldByProjectId"], "conservationPractices"])
         if k["whatsNew"]["tillage"] == None:
             print("No new tillage practices")
         else:
-            newPractices.append([i["userByProjectId"], "tillage"])
+            newPractices.append([i["userByProjectId"], k["fieldByProjectId"], "tillage"])
         if k["whatsNew"]["prescribedGrazing"] == None:
             print("No new prescribed grazing practices")
         else:
-            newPractices.append([i["userByProjectId"], "prescribedGrazing"])
+            newPractices.append([i["userByProjectId"], k["fieldByProjectId"], "prescribedGrazing"])
         
         # check if no new practices added 
         if k["whatsNew"]["nutrientManagement"] == None and \
