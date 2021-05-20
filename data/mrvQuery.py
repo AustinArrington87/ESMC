@@ -13,7 +13,11 @@ print("Date Added: ", data["date"])
 print("Number of Producers: ", len(data["producers"]))
 # check Status Later 
 statusCheck = []
-#statusSubmitted = []
+# store whats new values
+newPractices = []
+# store producers with no new practices
+noNewPractice = []
+
 statusInProgress = {"ProducerID": [], "Status": [], "ProducerAgreement": []}
 statusSubmitted = {"ProducerID": [], "Status": [], "ProducerAgreement": []}
 cropDic = {"FieldID": [], "CropType": [], "Yield": []}
@@ -41,17 +45,30 @@ for i in data["producers"]:
     # Fields
     print("Fields")
     fields = i["fields"]
+    # what's new 
     for k in fields:
+
+        # historical crop practices 
         for l in k["crops"]:
             print(k["fieldByProjectId"], "| Area: ", k["area"], "| Type: ", l["type"], "| Yield: ", l["yield"])
             # write Crop Dictionary 
             cropDic["FieldID"].append(k["fieldByProjectId"])
             cropDic["CropType"].append(l["type"])
             cropDic["Yield"].append(l["yield"])
-            
-    print("==================")
 
-print("--------------------------------------------------------")
+        print("What's New: ", k["whatsNew"])
+        if k["whatsNew"]["nutrientManagement"] == None:
+            print("No new nutrient management practice")
+        else:
+            newPractices.append(k["whatsNew"]["nutrientManagment"])
+        if k["whatsNew"]["coverCrop"] == None:
+            print("No new cover crop practices")
+        else:
+            newPractices.append(k["whatsNew"]["coverCrop"])
+        
+        print("-----------------------------------------------")
+
+print("=======================================================")
 print("STATUS CHECK")
 unique = set(statusCheck)
 for item in unique:
