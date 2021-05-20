@@ -60,23 +60,23 @@ for i in data["producers"]:
         if k["whatsNew"]["nutrientManagement"] == None:
             print("No new nutrient management practice")
         else:
-            newPractices.append("nutrientManagement")
+            newPractices.append([i["userByProjectId"], "nutrientManagement"])
         if k["whatsNew"]["coverCrop"] == None:
             print("No new cover crop practices")
         else:
-            newPractices.append("coverCrop")
+            newPractices.append([i["userByProjectId"], "coverCrop"])
         if k["whatsNew"]["conservationPractices"] == None:
             print("No new conservation practices")
         else:
-            newPractices.append("conservationPractices")
+            newPractices.append(["conservationPractices"])
         if k["whatsNew"]["tillage"] == None:
             print("No new tillage practices")
         else:
-            newPractices.append("tillage")
+            newPractices.append([i["userByProjectId"], "tillage"])
         if k["whatsNew"]["prescribedGrazing"] == None:
             print("No new prescribed grazing practices")
         else:
-            newPractices.append("prescribedGrazing")
+            newPractices.append([i["userByProjectId"], "prescribedGrazing"])
         
         print("-----------------------------------------------")
 
