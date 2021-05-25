@@ -2,8 +2,8 @@ import json
 # open JSON file
 #f = open('IL-Corn-Data-2021-03-11.json',)
 #f = open('IL-Corn-Data-2021-05-11-without-fields-24-25.json')
-f = open('IL-Corn-Data-2021-05-24.json')
-#f = open('Il_Corn_sample_with_soil_measurement_stratum_sample.json')
+#f = open('IL-Corn-Data-2021-05-24.json')
+f = open('Il_Corn_sample_with_soil_measurement_stratum_sample.json')
 #f = open('anonymized_data-2021-02-15.json',)
 # retrun JSON obj as dictionary 
 data = json.load(f)[0]
