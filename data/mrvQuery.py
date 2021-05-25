@@ -2,7 +2,8 @@ import json
 # open JSON file
 #f = open('IL-Corn-Data-2021-03-11.json',)
 #f = open('IL-Corn-Data-2021-05-11-without-fields-24-25.json')
-f = open('IL-Corn-Data-2021-05-24.json')
+#f = open('IL-Corn-Data-2021-05-24.json')
+f = open('Il_Corn_sample_with_soil_measurement_stratum_sample.json')
 #f = open('anonymized_data-2021-02-15.json',)
 # retrun JSON obj as dictionary 
 data = json.load(f)[0]
@@ -22,6 +23,7 @@ noNewPractice = []
 statusInProgress = {"ProducerID": [], "Status": [], "ProducerAgreement": []}
 statusSubmitted = {"ProducerID": [], "Status": [], "ProducerAgreement": []}
 cropDic = {"FieldID": [], "CropType": [], "Yield": []}
+soilSampleDic = {"FieldID": [], "SoilMeas_ID": [], "sampleName": [], "Coords": [], "pH": [], "SOC": [], "BD": [], "sample_date": []}
 # iterate through Producers 
 for i in data["producers"]:
     # check status 
@@ -79,6 +81,7 @@ for i in data["producers"]:
         else:
             newPractices.append([i["userByProjectId"], k["fieldByProjectId"], "prescribedGrazing"])
         
+
         # check if no new practices added 
         if k["whatsNew"]["nutrientManagement"] == None and \
             k["whatsNew"]["coverCrop"] == None and \
@@ -89,6 +92,33 @@ for i in data["producers"]:
             noNewPracticeClean = []
             [noNewPracticeClean.append(x) for x in noNewPractice if x not in noNewPracticeClean]
 
+        # soil stratum 
+        try:
+            print("Soil Stratum")
+            print(k["soil_strata"])
+        except:
+            pass
+
+        # soil samples
+
+        try:
+            print("Soil Samples")
+            for l in k["soil_samples"]:
+                print(k["fieldByProjectId"], "| soilSampleID: ", l["soil_measurement__id"], "| sampleName: ", l["name"], \
+                 "| Coords: ", l["actual_point"]["geometry"]["coordinates"], "| pH: ", l["ph"], "| SOC: ", l["soil_organic_carbon"],
+                 "| BD: ", l["bulk_density"], "| SampleDate: ", l["date_sampled"])
+
+                 # write to soil sample Dic 
+                soilSampleDic["FieldID"].append(k["fieldByProjectId"])
+                soilSampleDic["SoilMeas_ID"].append(l["soil_measurement__id"])
+                soilSampleDic["sampleName"].append(l["name"])
+                soilSampleDic["Coords"].append(l["actual_point"]["geometry"]["coordinates"])
+                soilSampleDic["pH"].append(l["ph"])
+                soilSampleDic["SOC"].append(l["soil_organic_carbon"])
+                soilSampleDic["BD"].append(l["bulk_density"])
+                soilSampleDic["sample_date"].append(l["date_sampled"])
+        except:
+            pass
 
         print("-----------------------------------------------")
 
@@ -129,3 +159,7 @@ def countCrop(lst, x):
 crops = ["corn", "soybean", "wheat"]
 for crop in crops:
     print('{} grown on {} fields'.format(crop, countCrop(cropList, crop))) 
+
+# soil sample stats 
+print("Soil Sample Summary:")
+print(soilSampleDic)
