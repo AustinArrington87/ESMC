@@ -19,11 +19,19 @@ statusCheck = []
 newPractices = []
 # store producers with no new practices
 noNewPractice = []
-
+# total acres
+totalAcres = []
+# totalCropHarvest
+totalHarvestCorn = []
+totalHarvestSoy = []
+totalHarvestWheat = []
+totalHarvestAlfalfa = []
+# STATUS Dictionaries
 statusInProgress = {"ProducerID": [], "Status": [], "ProducerAgreement": []}
 statusSubmitted = {"ProducerID": [], "Status": [], "ProducerAgreement": []}
 cropDic = {"FieldID": [], "CropType": [], "Yield": []}
 soilSampleDic = {"FieldID": [], "SoilMeas_ID": [], "sampleName": [], "Coords": [], "pH": [], "SOC": [], "BD": [], "sample_date": []}
+
 # iterate through Producers 
 for i in data["producers"]:
     # check status 
@@ -51,9 +59,20 @@ for i in data["producers"]:
     # what's new 
     for k in fields:
 
-        # historical crop practices 
+        # current year yield 
         for l in k["crops"]:
             print(k["fieldByProjectId"], "| Area: ", k["area"], "| Type: ", l["type"], "| Yield: ", l["yield"])
+            if l["type"] == "corn":
+                totalHarvestCorn.append(l["yield"])
+            if l["type"] == "soybean":
+                totalHarvestSoy.append(l["yield"])
+            if l["type"] == "wheat":
+                totalHarvestWheat.append(l["yield"])
+            if l["type"] == "alfalfa":
+                totalHarvestAlfalfa.append(l["yield"])
+
+            # write to acres list 
+            totalAcres.append(k["area"])
             # write Crop Dictionary 
             cropDic["FieldID"].append(k["fieldByProjectId"])
             cropDic["CropType"].append(l["type"])
@@ -123,7 +142,7 @@ for i in data["producers"]:
         print("-----------------------------------------------")
 
 print("=======================================================")
-print("STATUS CHECK")
+print("STATUS CHECK: ", data["project"])
 unique = set(statusCheck)
 for item in unique:
     if item == "Submitted":
@@ -134,35 +153,31 @@ for item in unique:
 cropList = cropDic["CropType"]
 fieldList = cropDic["FieldID"]
 
+### TOTAL ACRES ###
+print("Total Acres: ", round(sum(totalAcres),2))
+#### TOTAL HARVEST
+print("Total Yield lbs/acre (CORN): ", sum(totalHarvestCorn))
+print("Total Yield lbs/acre (SOYBEAN): ", sum(totalHarvestSoy))
+print("Total Yield lbs/acre (WHEAT): ", sum(totalHarvestWheat))
 ### FIELD STATS #### 
 print("Total Fields: ", len(fieldList))
 ### new practices 
-print("New Practices: ", newPractices)
+#print("New Practices: ", newPractices)
 ### no new practices
 print("Still missing What's New: ", noNewPracticeClean)
-#### CROP STATS #######
-# find frequency of string in list 
-def countCrop(lst, x):
-    return lst.count(x)
-# enter your crops 
-crops = ["corn", "soybean", "wheat"]
-for crop in crops:
-    print('{} grown on {} fields'.format(crop, countCrop(cropList, crop)))
 
-### FIELD STATS #### 
-print("Total Fields: ", len(fieldList))
 #### CROP STATS #######
 # find frequency of string in list 
 def countCrop(lst, x):
     return lst.count(x)
 # enter your crops 
-crops = ["corn", "soybean", "wheat"]
+crops = ["corn", "soybean", "wheat", "alfalfa"]
 for crop in crops:
     print('{} grown on {} fields'.format(crop, countCrop(cropList, crop))) 
 
-# soil sample stats 
-try:
-    print("Soil Sample Summary:")
-    print(soilSampleDic)
-except:
-    pass
+#### SOIL SAMPLE STATS ####
+# try:
+#     print("Soil Sample Summary:")
+#     print(soilSampleDic)
+# except:
+#     pass
