@@ -1,10 +1,8 @@
 import json
 # open JSON file
-#f = open('IL-Corn-Data-2021-03-11.json',)
-#f = open('IL-Corn-Data-2021-05-11-without-fields-24-25.json')
-#f = open('IL-Corn-Data-2021-05-24.json')
 #f = open('Il_Corn_sample_with_soil_measurement_stratum_sample.json')
-f = open('ILCorn-Data-2020-2021-05-27.json')
+#f = open('ILCorn-Data-2020-2021-05-27.json')
+f = open('TNCMN-Data-2021-05-27.json')
 #f = open('anonymized_data-2021-02-15.json',)
 # retrun JSON obj as dictionary 
 data = json.load(f)[0]
@@ -154,14 +152,34 @@ for item in unique:
 cropList = cropDic["CropType"]
 fieldList = cropDic["FieldID"]
 
+### FIELD STATS #### 
+print("Total Fields: ", len(fieldList))
 ### TOTAL ACRES ###
 print("Total Acres: ", round(sum(totalAcres),2))
 #### TOTAL HARVEST
-print("Total Yield lbs/acre (CORN): ", sum(totalHarvestCorn))
-print("Total Yield lbs/acre (SOYBEAN): ", sum(totalHarvestSoy))
-print("Total Yield lbs/acre (WHEAT): ", sum(totalHarvestWheat))
-### FIELD STATS #### 
-print("Total Fields: ", len(fieldList))
+# remove Nulls from list 
+totalHarvestCorn = filter(None, totalHarvestCorn)
+totalHarvestSoy = filter(None, totalHarvestSoy)
+totalHarvestWheat = filter(None, totalHarvestWheat)
+totalHarvestAlfalfa = filter(None, totalHarvestAlfalfa)
+
+try:
+    print("Total Yield lbs/acre (CORN): ", sum(totalHarvestCorn))
+except:
+    pass
+try:
+    print("Total Yield lbs/acre (SOYBEAN): ", sum(totalHarvestSoy))
+except:
+    pass
+try:
+    print("Total Yield lbs/acre (WHEAT): ", sum(totalHarvestWheat))
+except:
+    pass
+try:
+    print("Total Yield lbs/acre (ALFALFA): ", sum(totalHarvestAlfalfa))
+except:
+    pass
+
 ### new practices 
 #print("New Practices: ", newPractices)
 ### no new practices
