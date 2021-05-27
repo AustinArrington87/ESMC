@@ -76,7 +76,7 @@ for i in data["producers"]:
             
             if l["yield"] == None:
                 print("Missing yield data for ", l["type"], "in field: ", k["fieldByProjectId"])
-                fieldsWithNullHarvest.append([k["fieldByProjectId"], l["type"]])
+                fieldsWithNullHarvest.append([i["userByProjectId"], k["fieldByProjectId"], l["type"]])
 
             # write to acres list 
             totalAcres.append(k["area"])
