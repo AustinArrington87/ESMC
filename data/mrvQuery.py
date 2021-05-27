@@ -20,11 +20,14 @@ newPractices = []
 noNewPractice = []
 # total acres
 totalAcres = []
+# total producers
+totalProducers = []
 # totalCropHarvest
 totalHarvestCorn = []
 totalHarvestSoy = []
 totalHarvestWheat = []
 totalHarvestAlfalfa = []
+fieldsWithNullHarvest = []
 # STATUS Dictionaries
 statusInProgress = {"ProducerID": [], "Status": [], "ProducerAgreement": []}
 statusSubmitted = {"ProducerID": [], "Status": [], "ProducerAgreement": []}
@@ -46,6 +49,7 @@ for i in data["producers"]:
     
     # Producer ID 
     print(i["userByProjectId"])
+    totalProducers.append(i["userByProjectId"])
     # historical yields crop
     print("Historical Yields")
     histYields = i["narrative"]["historical_yields"]
@@ -69,6 +73,10 @@ for i in data["producers"]:
                 totalHarvestWheat.append(l["yield"])
             if l["type"] == "alfalfa":
                 totalHarvestAlfalfa.append(l["yield"])
+            
+            if l["yield"] == None:
+                print("Missing yield data for ", l["type"], "in field: ", k["fieldByProjectId"])
+                fieldsWithNullHarvest.append([k["fieldByProjectId"], l["type"]])
 
             # write to acres list 
             totalAcres.append(k["area"])
@@ -142,6 +150,7 @@ for i in data["producers"]:
 
 print("=======================================================")
 print("STATUS CHECK: ", data["project"])
+print("=======================================================")
 unique = set(statusCheck)
 for item in unique:
     if item == "Submitted":
@@ -153,6 +162,7 @@ cropList = cropDic["CropType"]
 fieldList = cropDic["FieldID"]
 
 ### FIELD STATS #### 
+print("Total Producers: ", len(totalProducers))
 print("Total Fields: ", len(fieldList))
 ### TOTAL ACRES ###
 print("Total Acres: ", round(sum(totalAcres),2))
@@ -180,6 +190,10 @@ try:
 except:
     pass
 
+print("-------------------MISSING DATA-------------------------------------")
+# fields with null Harvest
+print("Fields with Missing Yield: ", fieldsWithNullHarvest)
+
 ### new practices 
 #print("New Practices: ", newPractices)
 ### no new practices
@@ -195,6 +209,7 @@ for crop in crops:
     print('{} grown on {} fields'.format(crop, countCrop(cropList, crop))) 
 
 #### SOIL SAMPLE STATS ####
+print("------------------SOIL SAMPLE SUMMARY-------------------------------------")
 
 try:
     print("Soil Sample Summary:")
