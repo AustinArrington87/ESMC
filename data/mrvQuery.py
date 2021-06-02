@@ -1,8 +1,8 @@
 import json
 # open JSON file
 #f = open('Il_Corn_sample_with_soil_measurement_stratum_sample.json')
-#f = open('ILCorn-Data-2020-2021-05-27.json')
-f = open('TNCMN-Data-2021-05-27.json')
+f = open('ILCorn-Data-2020-2021-05-27.json')
+#f = open('TNCMN-Data-2021-05-27.json')
 #f = open('anonymized_data-2021-02-15.json',)
 # retrun JSON obj as dictionary 
 data = json.load(f)[0]
@@ -195,7 +195,7 @@ print("-------------------MISSING DATA-------------------------------------")
 print("Fields with Missing Yield: ", fieldsWithNullHarvest)
 
 ### new practices 
-#print("New Practices: ", newPractices)
+print("New Practices: ", newPractices)
 ### no new practices
 print("Still missing What's New: ", noNewPracticeClean)
 
