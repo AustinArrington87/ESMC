@@ -16,6 +16,8 @@ print("Number of Producers: ", len(data["producers"]))
 statusCheck = []
 # store whats new values
 newPractices = []
+# missing historical practices
+missingHistoricalPractices = []
 # store producers with no new practices
 noNewPractice = []
 # total acres
@@ -107,6 +109,16 @@ for i in data["producers"]:
         else:
             newPractices.append([i["userByProjectId"], k["fieldByProjectId"], "prescribedGrazing"])
         
+        # check historical practices -3 year (2017) to -1 (2019)
+        try:
+            if k["historicalPractices"][0]["yield"] == None:
+                missingHistoricalPractices.append([i["userByProjectId"], k["fieldByProjectId"], k["historicalPractices"][0]["year"]])
+            if k["historicalPractices"][1]["yield"] == None:
+                missingHistoricalPractices.append([i["userByProjectId"], k["fieldByProjectId"], k["historicalPractices"][1]["year"]])
+            if k["historicalPractices"][2]["yield"] == None:
+                missingHistoricalPractices.append([i["userByProjectId"], k["fieldByProjectId"], k["historicalPractices"][2]["year"]])
+        except:
+            pass
 
         # check if no new practices added 
         if k["whatsNew"]["nutrientManagement"] == None and \
@@ -193,6 +205,9 @@ except:
 print("-------------------MISSING DATA-------------------------------------")
 # fields with null Harvest
 print("Fields with Missing Yield: ", fieldsWithNullHarvest)
+
+# fields with missing historical crop data 
+print("Fields with Missing Historical: ", missingHistoricalPractices)
 
 ### new practices 
 print("New Practices: ", newPractices)
