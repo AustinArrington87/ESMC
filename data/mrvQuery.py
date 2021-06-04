@@ -160,9 +160,12 @@ for i in data["producers"]:
 
         print("-----------------------------------------------")
 
-print("=======================================================")
-print("STATUS CHECK: ", data["project"])
-print("=======================================================")
+print("====================PROJECT SUMMARY===================================")
+print("PILOT PROJECT: ", data["project"])
+print("ASSETS: ", data["assets"])
+### new practices 
+print("WHAT'S NEW? : ", newPractices)
+print("======================STATUS=================================")
 unique = set(statusCheck)
 for item in unique:
     if item == "Submitted":
@@ -202,18 +205,6 @@ try:
 except:
     pass
 
-print("-------------------MISSING DATA-------------------------------------")
-# fields with null Harvest
-print("Fields with Missing Yield: ", fieldsWithNullHarvest)
-
-# fields with missing historical crop data 
-print("Fields with Missing Historical: ", missingHistoricalPractices)
-
-### new practices 
-print("New Practices: ", newPractices)
-### no new practices
-print("Still missing What's New: ", noNewPracticeClean)
-
 #### CROP STATS #######
 # find frequency of string in list 
 def countCrop(lst, x):
@@ -222,6 +213,17 @@ def countCrop(lst, x):
 crops = ["corn", "soybean", "wheat", "alfalfa"]
 for crop in crops:
     print('{} grown on {} fields'.format(crop, countCrop(cropList, crop))) 
+
+print("-------------------MISSING DATA-------------------------------------")
+# fields with null Harvest
+print("Fields with Missing Yield: ", fieldsWithNullHarvest)
+
+# fields with missing historical crop data 
+print("Fields with Missing Historical: ", missingHistoricalPractices)
+
+### no new practices
+print("Still missing What's New: ", noNewPracticeClean)
+
 
 #### SOIL SAMPLE STATS ####
 print("------------------SOIL SAMPLE SUMMARY-------------------------------------")
