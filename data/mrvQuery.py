@@ -165,7 +165,7 @@ print("PILOT PROJECT: ", data["project"])
 print("ASSETS: ", data["assets"])
 ### new practices 
 print("WHAT'S NEW? : ", newPractices)
-print("======================STATUS=================================")
+print("======================STATUS==========================================")
 unique = set(statusCheck)
 for item in unique:
     if item == "Submitted":
@@ -214,7 +214,7 @@ crops = ["corn", "soybean", "wheat", "alfalfa"]
 for crop in crops:
     print('{} grown on {} fields'.format(crop, countCrop(cropList, crop))) 
 
-print("-------------------MISSING DATA-------------------------------------")
+print("======================MISSING DATA=====================================")
 # fields with null Harvest
 print("Fields with Missing Yield: ", fieldsWithNullHarvest)
 
@@ -226,7 +226,7 @@ print("Still missing What's New: ", noNewPracticeClean)
 
 
 #### SOIL SAMPLE STATS ####
-print("------------------SOIL SAMPLE SUMMARY-------------------------------------")
+print("======================SOIL SAMPLE SUMMARY==============================")
 
 try:
     print("Soil Sample Summary:")
