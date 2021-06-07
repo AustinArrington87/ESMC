@@ -19,6 +19,7 @@ newPractices = []
 # missing historical practices
 missingHistoricalPractices = []
 # store producers with no new practices
+noHistoricalPractices = []
 noNewPractice = []
 # total acres
 totalAcres = []
@@ -132,8 +133,13 @@ for i in data["producers"]:
                 missingHistoricalPractices.append([i["userByProjectId"], k["fieldByProjectId"], k["historicalPractices"][2]["year"]])
             else:
                 rotations.append([i["userByProjectId"], k["fieldByProjectId"], k["historicalPractices"][2]["crop"], k["historicalPractices"][1]["year"]])
+            
         except:
             pass
+        
+        # if it's an empty list 
+        if not k["historicalPractices"]:
+            noHistoricalPractices.append([i["userByProjectId"], k["fieldByProjectId"]])
 
         # check if no new practices added 
         if k["whatsNew"]["nutrientManagement"] == None and \
@@ -197,7 +203,25 @@ print("Total Fields: ", len(fieldList))
 ### TOTAL ACRES ###
 print("Total Acres: ", round(sum(totalAcres),2))
 #### CROP ROTATIONS #### 
+#print("Crop Rotation: ", rotations)
+
+#rotations per producers
+producerRotations = []
+
+for i in rotations:
+    for j in missingHistoricalPractices:
+        if i[0] == j[0] and i[1] == j[1]:
+            rotations.remove(i)
+
 print("Crop Rotation: ", rotations)
+
+#for i in rotations:
+#    for j in noHistoricalPractices:
+#        if i[0] == j[0] and i[1] == j[1]:
+#            rotations.remove(i)
+#
+#print("Crop Rotation: ", rotations)
+
 #### TOTAL HARVEST
 # remove Nulls from list 
 totalHarvestCorn = filter(None, totalHarvestCorn)
@@ -237,6 +261,8 @@ print("Fields with Missing Yield: ", fieldsWithNullHarvest)
 
 # fields with missing historical crop data 
 print("Fields with Missing Historical: ", missingHistoricalPractices)
+# fields with no historical
+print("Fields with No Historical: ", noHistoricalPractices)
 
 ### no new practices
 print("Still missing What's New: ", noNewPracticeClean)
