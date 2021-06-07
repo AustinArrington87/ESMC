@@ -30,6 +30,7 @@ totalHarvestSoy = []
 totalHarvestWheat = []
 totalHarvestAlfalfa = []
 fieldsWithNullHarvest = []
+rotations = []
 # STATUS Dictionaries
 statusInProgress = {"ProducerID": [], "Status": [], "ProducerAgreement": []}
 statusSubmitted = {"ProducerID": [], "Status": [], "ProducerAgreement": []}
@@ -67,6 +68,12 @@ for i in data["producers"]:
         # current year yield 
         for l in k["crops"]:
             print(k["fieldByProjectId"], "| Area: ", k["area"], "| Type: ", l["type"], "| Yield: ", l["yield"])
+            
+            # current year crop to compare with rotation context 
+            
+            rotations.append([i["userByProjectId"], k["fieldByProjectId"], l["type"], l["growingSeason"]["year"]])
+            
+            # harvest per crop 
             if l["type"] == "corn":
                 totalHarvestCorn.append(l["yield"])
             if l["type"] == "soybean":
@@ -113,10 +120,18 @@ for i in data["producers"]:
         try:
             if k["historicalPractices"][0]["yield"] == None:
                 missingHistoricalPractices.append([i["userByProjectId"], k["fieldByProjectId"], k["historicalPractices"][0]["year"]])
+            else:
+                rotations.append([i["userByProjectId"], k["fieldByProjectId"], k["historicalPractices"][0]["crop"], k["historicalPractices"][0]["year"]])
+            
             if k["historicalPractices"][1]["yield"] == None:
                 missingHistoricalPractices.append([i["userByProjectId"], k["fieldByProjectId"], k["historicalPractices"][1]["year"]])
+            else:
+                rotations.append([i["userByProjectId"], k["fieldByProjectId"], k["historicalPractices"][1]["crop"], k["historicalPractices"][1]["year"]])
+                
             if k["historicalPractices"][2]["yield"] == None:
                 missingHistoricalPractices.append([i["userByProjectId"], k["fieldByProjectId"], k["historicalPractices"][2]["year"]])
+            else:
+                rotations.append([i["userByProjectId"], k["fieldByProjectId"], k["historicalPractices"][2]["crop"], k["historicalPractices"][1]["year"]])
         except:
             pass
 
@@ -181,6 +196,8 @@ print("Total Producers: ", len(totalProducers))
 print("Total Fields: ", len(fieldList))
 ### TOTAL ACRES ###
 print("Total Acres: ", round(sum(totalAcres),2))
+#### CROP ROTATIONS #### 
+print("Crop Rotation: ", rotations)
 #### TOTAL HARVEST
 # remove Nulls from list 
 totalHarvestCorn = filter(None, totalHarvestCorn)
