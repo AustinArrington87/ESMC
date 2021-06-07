@@ -132,7 +132,7 @@ for i in data["producers"]:
             if k["historicalPractices"][2]["yield"] == None:
                 missingHistoricalPractices.append([i["userByProjectId"], k["fieldByProjectId"], k["historicalPractices"][2]["year"]])
             else:
-                rotations.append([i["userByProjectId"], k["fieldByProjectId"], k["historicalPractices"][2]["crop"], k["historicalPractices"][1]["year"]])
+                rotations.append([i["userByProjectId"], k["fieldByProjectId"], k["historicalPractices"][2]["crop"], k["historicalPractices"][2]["year"]])
             
         except:
             pass
