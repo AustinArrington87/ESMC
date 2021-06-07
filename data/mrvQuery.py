@@ -203,10 +203,6 @@ print("Total Fields: ", len(fieldList))
 ### TOTAL ACRES ###
 print("Total Acres: ", round(sum(totalAcres),2))
 #### CROP ROTATIONS #### 
-#print("Crop Rotation: ", rotations)
-
-#rotations per producers
-producerRotations = []
 
 for i in rotations:
     for j in missingHistoricalPractices:
@@ -215,12 +211,11 @@ for i in rotations:
 
 print("Crop Rotation: ", rotations)
 
-#for i in rotations:
-#    for j in noHistoricalPractices:
-#        if i[0] == j[0] and i[1] == j[1]:
-#            rotations.remove(i)
-#
-#print("Crop Rotation: ", rotations)
+for x in totalProducers:
+    for y in fieldList:
+        for z in rotations:
+            if x == z[0] and y == z[1]:
+                print(x, z)
 
 #### TOTAL HARVEST
 # remove Nulls from list 
