@@ -139,6 +139,7 @@ for i in data["producers"]:
         # if it's an empty list 
         if not k["historicalPractices"]:
             noHistoricalPractices.append([i["userByProjectId"], k["fieldByProjectId"]])
+            # remove from rotations dictionary 
 
         # check if no new practices added 
         if k["whatsNew"]["nutrientManagement"] == None and \
@@ -203,20 +204,22 @@ print("Total Fields: ", len(fieldList))
 print("Total Acres: ", round(sum(totalAcres),2))
 #### CROP ROTATIONS #### 
 
-# remove elements in the dictionary with missing historical practices 
+# remove elements with missing historical 
 for i in rotations:
     for j in missingHistoricalPractices:
         if i["ProducerId"] == j[0] and i["FieldId"] == j[1]:
             rotations.remove(i)
 
+# remove elements with no historical
+            
+for x in rotations:
+    for z in noHistoricalPractices:
+        if x["ProducerId"] == z[0] and x["FieldId"] == z[1]:
+            rotations.remove(x)
+
 print("Crop Rotation: ", rotations)
 
-#print("Crop Rotations:")
-#for x in totalProducers:
-#    for y in fieldList:
-#        for z in rotations:
-#            if x == z[0] and y == z[1]:
-#                print(x, z)
+# now segment list of rotations based on producer 
 
 #### TOTAL HARVEST
 # remove Nulls from list 
