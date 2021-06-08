@@ -209,8 +209,9 @@ for i in rotations:
         if i[0] == j[0] and i[1] == j[1]:
             rotations.remove(i)
 
-print("Crop Rotation: ", rotations)
+#print("Crop Rotation: ", rotations)
 
+print("Crop Rotations:")
 for x in totalProducers:
     for y in fieldList:
         for z in rotations:
