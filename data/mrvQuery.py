@@ -219,7 +219,6 @@ for x in rotations:
 
 print("Crop Rotation: ", rotations)
 
-# now segment list of rotations based on producer 
 
 #### TOTAL HARVEST
 # remove Nulls from list 
