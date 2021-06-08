@@ -28,6 +28,9 @@ print(x)
 print(y)
 
 response = requests.get('https://nassgeodata.gmu.edu/axis2/services/CDLService/GetCDLValue?year=2017&x=1551565.363&y=1909363.537')
+
+#response = requests.get('https://nassgeodata.gmu.edu/axis2/services/CDLService/GetCDLValue?year=2017&x='+str(x)+'&y='+str(y))
+
 # parse xml to json string 
 response_dict = xmltodict.parse(response.text)
 json_data = json.dumps(response_dict)
