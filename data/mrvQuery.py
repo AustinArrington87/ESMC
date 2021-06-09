@@ -219,6 +219,9 @@ for x in rotations:
 
 print("Crop Rotation: ", rotations)
 
+for j in rotations:
+        print(j['FieldId']+" | "+j['Crop']+" | "+str(j['Year']))
+        
 
 #### TOTAL HARVEST
 # remove Nulls from list 
