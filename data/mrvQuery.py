@@ -1,7 +1,6 @@
 import json
 # open JSON file
-#f = open('Il_Corn_sample_with_soil_measurement_stratum_sample.json')
-f = open('ILCorn-Data-2020-2021-05-27.json')
+f = open('TNCMN-anonymized-producers-3-6-2021-06-09.json')
 #f = open('TNCMN-Data-2021-05-27.json')
 #f = open('anonymized_data-2021-02-15.json',)
 # retrun JSON obj as dictionary 
@@ -68,31 +67,37 @@ for i in data["producers"]:
 
         # current year yield 
         for l in k["crops"]:
-            print(k["fieldByProjectId"], "| Area: ", k["area"], "| Type: ", l["type"], "| Yield: ", l["yield"])
-            
-            # current year crop to compare with rotation context 
-            rotations.append({"ProducerId": i["userByProjectId"], "FieldId": k["fieldByProjectId"], "Crop": l["type"], "Year": l["growingSeason"]["year"]})
-            
-            # harvest per crop 
-            if l["type"] == "corn":
-                totalHarvestCorn.append(l["yield"])
-            if l["type"] == "soybean":
-                totalHarvestSoy.append(l["yield"])
-            if l["type"] == "wheat":
-                totalHarvestWheat.append(l["yield"])
-            if l["type"] == "alfalfa":
-                totalHarvestAlfalfa.append(l["yield"])
-            
-            if l["yield"] == None:
-                print("Missing yield data for ", l["type"], "in field: ", k["fieldByProjectId"])
-                fieldsWithNullHarvest.append([i["userByProjectId"], k["fieldByProjectId"], l["type"]])
+            try:
+                print(k["fieldByProjectId"], "| Area: ", k["area"], "| Type: ", l["type"], "| Yield: ", l["yield"])
 
+                # current year crop to compare with rotation context 
+                rotations.append({"ProducerId": i["userByProjectId"], "FieldId": k["fieldByProjectId"], "Crop": l["type"], "Year": l["growingSeason"]["year"]})
+
+                # harvest per crop 
+                if l["type"].lower() == "corn":
+                    totalHarvestCorn.append(l["yield"])
+                if l["type"].lower() == "soybean":
+                    totalHarvestSoy.append(l["yield"])
+                if l["type"].lower() == "wheat":
+                    totalHarvestWheat.append(l["yield"])
+                if l["type"].lower() == "alfalfa":
+                    totalHarvestAlfalfa.append(l["yield"])
+
+                if l["yield"] == None:
+                    print("Missing yield data for ", l["type"], "in field: ", k["fieldByProjectId"])
+                    fieldsWithNullHarvest.append([i["userByProjectId"], k["fieldByProjectId"], l["type"]])
+            except:
+                pass
+            
+            try:
             # write to acres list 
-            totalAcres.append(k["area"])
-            # write Crop Dictionary 
-            cropDic["FieldID"].append(k["fieldByProjectId"])
-            cropDic["CropType"].append(l["type"])
-            cropDic["Yield"].append(l["yield"])
+                totalAcres.append(k["area"])
+                # write Crop Dictionary 
+                cropDic["FieldID"].append(k["fieldByProjectId"])
+                cropDic["CropType"].append(l["type"])
+                cropDic["Yield"].append(l["yield"])
+            except:
+                pass
 
         print("What's New: ", k["whatsNew"])
         if k["whatsNew"]["nutrientManagement"] == None:
@@ -140,7 +145,7 @@ for i in data["producers"]:
         if not k["historicalPractices"]:
             noHistoricalPractices.append([i["userByProjectId"], k["fieldByProjectId"]])
             # remove from rotations dictionary 
-
+        noNewPracticeClean = []
         # check if no new practices added 
         if k["whatsNew"]["nutrientManagement"] == None and \
             k["whatsNew"]["coverCrop"] == None and \
@@ -148,7 +153,6 @@ for i in data["producers"]:
             k["whatsNew"]["tillage"] == None and \
             k["whatsNew"]["prescribedGrazing"] == None:
             noNewPractice.append(i["userByProjectId"])
-            noNewPracticeClean = []
             [noNewPracticeClean.append(x) for x in noNewPractice if x not in noNewPracticeClean]
 
         # soil stratum 
@@ -195,6 +199,9 @@ for item in unique:
         print(item, "|", statusCheck.count(item), "|", statusInProgress["ProducerID"], "| SignedAgreement:", statusInProgress["ProducerAgreement"])
 
 cropList = cropDic["CropType"]
+# make lower case 
+cropList = [each_string.lower() for each_string in cropList]
+
 fieldList = cropDic["FieldID"]
 
 ### FIELD STATS #### 

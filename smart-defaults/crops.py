@@ -13,7 +13,7 @@ import pycrs
 # https://gis.stackexchange.com/questions/307620/projection-conversion-with-python-pyproj-canada-albers-equal-area-to-wgs
 #  EPSG code of Canada Equal Area as 102001 (see https://epsg.io/102001),
 
-year = 2018
+year = 2015
 
 #Canada Albers Equal Area Conic: ESRI:102001 is not an EPSG SRID value but an ESRI SRID value not recognized by PyProj.
 #So use the PROJ4 string of Canada Albers Equal Area Conic: ESRI:102001.
