@@ -13,7 +13,7 @@ import pycrs
 # https://gis.stackexchange.com/questions/307620/projection-conversion-with-python-pyproj-canada-albers-equal-area-to-wgs
 #  EPSG code of Canada Equal Area as 102001 (see https://epsg.io/102001),
 
-year = 2015
+year = 2018
 
 #Canada Albers Equal Area Conic: ESRI:102001 is not an EPSG SRID value but an ESRI SRID value not recognized by PyProj.
 #So use the PROJ4 string of Canada Albers Equal Area Conic: ESRI:102001.
@@ -27,9 +27,9 @@ x,y = transform(inproj,outproj,lat,lon)
 print(x)
 print(y)
 
-response = requests.get('https://nassgeodata.gmu.edu/axis2/services/CDLService/GetCDLValue?year='+str(year)+'&x=1551565.363&y=1909363.537')
+#response = requests.get('https://nassgeodata.gmu.edu/axis2/services/CDLService/GetCDLValue?year='+str(year)+'&x=1551565.363&y=1909363.537')
 
-#response = requests.get('https://nassgeodata.gmu.edu/axis2/services/CDLService/GetCDLValue?year=2017&x='+str(x)+'&y='+str(y))
+response = requests.get('https://nassgeodata.gmu.edu/axis2/services/CDLService/GetCDLStat?year=2018&points=175207,2219600,175207,2235525,213693,2235525,213693,2219600&format=json')
 
 # parse xml to json string 
 response_dict = xmltodict.parse(response.text)
@@ -37,14 +37,15 @@ json_data = json.dumps(response_dict)
 # convert string to response
 res = json.loads(json_data)
 print(res)
-result = res["ns1:GetCDLValueResponse"]["Result"]
-print(result)
+
+#result = res["ns1:GetCDLValueResponse"]["Result"]
+#print(result)
 # parse croptype from string using Regex
-crop_result = re.search(r'category:(.*?)color', result).group(1)
+#crop_result = re.search(r'category:(.*?)color', result).group(1)
 # remove special characters 
-crop_result = crop_result.replace(',', '')
-crop_result = crop_result.replace('"', '')
-print(crop_result)
+#crop_result = crop_result.replace(',', '')
+#crop_result = crop_result.replace('"', '')
+#print(crop_result)
 
 
 
