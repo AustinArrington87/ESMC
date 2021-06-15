@@ -12,7 +12,6 @@ import pyproj
 def getCrop (year,lat,lon):
     inproj = pyproj.Proj(init='epsg:4326')
     outproj = pyproj.Proj('+proj=aea +lat_1=50 +lat_2=70 +lat_0=40 +lon_0=-96 +x_0=0 +y_0=0 +datum=NAD83 +units=m +no_defs')
-    lon, lat = (-71.15884110801677, 54.679405476637065)
     x,y = pyproj.transform(inproj,outproj,lon,lat)
     #print(x)
     #print(y)
