@@ -1,0 +1,197 @@
+[
+    {
+        "id": "99902bed-5fb5-442e-8316-4ac5288be1b1",
+        "date": "2021-06-12T04:19:52.558152+00:00",
+        "assets": [
+            "Scope 3 GHG Asset"
+        ],
+        "project": "Corteva Project",
+        "version": "1.2",
+        "producers": [
+            {
+                "id": "529638af-e091-40a3-b1c5-bf5cbd2800ad",
+                "year": 2021,
+                "herds": null,
+                "fields": [
+                    {
+                        "id": "99640c04-65ad-41a9-a703-718606137533",
+                        "mongo_id": "60ae9e6832975900125b484f",
+                        "soil_sample": null,
+                        "app_user__id": "529638af-e091-40a3-b1c5-bf5cbd2800ad",
+                        "soil_stratum": null,
+                        "fieldByProjectId": "CN-Field-1",
+                        "description": "",
+                        "boundary": {
+                            "type": "Feature",
+                            "id": 0.0,
+                            "geometry": {
+                                "type": "GeometryCollection",
+                                "geometries": [
+                                    {
+                                        "type": "Polygon",
+                                        "coordinates": [
+                                            [
+                                                [
+                                                    -87.32607891484396,
+                                                    40.47293411489629
+                                                ],
+                                                [
+                                                    -87.32135822697775,
+                                                    40.472852499231166
+                                                ],
+                                                [
+                                                    -87.32135822697775,
+                                                    40.467759485504644
+                                                ],
+                                                [
+                                                    -87.32367565556662,
+                                                    40.46767786355039
+                                                ],
+                                                [
+                                                    -87.32348253651755,
+                                                    40.46462513123045
+                                                ],
+                                                [
+                                                    -87.32603599949972,
+                                                    40.46469043176974
+                                                ],
+                                                [
+                                                    -87.32607891484396,
+                                                    40.47293411489629
+                                                ]
+                                            ]
+                                        ]
+                                    }
+                                ]
+                            },
+                            "properties": {}
+                        },
+                        "area": 65.0,
+                        "crops": [
+                            {
+                                "name": "Corn",
+                                "type": "Corn",
+                                "yield": 200.0,
+                                "growingSeason": {
+                                    "year": 2021.0
+                                },
+                                "hasAnnualIrrigation": null,
+                                "hasCoverCrop": true,
+                                "coverCrop": {
+                                    "seedMixture": [
+                                        {
+                                            "species": "barley",
+                                            "percent": 48.0
+                                        },
+                                        {
+                                            "species": "other",
+                                            "speciesOtherName": "Rapeseed",
+                                            "percent": 6.0
+                                        },
+                                        {
+                                            "species": "other",
+                                            "speciesOtherName": "Spring Triticale",
+                                            "percent": 46.0
+                                        }
+                                    ],
+                                    "plantingDate": "",
+                                    "establishmentSuccess": "",
+                                    "terminationDate": ""
+                                },
+                                "residue": {
+                                    "coveredPercent": null,
+                                    "removedPercent": null
+                                },
+                                "programName": "",
+                                "programDescription": "",
+                                "operations": ""
+                            }
+                        ],
+                        "conservationPractices": {
+                            "hasGrassWaterways": false,
+                            "hasVegetativeBuffer": false,
+                            "hasSedimentBasins": false,
+                            "hasWetland": false,
+                            "hasGradeStabilization": false,
+                            "hasConservationOther": false
+                        },
+                        "tract": "",
+                        "ownershipType": "individual-owned-private",
+                        "hasIrrigation": false,
+                        "hasDrainage": false,
+                        "historicalPractices": [
+                            {
+                                "crop": "soybean",
+                                "yield": 73.0,
+                                "stockingRate": null,
+                                "year": 2020.0
+                            },
+                            {
+                                "crop": "corn",
+                                "yield": 160.0,
+                                "stockingRate": null,
+                                "year": 2019.0
+                            },
+                            {
+                                "crop": "soybean",
+                                "yield": 69.0,
+                                "stockingRate": null,
+                                "year": 2018.0
+                            }
+                        ],
+                        "whatsNew": {
+                            "nutrientManagement": null,
+                            "coverCrop": true,
+                            "conservationPractices": null,
+                            "tillage": null,
+                            "prescribedGrazing": null,
+                            "other": null
+                        }
+                    }
+                ],
+                "status": "Submitted",
+                "mongo_id": "60ae98c1c5cc810012fa05ee",
+                "narrative": {
+                    "historical_yield": [
+                        {
+                            "id": "dcc38c2e-3631-45d3-ab0e-039634495509",
+                            "crop": "Corn",
+                            "yield_1": 258,
+                            "yield_2": 230,
+                            "yield_3": 223,
+                            "farmer_project__id": "247e9698-cdf2-4ad7-8abc-e1484c299716"
+                        },
+                        {
+                            "id": "ce8fdb3f-f191-4511-bad7-145fc9462dba",
+                            "crop": "Soybeans",
+                            "yield_1": 84,
+                            "yield_2": 71,
+                            "yield_3": 72,
+                            "farmer_project__id": "247e9698-cdf2-4ad7-8abc-e1484c299716"
+                        }
+                    ],
+                    "baseline_conditions": "No significant practice changes except for taking the registered field into a no-till and cover crop practice beginning Fall of 2020.",
+                    "is_fuel_change_expected": null,
+                    "historical_stocking_rate": [
+                        {
+                            "id": "8ef24516-5cd2-46dd-9a9e-c2c52c753449",
+                            "animal": "Cattle",
+                            "stocking_rate_1": 0.0,
+                            "stocking_rate_2": 0.0,
+                            "stocking_rate_3": 0.0,
+                            "farmer_project__id": "247e9698-cdf2-4ad7-8abc-e1484c299716"
+                        }
+                    ],
+                    "is_electric_change_expected": null
+                },
+                "project__id": "99902bed-5fb5-442e-8316-4ac5288be1b1",
+                "submitted_at": "2021-05-26T19:19:17.677566+00:00",
+                "mongo_project_id": "6034a8239710005d8c77fb4c",
+                "has_self_certified": true,
+                "has_agreed_to_producer_agreement": true,
+                "userByProjectId": "CN-Producer-25"
+            }
+        ],
+        "soil_measurements": null
+    }
+]
