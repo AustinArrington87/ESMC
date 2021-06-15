@@ -37,8 +37,11 @@ def getCrop (year,lat,lon):
 # feed year, lat, lon into function 
 years = [2019, 2018, 2017, 2016, 2015]
 for year in years:
-    crop = getCrop(year, 54.679405476637065, -71.15884110801677)
-    print("Year: ", year, "|", crop)
+    try:
+        crop = getCrop(year, 54.679405476637065, -71.15884110801677)
+        print("Year: ", year, "|", crop)
+    except:
+        print("Crop Missing for ", year)
 
 
 
