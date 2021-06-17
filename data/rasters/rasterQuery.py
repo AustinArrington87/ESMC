@@ -7,7 +7,7 @@ import csv
 
 # read in lat lons from soil_sample CSV
 sampledata = []
-csv_file = 'IL_SoilData.csv'
+csv_file = 'ICG-Field-3.csv'
 
 with open(csv_file, 'r') as f:
     reader = csv.DictReader(f)
@@ -21,7 +21,7 @@ filename = 'ICG-Field-3.tif'
 filepath = '/Users/austinarrington/ESMC/data/rasters/'+str(filename)
 
 # headers for new CSV 
-header = ['year', 'point', 'start_depth', 'end_depth', 'lon', 'lat', 'dry_weight', 'soc', 'bd']
+header = ['field', 'year', 'point', 'start_depth', 'end_depth', 'lon', 'lat', 'dry_weight', 'soc', 'bd']
 
 with open('output.csv', 'w', encoding='UTF8', newline='') as f:
     writer=csv.writer(f)
@@ -50,5 +50,5 @@ with open('output.csv', 'w', encoding='UTF8', newline='') as f:
         bd = round(float(bulk_density),4)
         print("Bulk Density (g/cm3): ", bd, " | ", lat, ",", lon)
         
-        data = [year, point, start_depth, end_depth, lon, lat, dry_weight, soc, bd]
+        data = [field, year, point, start_depth, end_depth, lon, lat, dry_weight, soc, bd]
         writer.writerow(data)
