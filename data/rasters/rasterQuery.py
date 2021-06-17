@@ -13,7 +13,7 @@ with open(csv_file, 'r') as f:
     reader = csv.DictReader(f)
     for row in reader:
         sampledata.append(
-            (row.get('year'), row.get('lon'), row.get('lat'))
+            (row.get('year'), row.get('point'), row.get('start_depth'), row.get('end_depth'), row.get('lon'), row.get('lat'), row.get('dry_weight'), row.get('soc'), row.get('field'))
         )
 
 # import file path for raster image 
@@ -21,7 +21,7 @@ filename = 'ICG-Field-3.tif'
 filepath = '/Users/austinarrington/ESMC/data/rasters/'+str(filename)
 
 # headers for new CSV 
-header = ['year', 'lon', 'lat', 'bd']
+header = ['year', 'point', 'start_depth', 'end_depth', 'lon', 'lat', 'dry_weight', 'soc', 'bd']
 
 with open('output.csv', 'w', encoding='UTF8', newline='') as f:
     writer=csv.writer(f)
@@ -30,8 +30,14 @@ with open('output.csv', 'w', encoding='UTF8', newline='') as f:
     
     for data in sampledata:
         year = data[0]
+        point = data[1]
+        start_depth = data[2]
+        end_depth = data[3]
         # iterate through array of locations
-        lon, lat = data[1], data[2]
+        lon, lat = data[4], data[5]
+        dry_weight = data[6]
+        soc = data[7]
+        field = data[8]
         # read in file 
         xarr = xr.open_rasterio(filepath)
         # slice one of the bands
@@ -44,5 +50,5 @@ with open('output.csv', 'w', encoding='UTF8', newline='') as f:
         bd = round(float(bulk_density),4)
         print("Bulk Density (g/cm3): ", bd, " | ", lat, ",", lon)
         
-        data = [year, lon, lat, bd]
+        data = [year, point, start_depth, end_depth, lon, lat, dry_weight, soc, bd]
         writer.writerow(data)
