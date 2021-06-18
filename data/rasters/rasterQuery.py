@@ -7,7 +7,7 @@ import csv
 
 # read in lat lons from soil_sample CSV
 sampledata = []
-csv_file = 'ICG-Field-15.csv'
+csv_file = 'ICG-Field-33.csv'
 
 with open(csv_file, 'r') as f:
     reader = csv.DictReader(f)
@@ -17,7 +17,7 @@ with open(csv_file, 'r') as f:
         )
 
 # import file path for raster image 
-filename = 'ICG-Field-15.tif'
+filename = 'ICG-Field-33.tif'
 filepath = '/Users/austinarrington/ESMC/data/rasters/'+str(filename)
 
 # headers for new CSV 

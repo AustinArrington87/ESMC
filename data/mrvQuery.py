@@ -1,7 +1,7 @@
 import json
 # open JSON file
-#f = open('TNCMN-anonymized-producers-3-6-2021-06-09.json')
-f = open('ILCorn-Data-2020-2021-05-27.json')
+f = open('TNC.json')
+#f = open('ILCorn-Data-2020-2021-05-27.json')
 #f = open('TNCMN-Data-2021-05-27.json')
 #f = open('anonymized_data-2021-02-15.json',)
 # retrun JSON obj as dictionary 
@@ -56,10 +56,14 @@ for i in data["producers"]:
     totalProducers.append(i["userByProjectId"])
     # historical yields crop
     print("Historical Yields")
-    histYields = i["narrative"]["historical_yields"]
-    #print(histYields)
-    for j in histYields:
-        print(j["crop"], "| Year 1: ", j["yield_1"], "| Year 2: ", j["yield_2"], "| Year 3: ", j["yield_3"])
+    histYields = i["narrative"]["historical_yield"]
+    # remove nulls 
+    try:
+        for j in histYields:
+            if j:
+                print(j["crop"], "| Year 1: ", j["yield_1"], "| Year 2: ", j["yield_2"], "| Year 3: ", j["yield_3"])
+    except:
+        pass
     # Fields
     print("Fields")
     fields = i["fields"]
