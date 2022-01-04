@@ -1,0 +1,2343 @@
+[
+    {
+        "id": "73bae7b4-f234-4fd3-9e76-9240e9a0c095",
+        "date": "2021-12-23T06:28:55.712302+00:00",
+        "assets": [
+            "Scope 3 GHG Asset"
+        ],
+        "project": "Corteva",
+        "version": "2.0",
+        "producers": [
+            {
+                "id": "90764f9a-5bb5-4398-9bca-0da1ba15bee8",
+                "fields": [
+                    {
+                        "id": "332d7855-1b46-4422-a3e8-cde7cc52839d",
+                        "area": {
+                            "unit": "acres",
+                            "value": 37.771
+                        },
+                        "history": [
+                            {
+                                "id": "cbd46fba-70af-455f-9ce4-d517d1372879",
+                                "year": 2021,
+                                "event_data": [
+                                    {
+                                        "id": "895ca8bd-e0c4-4126-b874-2bdceeb2b41a",
+                                        "event": "No till event"
+                                    },
+                                    {
+                                        "id": "c250d6d9-4965-4c74-9e64-1b21f9500dcb",
+                                        "event": "No irrigation event"
+                                    },
+                                    {
+                                        "id": "3d73b1da-e839-4555-8a53-80635e8b8084",
+                                        "event": "No drainage"
+                                    },
+                                    {
+                                        "id": "6c33f6ac-882a-4e2a-9378-6e3492090a51",
+                                        "event": "No grazing event"
+                                    },
+                                    {
+                                        "id": "17aaf740-f11b-4f60-8aea-a4f23248380d",
+                                        "crop": "Corn",
+                                        "event": "Plant",
+                                        "event_date": "2021-04-26",
+                                        "is_planting_failure": false,
+                                        "planting_failure_date": null
+                                    },
+                                    {
+                                        "id": "28606bac-e2e4-4909-a499-d31c66d851c3",
+                                        "crop": "Corn",
+                                        "event": "Harvest",
+                                        "yield": {
+                                            "unit": "bushels/acre",
+                                            "value": 170.00
+                                        },
+                                        "event_date": "2021-11-07",
+                                        "biomass_removed": {
+                                            "unit": "percent",
+                                            "value": null
+                                        },
+                                        "is_cutting_baling": false,
+                                        "is_biomass_removed": null,
+                                        "remaining_height_after_cutting": {
+                                            "unit": "inches",
+                                            "value": null
+                                        }
+                                    },
+                                    {
+                                        "id": "5492eb58-dfa8-4bd6-9052-baec3ddc9218",
+                                        "rate": {
+                                            "unit": "lbs/acre",
+                                            "value": 146.34
+                                        },
+                                        "type": "Dry",
+                                        "event": "Fertilizer",
+                                        "is_custom": false,
+                                        "is_manure": false,
+                                        "event_date": "2021-11-15",
+                                        "fertilizer_name": "Anhydrous Ammonia",
+                                        "injection_depth": {
+                                            "unit": "inches",
+                                            "value": null
+                                        },
+                                        "application_name": "Anhydrous ammonia applicator",
+                                        "is_urease_inhibitor_used": null,
+                                        "is_time_release_product_used": false,
+                                        "is_nitrification_inhibitor_used": false,
+                                        "application_method_other_description": null
+                                    },
+                                    {
+                                        "id": "277912bb-e10c-478d-930a-e3436a4a8de6",
+                                        "rate": {
+                                            "unit": "lbs/acre",
+                                            "value": 65.22
+                                        },
+                                        "type": "Dry",
+                                        "event": "Fertilizer",
+                                        "is_custom": false,
+                                        "is_manure": false,
+                                        "event_date": "2021-06-05",
+                                        "fertilizer_name": "Urea",
+                                        "injection_depth": {
+                                            "unit": "inches",
+                                            "value": null
+                                        },
+                                        "application_name": "Topdress",
+                                        "is_urease_inhibitor_used": false,
+                                        "is_time_release_product_used": false,
+                                        "is_nitrification_inhibitor_used": false,
+                                        "application_method_other_description": null
+                                    },
+                                    {
+                                        "id": "6a669338-4ef9-4d73-8900-d2cf700d198d",
+                                        "event": "Cover crop",
+                                        "end_date": "2021-05-05",
+                                        "start_date": null,
+                                        "cover_crop_data": [
+                                            {
+                                                "percent": 50.00,
+                                                "species_name": "Annual Rye Grass",
+                                                "species_other_name": null
+                                            },
+                                            {
+                                                "percent": 50.00,
+                                                "species_name": "Wheat",
+                                                "species_other_name": null
+                                            }
+                                        ],
+                                        "cover_crop_seeding_rate": {
+                                            "unit": "pounds/acre",
+                                            "value": 50.00
+                                        },
+                                        "is_cover_crop_seeded_aerially": false
+                                    }
+                                ],
+                                "is_incomplete": true
+                            },
+                            {
+                                "id": "3df561a0-766a-4240-a3df-8aa3f709b78f",
+                                "year": 2020,
+                                "event_data": [
+                                    {
+                                        "id": "42404247-ac0a-4c6d-b8fb-7cb4e5296052",
+                                        "event": "No tillage data available"
+                                    },
+                                    {
+                                        "id": "775edc54-4883-4350-975a-db5ac6d1216f",
+                                        "event": "No irrigation data available"
+                                    },
+                                    {
+                                        "id": "9d89f8c2-31c1-4854-b1e5-c1bb5f52a558",
+                                        "event": "No fertilizer data available"
+                                    },
+                                    {
+                                        "id": "22f459ca-3cbe-4d00-9712-a85410d2064b",
+                                        "event": "No drainage data available"
+                                    },
+                                    {
+                                        "id": "2ff2a956-d683-4262-b83b-8d994fec1567",
+                                        "event": "No grazing data available"
+                                    },
+                                    {
+                                        "id": "a287da29-f758-48e9-9bf8-eea2ab214bf0",
+                                        "crop": "Soybeans",
+                                        "event": "Plant",
+                                        "event_date": null,
+                                        "is_planting_failure": false,
+                                        "planting_failure_date": null
+                                    },
+                                    {
+                                        "id": "81bca215-5ae6-4d1a-b414-afa2975dbafe",
+                                        "crop": "Soybeans",
+                                        "event": "Harvest",
+                                        "yield": {
+                                            "unit": "bushels/acre",
+                                            "value": 70.00
+                                        },
+                                        "event_date": null,
+                                        "biomass_removed": {
+                                            "unit": "percent",
+                                            "value": null
+                                        },
+                                        "is_cutting_baling": false,
+                                        "is_biomass_removed": null,
+                                        "remaining_height_after_cutting": {
+                                            "unit": "inches",
+                                            "value": null
+                                        }
+                                    }
+                                ],
+                                "is_incomplete": true
+                            },
+                            {
+                                "id": "abc2782c-900b-4b70-a7f2-5b903657ef45",
+                                "year": 2019,
+                                "event_data": [
+                                    {
+                                        "id": "effa9dec-3c22-45b9-a726-d16dae36047b",
+                                        "event": "No tillage data available"
+                                    },
+                                    {
+                                        "id": "156bb3bc-1353-439b-8ee4-e199375ed0f1",
+                                        "event": "No irrigation data available"
+                                    },
+                                    {
+                                        "id": "749935bd-7857-4f90-a2d3-8c2178cc82a7",
+                                        "event": "No fertilizer data available"
+                                    },
+                                    {
+                                        "id": "fb1708e1-147e-4d87-9181-720add646acf",
+                                        "event": "No drainage data available"
+                                    },
+                                    {
+                                        "id": "29635993-6f56-4ea1-982c-3927665b46c3",
+                                        "event": "No grazing data available"
+                                    },
+                                    {
+                                        "id": "fef3eaef-3694-44d7-9774-db8cf9b6789a",
+                                        "crop": "Corn",
+                                        "event": "Plant",
+                                        "event_date": null,
+                                        "is_planting_failure": false,
+                                        "planting_failure_date": null
+                                    },
+                                    {
+                                        "id": "75452d4e-24f6-4aeb-abd7-2260c0d33c80",
+                                        "crop": "Corn",
+                                        "event": "Harvest",
+                                        "yield": {
+                                            "unit": "bushels/acre",
+                                            "value": 239.00
+                                        },
+                                        "event_date": null,
+                                        "biomass_removed": {
+                                            "unit": "percent",
+                                            "value": null
+                                        },
+                                        "is_cutting_baling": false,
+                                        "is_biomass_removed": null,
+                                        "remaining_height_after_cutting": {
+                                            "unit": "inches",
+                                            "value": null
+                                        }
+                                    }
+                                ],
+                                "is_incomplete": true
+                            },
+                            {
+                                "id": "66045272-52c2-4ff9-98b4-36e03329c090",
+                                "year": 2018,
+                                "event_data": [
+                                    {
+                                        "id": "cefdfef0-dc6d-4f96-b7bb-f68893c5723e",
+                                        "event": "No tillage data available"
+                                    },
+                                    {
+                                        "id": "de97b4f4-4216-4e05-81b5-c62bd038a898",
+                                        "event": "No irrigation data available"
+                                    },
+                                    {
+                                        "id": "69ad4ad8-c528-4d4a-b527-42efb7264e89",
+                                        "event": "No fertilizer data available"
+                                    },
+                                    {
+                                        "id": "ef5cc234-55b9-42a4-b993-2fd9e4ab2b26",
+                                        "event": "No drainage data available"
+                                    },
+                                    {
+                                        "id": "1d059881-6037-4fc3-a2f6-524a458888a7",
+                                        "event": "No grazing data available"
+                                    },
+                                    {
+                                        "id": "80e03142-ed01-4db7-9388-9e155b297228",
+                                        "crop": "Soybeans",
+                                        "event": "Plant",
+                                        "event_date": null,
+                                        "is_planting_failure": false,
+                                        "planting_failure_date": null
+                                    },
+                                    {
+                                        "id": "4701eafa-3de5-46ba-a2d0-f9fa0ccd004c",
+                                        "crop": "Soybeans",
+                                        "event": "Harvest",
+                                        "yield": {
+                                            "unit": "bushels/acre",
+                                            "value": 68.00
+                                        },
+                                        "event_date": null,
+                                        "biomass_removed": {
+                                            "unit": "percent",
+                                            "value": null
+                                        },
+                                        "is_cutting_baling": false,
+                                        "is_biomass_removed": null,
+                                        "remaining_height_after_cutting": {
+                                            "unit": "inches",
+                                            "value": null
+                                        }
+                                    }
+                                ],
+                                "is_incomplete": true
+                            }
+                        ],
+                        "boundary": {
+                            "type": "MultiPolygon",
+                            "coordinates": [
+                                [
+                                    [
+                                        [
+                                            -91.813838,
+                                            41.9758067
+                                        ],
+                                        [
+                                            -91.8137979,
+                                            41.9785072
+                                        ],
+                                        [
+                                            -91.8186399,
+                                            41.9785152
+                                        ],
+                                        [
+                                            -91.8186134,
+                                            41.9749492
+                                        ],
+                                        [
+                                            -91.8138504,
+                                            41.9749748
+                                        ],
+                                        [
+                                            -91.8138433,
+                                            41.9754509
+                                        ],
+                                        [
+                                            -91.8142118,
+                                            41.9755668
+                                        ],
+                                        [
+                                            -91.8148344,
+                                            41.9755733
+                                        ],
+                                        [
+                                            -91.8154726,
+                                            41.9757729
+                                        ],
+                                        [
+                                            -91.8154996,
+                                            41.9758661
+                                        ],
+                                        [
+                                            -91.8150777,
+                                            41.9758832
+                                        ],
+                                        [
+                                            -91.8145396,
+                                            41.9759705
+                                        ],
+                                        [
+                                            -91.8143604,
+                                            41.9758186
+                                        ],
+                                        [
+                                            -91.814122,
+                                            41.9757589
+                                        ],
+                                        [
+                                            -91.813838,
+                                            41.9758067
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        },
+                        "soil_strata": null,
+                        "app_user__id": "90764f9a-5bb5-4398-9bca-0da1ba15bee8",
+                        "soil_samples": null,
+                        "field_by_project_id": "CN-Field-2",
+                        "field_practice_changes": [
+                            {
+                                "id": "452e1060-99cd-48fb-8cf3-da4d02204ad7",
+                                "name": "Cover cropping"
+                            }
+                        ]
+                    }
+                ],
+                "status": "Submitted",
+                "submitted_at": "2021-12-21T22:13:35.531945+00:00",
+                "year_enrolled": null,
+                "has_self_certified": true,
+                "user_by_project_id": "CN-Producer-3",
+                "crop_module_rejected_at": null,
+                "crop_module_reviewed_at": null,
+                "crop_module_submitted_at": null,
+                "has_agreed_to_producer_agreement": true
+            },
+            {
+                "id": "3bee04c2-bffa-4786-a542-11b7ae32f331",
+                "fields": [
+                    {
+                        "id": "e78e41d0-d6c3-40d2-aa7f-d4731beb708f",
+                        "area": {
+                            "unit": "acres",
+                            "value": 63.976
+                        },
+                        "history": [
+                            {
+                                "id": "754b80a3-8ede-44f7-a59d-321c45e9dcd6",
+                                "year": 2021,
+                                "event_data": [
+                                    {
+                                        "id": "94bd15ea-0a64-477e-b86d-1540785fa111",
+                                        "event": "No till event"
+                                    },
+                                    {
+                                        "id": "ded4030c-42d3-4218-bda2-2acfe946cc75",
+                                        "event": "No irrigation event"
+                                    },
+                                    {
+                                        "id": "b701de5b-1719-4ecb-988e-1ff18c31be1e",
+                                        "event": "No drainage"
+                                    },
+                                    {
+                                        "id": "ce2ce133-2c18-45a8-acf5-78221745a9f8",
+                                        "event": "No grazing event"
+                                    },
+                                    {
+                                        "id": "8067482d-6fbf-4c0c-80de-bee9c23df09b",
+                                        "crop": "Corn",
+                                        "event": "Plant",
+                                        "event_date": "2021-04-17",
+                                        "is_planting_failure": false,
+                                        "planting_failure_date": null
+                                    },
+                                    {
+                                        "id": "a0b4bd5c-3032-441c-91e9-63392236388a",
+                                        "crop": "Corn",
+                                        "event": "Harvest",
+                                        "yield": {
+                                            "unit": "bushels/acre",
+                                            "value": 194.00
+                                        },
+                                        "event_date": "2021-10-06",
+                                        "biomass_removed": {
+                                            "unit": "percent",
+                                            "value": null
+                                        },
+                                        "is_cutting_baling": false,
+                                        "is_biomass_removed": null,
+                                        "remaining_height_after_cutting": {
+                                            "unit": "inches",
+                                            "value": null
+                                        }
+                                    },
+                                    {
+                                        "id": "c398a2c5-1528-44e7-9e32-808e8ac18fe8",
+                                        "rate": {
+                                            "unit": "lbs/acre",
+                                            "value": 265.00
+                                        },
+                                        "type": "Dry",
+                                        "event": "Fertilizer",
+                                        "source": null,
+                                        "is_custom": true,
+                                        "is_manure": false,
+                                        "percent_n": {
+                                            "unit": "percent",
+                                            "value": 9.00
+                                        },
+                                        "event_date": "2020-10-10",
+                                        "percent_k2o": {
+                                            "unit": "percent",
+                                            "value": 30.00
+                                        },
+                                        "percent_p2o5": {
+                                            "unit": "percent",
+                                            "value": 23.00
+                                        },
+                                        "liquid_density": {
+                                            "unit": "pounds/gallon",
+                                            "value": null
+                                        },
+                                        "fertilizer_name": "Other Non-manure Dry",
+                                        "injection_depth": {
+                                            "unit": "inches",
+                                            "value": null
+                                        },
+                                        "application_name": "Banded and incorporated",
+                                        "is_urease_inhibitor_used": false,
+                                        "is_time_release_product_used": false,
+                                        "is_nitrification_inhibitor_used": false,
+                                        "application_method_other_description": null
+                                    },
+                                    {
+                                        "id": "4f03266b-161a-466d-9f57-c625e3322661",
+                                        "rate": {
+                                            "unit": "gal/acre",
+                                            "value": 34.86
+                                        },
+                                        "type": "Liquid",
+                                        "event": "Fertilizer",
+                                        "is_custom": false,
+                                        "is_manure": false,
+                                        "event_date": "2021-06-04",
+                                        "fertilizer_name": "Urea Ammonium Nitrate 28% (UAN-28)",
+                                        "injection_depth": {
+                                            "unit": "inches",
+                                            "value": null
+                                        },
+                                        "application_name": "Sidedress",
+                                        "is_urease_inhibitor_used": null,
+                                        "is_time_release_product_used": false,
+                                        "is_nitrification_inhibitor_used": false,
+                                        "application_method_other_description": null
+                                    },
+                                    {
+                                        "id": "3c3508b1-445f-460d-8ecb-84fc5b34ac55",
+                                        "rate": {
+                                            "unit": "gal/acre",
+                                            "value": 9.68
+                                        },
+                                        "type": "Liquid",
+                                        "event": "Fertilizer",
+                                        "is_custom": false,
+                                        "is_manure": false,
+                                        "event_date": "2021-06-04",
+                                        "fertilizer_name": "Ammonium Thiosulfate (ATS)",
+                                        "injection_depth": {
+                                            "unit": "inches",
+                                            "value": null
+                                        },
+                                        "application_name": "Sidedress",
+                                        "is_urease_inhibitor_used": null,
+                                        "is_time_release_product_used": null,
+                                        "is_nitrification_inhibitor_used": null,
+                                        "application_method_other_description": null
+                                    },
+                                    {
+                                        "id": "404feb23-e712-4a6f-9a10-8246125445b7",
+                                        "rate": {
+                                            "unit": "gal/acre",
+                                            "value": 5.61
+                                        },
+                                        "type": "Liquid",
+                                        "event": "Fertilizer",
+                                        "source": null,
+                                        "is_custom": true,
+                                        "is_manure": false,
+                                        "percent_n": {
+                                            "unit": "percent",
+                                            "value": 10.00
+                                        },
+                                        "event_date": "2021-04-17",
+                                        "percent_k2o": {
+                                            "unit": "percent",
+                                            "value": 0.00
+                                        },
+                                        "percent_p2o5": {
+                                            "unit": "percent",
+                                            "value": 32.00
+                                        },
+                                        "liquid_density": {
+                                            "unit": "pounds/gallon",
+                                            "value": 10.50
+                                        },
+                                        "fertilizer_name": "Other Non-manure Liquid",
+                                        "injection_depth": {
+                                            "unit": "inches",
+                                            "value": null
+                                        },
+                                        "application_name": "Surface banded",
+                                        "is_urease_inhibitor_used": false,
+                                        "is_time_release_product_used": false,
+                                        "is_nitrification_inhibitor_used": false,
+                                        "application_method_other_description": null
+                                    },
+                                    {
+                                        "id": "9379638f-2261-419c-860d-a86fa18e1127",
+                                        "rate": {
+                                            "unit": "gal/acre",
+                                            "value": 20.00
+                                        },
+                                        "type": "Liquid",
+                                        "event": "Fertilizer",
+                                        "is_custom": false,
+                                        "is_manure": false,
+                                        "event_date": "2021-04-18",
+                                        "fertilizer_name": "Urea Ammonium Nitrate 28% (UAN-28)",
+                                        "injection_depth": {
+                                            "unit": "inches",
+                                            "value": null
+                                        },
+                                        "application_name": "Banded and incorporated",
+                                        "is_urease_inhibitor_used": null,
+                                        "is_time_release_product_used": false,
+                                        "is_nitrification_inhibitor_used": false,
+                                        "application_method_other_description": null
+                                    },
+                                    {
+                                        "id": "4e9b059c-12a8-4d32-82bd-30b69809ae58",
+                                        "event": "Cover crop",
+                                        "end_date": "2021-04-18",
+                                        "start_date": null,
+                                        "cover_crop_data": [
+                                            {
+                                                "percent": 47.96,
+                                                "species_name": "Barley",
+                                                "species_other_name": null
+                                            },
+                                            {
+                                                "percent": 5.98,
+                                                "species_name": "Other",
+                                                "species_other_name": "Rapeseed"
+                                            },
+                                            {
+                                                "percent": 46.06,
+                                                "species_name": "Triticale",
+                                                "species_other_name": null
+                                            }
+                                        ],
+                                        "cover_crop_seeding_rate": {
+                                            "unit": "pounds/acre",
+                                            "value": 40.12
+                                        },
+                                        "is_cover_crop_seeded_aerially": false
+                                    }
+                                ],
+                                "is_incomplete": true
+                            },
+                            {
+                                "id": "c9f178c3-19b4-41e6-911b-0f069eaae95f",
+                                "year": 2020,
+                                "event_data": [
+                                    {
+                                        "id": "9be2c8d8-467c-40c7-8f2d-d0f83a15e564",
+                                        "event": "No tillage data available"
+                                    },
+                                    {
+                                        "id": "e61bd4a2-e385-42a9-a71c-ce41376aef2d",
+                                        "event": "No irrigation data available"
+                                    },
+                                    {
+                                        "id": "4c0a6a36-63eb-4aa6-90e9-dffda776f7b1",
+                                        "event": "No fertilizer data available"
+                                    },
+                                    {
+                                        "id": "28d0f073-3161-4144-b4d4-0db56d426841",
+                                        "event": "No drainage data available"
+                                    },
+                                    {
+                                        "id": "957322c0-1b6b-419e-9f57-877823ea0bf2",
+                                        "event": "No grazing data available"
+                                    },
+                                    {
+                                        "id": "9c5cf65f-e47a-4b5d-a2fc-2874ee02110d",
+                                        "crop": "Soybeans",
+                                        "event": "Plant",
+                                        "event_date": null,
+                                        "is_planting_failure": false,
+                                        "planting_failure_date": null
+                                    },
+                                    {
+                                        "id": "0a86db36-e104-4e9a-aaad-3ce244973e66",
+                                        "crop": "Soybeans",
+                                        "event": "Harvest",
+                                        "yield": {
+                                            "unit": "bushels/acre",
+                                            "value": 75.00
+                                        },
+                                        "event_date": null,
+                                        "biomass_removed": {
+                                            "unit": "percent",
+                                            "value": null
+                                        },
+                                        "is_cutting_baling": false,
+                                        "is_biomass_removed": null,
+                                        "remaining_height_after_cutting": {
+                                            "unit": "inches",
+                                            "value": null
+                                        }
+                                    }
+                                ],
+                                "is_incomplete": true
+                            },
+                            {
+                                "id": "f8a4b98f-2580-47f6-ab08-38057c5bdfa1",
+                                "year": 2019,
+                                "event_data": [
+                                    {
+                                        "id": "a58f6342-3531-4675-b847-2454323add8f",
+                                        "event": "No tillage data available"
+                                    },
+                                    {
+                                        "id": "14c2bab8-0727-4e77-824c-290f74b78927",
+                                        "event": "No irrigation data available"
+                                    },
+                                    {
+                                        "id": "3fe30cdb-c308-48b8-9de1-fb5c87edb205",
+                                        "event": "No fertilizer data available"
+                                    },
+                                    {
+                                        "id": "ba38bcac-741f-4fe6-bd3e-058b1b492786",
+                                        "event": "No drainage data available"
+                                    },
+                                    {
+                                        "id": "56586276-6bb7-4acd-b24e-a48bda9e67c1",
+                                        "event": "No grazing data available"
+                                    },
+                                    {
+                                        "id": "01f9c417-80be-40e6-99d6-81023a293fbc",
+                                        "crop": "Corn",
+                                        "event": "Plant",
+                                        "event_date": null,
+                                        "is_planting_failure": false,
+                                        "planting_failure_date": null
+                                    },
+                                    {
+                                        "id": "72853f7c-6dca-4672-ae9d-9fb54bc258c9",
+                                        "crop": "Corn",
+                                        "event": "Harvest",
+                                        "yield": {
+                                            "unit": "bushels/acre",
+                                            "value": 165.00
+                                        },
+                                        "event_date": null,
+                                        "biomass_removed": {
+                                            "unit": "percent",
+                                            "value": null
+                                        },
+                                        "is_cutting_baling": false,
+                                        "is_biomass_removed": null,
+                                        "remaining_height_after_cutting": {
+                                            "unit": "inches",
+                                            "value": null
+                                        }
+                                    }
+                                ],
+                                "is_incomplete": true
+                            },
+                            {
+                                "id": "80a2cba8-c5c6-4262-aa5e-b4141834ab4e",
+                                "year": 2018,
+                                "event_data": [
+                                    {
+                                        "id": "7ce2aac9-6679-44a2-a6af-a91bddae9736",
+                                        "event": "No tillage data available"
+                                    },
+                                    {
+                                        "id": "d65c6efc-a3e4-474a-8a3f-a08c3f3ea0a2",
+                                        "event": "No irrigation data available"
+                                    },
+                                    {
+                                        "id": "262f0acb-b586-4d45-abce-35301a8880ee",
+                                        "event": "No fertilizer data available"
+                                    },
+                                    {
+                                        "id": "fefcf02d-a4ef-47a5-a1d9-d5a8dcc4a108",
+                                        "event": "No drainage data available"
+                                    },
+                                    {
+                                        "id": "d7998d3f-d473-45bd-9d56-a7e582a85454",
+                                        "event": "No grazing data available"
+                                    },
+                                    {
+                                        "id": "bc772bcb-466a-404d-b199-79eb41aaf426",
+                                        "crop": "Soybeans",
+                                        "event": "Plant",
+                                        "event_date": null,
+                                        "is_planting_failure": false,
+                                        "planting_failure_date": null
+                                    },
+                                    {
+                                        "id": "55ccbb64-35b0-4b7b-af35-fe2ab862a927",
+                                        "crop": "Soybeans",
+                                        "event": "Harvest",
+                                        "yield": {
+                                            "unit": "bushels/acre",
+                                            "value": 76.00
+                                        },
+                                        "event_date": null,
+                                        "biomass_removed": {
+                                            "unit": "percent",
+                                            "value": null
+                                        },
+                                        "is_cutting_baling": false,
+                                        "is_biomass_removed": null,
+                                        "remaining_height_after_cutting": {
+                                            "unit": "inches",
+                                            "value": null
+                                        }
+                                    }
+                                ],
+                                "is_incomplete": true
+                            }
+                        ],
+                        "boundary": {
+                            "type": "MultiPolygon",
+                            "coordinates": [
+                                [
+                                    [
+                                        [
+                                            -87.3259916,
+                                            40.4647087
+                                        ],
+                                        [
+                                            -87.3235048,
+                                            40.4646928
+                                        ],
+                                        [
+                                            -87.3235292,
+                                            40.465944
+                                        ],
+                                        [
+                                            -87.323673,
+                                            40.4659483
+                                        ],
+                                        [
+                                            -87.3237255,
+                                            40.4659381
+                                        ],
+                                        [
+                                            -87.3237416,
+                                            40.465993
+                                        ],
+                                        [
+                                            -87.323712,
+                                            40.4659989
+                                        ],
+                                        [
+                                            -87.3235304,
+                                            40.4660026
+                                        ],
+                                        [
+                                            -87.3235347,
+                                            40.4662214
+                                        ],
+                                        [
+                                            -87.3234687,
+                                            40.4662291
+                                        ],
+                                        [
+                                            -87.3235484,
+                                            40.4669264
+                                        ],
+                                        [
+                                            -87.3235629,
+                                            40.4676688
+                                        ],
+                                        [
+                                            -87.3233252,
+                                            40.4676883
+                                        ],
+                                        [
+                                            -87.3233252,
+                                            40.4677763
+                                        ],
+                                        [
+                                            -87.3232974,
+                                            40.4678165
+                                        ],
+                                        [
+                                            -87.3231314,
+                                            40.4678096
+                                        ],
+                                        [
+                                            -87.3228644,
+                                            40.467803
+                                        ],
+                                        [
+                                            -87.322634,
+                                            40.4677877
+                                        ],
+                                        [
+                                            -87.3221576,
+                                            40.4677742
+                                        ],
+                                        [
+                                            -87.3217663,
+                                            40.4677827
+                                        ],
+                                        [
+                                            -87.3216353,
+                                            40.4678332
+                                        ],
+                                        [
+                                            -87.3215823,
+                                            40.4679336
+                                        ],
+                                        [
+                                            -87.3215973,
+                                            40.4680115
+                                        ],
+                                        [
+                                            -87.3216463,
+                                            40.468048
+                                        ],
+                                        [
+                                            -87.3217795,
+                                            40.4681145
+                                        ],
+                                        [
+                                            -87.321992,
+                                            40.4681687
+                                        ],
+                                        [
+                                            -87.3220915,
+                                            40.4681902
+                                        ],
+                                        [
+                                            -87.3220795,
+                                            40.4682273
+                                        ],
+                                        [
+                                            -87.3220513,
+                                            40.4682475
+                                        ],
+                                        [
+                                            -87.3219093,
+                                            40.4682
+                                        ],
+                                        [
+                                            -87.3217218,
+                                            40.4681299
+                                        ],
+                                        [
+                                            -87.3215342,
+                                            40.4680451
+                                        ],
+                                        [
+                                            -87.3213985,
+                                            40.4680251
+                                        ],
+                                        [
+                                            -87.3214005,
+                                            40.4689393
+                                        ],
+                                        [
+                                            -87.321462,
+                                            40.4689168
+                                        ],
+                                        [
+                                            -87.3217843,
+                                            40.4690936
+                                        ],
+                                        [
+                                            -87.3220707,
+                                            40.4692852
+                                        ],
+                                        [
+                                            -87.3221044,
+                                            40.4692424
+                                        ],
+                                        [
+                                            -87.3223224,
+                                            40.4692424
+                                        ],
+                                        [
+                                            -87.3223312,
+                                            40.469339
+                                        ],
+                                        [
+                                            -87.3226853,
+                                            40.4693843
+                                        ],
+                                        [
+                                            -87.3231915,
+                                            40.4693939
+                                        ],
+                                        [
+                                            -87.3233019,
+                                            40.469399
+                                        ],
+                                        [
+                                            -87.3233257,
+                                            40.4694551
+                                        ],
+                                        [
+                                            -87.323294,
+                                            40.4694849
+                                        ],
+                                        [
+                                            -87.322353,
+                                            40.469447
+                                        ],
+                                        [
+                                            -87.322321,
+                                            40.4694147
+                                        ],
+                                        [
+                                            -87.3221971,
+                                            40.4693961
+                                        ],
+                                        [
+                                            -87.3220876,
+                                            40.4694207
+                                        ],
+                                        [
+                                            -87.3218924,
+                                            40.4692943
+                                        ],
+                                        [
+                                            -87.3215661,
+                                            40.4690872
+                                        ],
+                                        [
+                                            -87.3214007,
+                                            40.4690329
+                                        ],
+                                        [
+                                            -87.3214011,
+                                            40.4692125
+                                        ],
+                                        [
+                                            -87.3213881,
+                                            40.4727708
+                                        ],
+                                        [
+                                            -87.3214483,
+                                            40.4728279
+                                        ],
+                                        [
+                                            -87.3260612,
+                                            40.4728892
+                                        ],
+                                        [
+                                            -87.3260269,
+                                            40.4719968
+                                        ],
+                                        [
+                                            -87.3260081,
+                                            40.4717177
+                                        ],
+                                        [
+                                            -87.3260922,
+                                            40.4717779
+                                        ],
+                                        [
+                                            -87.3260761,
+                                            40.470574
+                                        ],
+                                        [
+                                            -87.3259306,
+                                            40.4705637
+                                        ],
+                                        [
+                                            -87.32593,
+                                            40.4705555
+                                        ],
+                                        [
+                                            -87.3258032,
+                                            40.4705548
+                                        ],
+                                        [
+                                            -87.3256736,
+                                            40.4705456
+                                        ],
+                                        [
+                                            -87.3256566,
+                                            40.470085
+                                        ],
+                                        [
+                                            -87.3256133,
+                                            40.4700997
+                                        ],
+                                        [
+                                            -87.3250137,
+                                            40.4692818
+                                        ],
+                                        [
+                                            -87.3249708,
+                                            40.4681881
+                                        ],
+                                        [
+                                            -87.3253379,
+                                            40.4675596
+                                        ],
+                                        [
+                                            -87.3260558,
+                                            40.4675504
+                                        ],
+                                        [
+                                            -87.3260635,
+                                            40.4671171
+                                        ],
+                                        [
+                                            -87.3260152,
+                                            40.4656791
+                                        ],
+                                        [
+                                            -87.3259957,
+                                            40.4647823
+                                        ],
+                                        [
+                                            -87.3259916,
+                                            40.4647087
+                                        ]
+                                    ],
+                                    [
+                                        [
+                                            -87.3221792,
+                                            40.4694104
+                                        ],
+                                        [
+                                            -87.3222991,
+                                            40.4694215
+                                        ],
+                                        [
+                                            -87.3223041,
+                                            40.4694735
+                                        ],
+                                        [
+                                            -87.32218,
+                                            40.4694455
+                                        ],
+                                        [
+                                            -87.3221792,
+                                            40.4694104
+                                        ]
+                                    ],
+                                    [
+                                        [
+                                            -87.3247401,
+                                            40.4705125
+                                        ],
+                                        [
+                                            -87.3247446,
+                                            40.4706778
+                                        ],
+                                        [
+                                            -87.324964,
+                                            40.4710512
+                                        ],
+                                        [
+                                            -87.3253823,
+                                            40.4716317
+                                        ],
+                                        [
+                                            -87.3257001,
+                                            40.4718839
+                                        ],
+                                        [
+                                            -87.3259377,
+                                            40.471921
+                                        ],
+                                        [
+                                            -87.3259383,
+                                            40.4720381
+                                        ],
+                                        [
+                                            -87.3257896,
+                                            40.4719958
+                                        ],
+                                        [
+                                            -87.325527,
+                                            40.4718844
+                                        ],
+                                        [
+                                            -87.3253284,
+                                            40.4717339
+                                        ],
+                                        [
+                                            -87.3251741,
+                                            40.4715266
+                                        ],
+                                        [
+                                            -87.3249698,
+                                            40.4712332
+                                        ],
+                                        [
+                                            -87.3248052,
+                                            40.4709459
+                                        ],
+                                        [
+                                            -87.3246766,
+                                            40.4709462
+                                        ],
+                                        [
+                                            -87.3245353,
+                                            40.4711381
+                                        ],
+                                        [
+                                            -87.3243991,
+                                            40.4713566
+                                        ],
+                                        [
+                                            -87.3243528,
+                                            40.4714949
+                                        ],
+                                        [
+                                            -87.3243488,
+                                            40.4727226
+                                        ],
+                                        [
+                                            -87.3243741,
+                                            40.472832
+                                        ],
+                                        [
+                                            -87.3242406,
+                                            40.47284
+                                        ],
+                                        [
+                                            -87.3242482,
+                                            40.4716063
+                                        ],
+                                        [
+                                            -87.3241948,
+                                            40.4715595
+                                        ],
+                                        [
+                                            -87.3240812,
+                                            40.4715813
+                                        ],
+                                        [
+                                            -87.3236488,
+                                            40.4719309
+                                        ],
+                                        [
+                                            -87.3231303,
+                                            40.4723633
+                                        ],
+                                        [
+                                            -87.3228493,
+                                            40.4725568
+                                        ],
+                                        [
+                                            -87.3228653,
+                                            40.4728098
+                                        ],
+                                        [
+                                            -87.3227763,
+                                            40.4728101
+                                        ],
+                                        [
+                                            -87.3227702,
+                                            40.4725683
+                                        ],
+                                        [
+                                            -87.3226862,
+                                            40.4725799
+                                        ],
+                                        [
+                                            -87.3221033,
+                                            40.4727402
+                                        ],
+                                        [
+                                            -87.3214405,
+                                            40.4727571
+                                        ],
+                                        [
+                                            -87.3214302,
+                                            40.4726665
+                                        ],
+                                        [
+                                            -87.3217517,
+                                            40.472658
+                                        ],
+                                        [
+                                            -87.3221374,
+                                            40.4726268
+                                        ],
+                                        [
+                                            -87.3225721,
+                                            40.4725122
+                                        ],
+                                        [
+                                            -87.3227894,
+                                            40.4724436
+                                        ],
+                                        [
+                                            -87.3229917,
+                                            40.4723373
+                                        ],
+                                        [
+                                            -87.3238403,
+                                            40.4716358
+                                        ],
+                                        [
+                                            -87.3237954,
+                                            40.4715594
+                                        ],
+                                        [
+                                            -87.3235863,
+                                            40.4715272
+                                        ],
+                                        [
+                                            -87.3232942,
+                                            40.4714676
+                                        ],
+                                        [
+                                            -87.3231013,
+                                            40.4714682
+                                        ],
+                                        [
+                                            -87.3224986,
+                                            40.4716361
+                                        ],
+                                        [
+                                            -87.3221778,
+                                            40.4717767
+                                        ],
+                                        [
+                                            -87.3218673,
+                                            40.4720118
+                                        ],
+                                        [
+                                            -87.3217592,
+                                            40.4721518
+                                        ],
+                                        [
+                                            -87.3217047,
+                                            40.4721293
+                                        ],
+                                        [
+                                            -87.321734,
+                                            40.472065
+                                        ],
+                                        [
+                                            -87.321783,
+                                            40.4719591
+                                        ],
+                                        [
+                                            -87.3220982,
+                                            40.4716863
+                                        ],
+                                        [
+                                            -87.3222857,
+                                            40.4715838
+                                        ],
+                                        [
+                                            -87.32276,
+                                            40.4714653
+                                        ],
+                                        [
+                                            -87.3230972,
+                                            40.4713829
+                                        ],
+                                        [
+                                            -87.3233284,
+                                            40.4713731
+                                        ],
+                                        [
+                                            -87.3235796,
+                                            40.471424
+                                        ],
+                                        [
+                                            -87.3237839,
+                                            40.471483
+                                        ],
+                                        [
+                                            -87.3240856,
+                                            40.4714616
+                                        ],
+                                        [
+                                            -87.3242482,
+                                            40.4713403
+                                        ],
+                                        [
+                                            -87.3245491,
+                                            40.4709199
+                                        ],
+                                        [
+                                            -87.3245962,
+                                            40.470679
+                                        ],
+                                        [
+                                            -87.324605,
+                                            40.4705598
+                                        ],
+                                        [
+                                            -87.3247401,
+                                            40.4705125
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        },
+                        "soil_strata": null,
+                        "app_user__id": "3bee04c2-bffa-4786-a542-11b7ae32f331",
+                        "soil_samples": null,
+                        "field_by_project_id": "CN-Field-158",
+                        "field_practice_changes": [
+                            {
+                                "id": "452e1060-99cd-48fb-8cf3-da4d02204ad7",
+                                "name": "Cover cropping"
+                            }
+                        ]
+                    }
+                ],
+                "status": "Submitted",
+                "submitted_at": "2021-12-21T22:00:48.789185+00:00",
+                "year_enrolled": null,
+                "has_self_certified": true,
+                "user_by_project_id": "CN-Producer-2",
+                "crop_module_rejected_at": null,
+                "crop_module_reviewed_at": null,
+                "crop_module_submitted_at": null,
+                "has_agreed_to_producer_agreement": true
+            },
+            {
+                "id": "9d9be1aa-e07f-407a-88d6-1f0fe899c085",
+                "fields": [
+                    {
+                        "id": "e1ab2534-f22f-4e2f-8d82-85f15c7f6339",
+                        "area": {
+                            "unit": "acres",
+                            "value": 39.721
+                        },
+                        "history": [
+                            {
+                                "id": "ebe81726-8e8a-4beb-84c1-96fb69cc65f2",
+                                "year": 2021,
+                                "event_data": [
+                                    {
+                                        "id": "4e3d7e16-1696-419c-a9f9-8c4c80d53762",
+                                        "event": "No till event"
+                                    },
+                                    {
+                                        "id": "2862bcb5-cd74-437d-a1ae-00b6e9005a35",
+                                        "event": "No irrigation event"
+                                    },
+                                    {
+                                        "id": "bcd921db-1d4a-41fa-9f89-da7de09aaf2b",
+                                        "event": "No cover crop event"
+                                    },
+                                    {
+                                        "id": "ff07b8de-7396-4e6a-8c8b-7499019c86d1",
+                                        "event": "No drainage"
+                                    },
+                                    {
+                                        "id": "5f99edac-9c52-42ad-b086-e5e7eafc35de",
+                                        "event": "No grazing event"
+                                    },
+                                    {
+                                        "id": "493f20ce-7ab5-4c0a-abd6-52e1af21e18a",
+                                        "crop": "Corn",
+                                        "event": "Plant",
+                                        "event_date": "2021-04-26",
+                                        "is_planting_failure": false,
+                                        "planting_failure_date": null
+                                    },
+                                    {
+                                        "id": "3c6a1376-f536-4709-a4a5-cd1e205be348",
+                                        "crop": "Corn",
+                                        "event": "Harvest",
+                                        "yield": {
+                                            "unit": "bushels/acre",
+                                            "value": 202.00
+                                        },
+                                        "event_date": "2021-09-30",
+                                        "biomass_removed": {
+                                            "unit": "percent",
+                                            "value": null
+                                        },
+                                        "is_cutting_baling": false,
+                                        "is_biomass_removed": null,
+                                        "remaining_height_after_cutting": {
+                                            "unit": "inches",
+                                            "value": null
+                                        }
+                                    },
+                                    {
+                                        "id": "34f2f891-621e-4d8d-82d6-9479be209784",
+                                        "rate": {
+                                            "unit": "gal/acre",
+                                            "value": 51.00
+                                        },
+                                        "type": "Liquid",
+                                        "event": "Fertilizer",
+                                        "is_custom": false,
+                                        "is_manure": false,
+                                        "event_date": "2021-04-26",
+                                        "fertilizer_name": "Urea Ammonium Nitrate 32% (UAN-32)",
+                                        "injection_depth": {
+                                            "unit": "inches",
+                                            "value": null
+                                        },
+                                        "application_name": "Broadcast",
+                                        "is_urease_inhibitor_used": null,
+                                        "is_time_release_product_used": false,
+                                        "is_nitrification_inhibitor_used": true,
+                                        "application_method_other_description": null
+                                    }
+                                ],
+                                "is_incomplete": true
+                            },
+                            {
+                                "id": "2b60c13e-61c7-490f-b7b7-708c5559e0e0",
+                                "year": 2020,
+                                "event_data": [
+                                    {
+                                        "id": "11ab49a7-216d-4408-8b26-aabc42235c7a",
+                                        "event": "No fertilizer event"
+                                    },
+                                    {
+                                        "id": "5093c5e8-e5f7-4cb9-b7df-d1a8aeba34b6",
+                                        "event": "No irrigation data available"
+                                    },
+                                    {
+                                        "id": "d34b84b6-0834-4152-a2e9-8af9562c00a6",
+                                        "event": "No cover crop data available"
+                                    },
+                                    {
+                                        "id": "bb09ed9e-d73c-49d4-b89c-11fdcfb8d17b",
+                                        "event": "No drainage data available"
+                                    },
+                                    {
+                                        "id": "7d0d9e1a-ea6a-48cd-8805-b99e537fdbfb",
+                                        "event": "No grazing data available"
+                                    },
+                                    {
+                                        "id": "1f67703f-7d75-41b0-8bf7-362a9ffb0c8c",
+                                        "crop": "Soybeans",
+                                        "event": "Plant",
+                                        "event_date": null,
+                                        "is_planting_failure": false,
+                                        "planting_failure_date": null
+                                    },
+                                    {
+                                        "id": "ff748366-9437-4f1b-b55e-cecac3a75f50",
+                                        "crop": "Soybeans",
+                                        "event": "Harvest",
+                                        "yield": {
+                                            "unit": "bushels/acre",
+                                            "value": 62.00
+                                        },
+                                        "event_date": null,
+                                        "biomass_removed": {
+                                            "unit": "percent",
+                                            "value": null
+                                        },
+                                        "is_cutting_baling": false,
+                                        "is_biomass_removed": null,
+                                        "remaining_height_after_cutting": {
+                                            "unit": "inches",
+                                            "value": null
+                                        }
+                                    }
+                                ],
+                                "is_incomplete": true
+                            },
+                            {
+                                "id": "9b591942-17d5-48d9-928d-e7bd3ffa0799",
+                                "year": 2019,
+                                "event_data": [
+                                    {
+                                        "id": "592e77af-fbbb-47c7-85b7-46e3088da3a5",
+                                        "event": "No irrigation data available"
+                                    },
+                                    {
+                                        "id": "dd080c31-fb43-4255-b67b-8861ea848281",
+                                        "event": "No cover crop data available"
+                                    },
+                                    {
+                                        "id": "d92b71d0-ea33-4471-9c6d-7a81af0466ae",
+                                        "event": "No drainage data available"
+                                    },
+                                    {
+                                        "id": "0f902512-c5c1-4530-a274-02025d75dcd7",
+                                        "event": "No grazing data available"
+                                    },
+                                    {
+                                        "id": "662aaceb-8b6e-4197-ad37-3d6a989c0e29",
+                                        "crop": "Corn",
+                                        "event": "Plant",
+                                        "event_date": null,
+                                        "is_planting_failure": false,
+                                        "planting_failure_date": null
+                                    },
+                                    {
+                                        "id": "7e7c778b-ec26-420a-9a86-cf5044a3e314",
+                                        "crop": "Corn",
+                                        "event": "Harvest",
+                                        "yield": {
+                                            "unit": "bushels/acre",
+                                            "value": 73.00
+                                        },
+                                        "event_date": null,
+                                        "biomass_removed": {
+                                            "unit": "percent",
+                                            "value": null
+                                        },
+                                        "is_cutting_baling": false,
+                                        "is_biomass_removed": null,
+                                        "remaining_height_after_cutting": {
+                                            "unit": "inches",
+                                            "value": null
+                                        }
+                                    },
+                                    {
+                                        "id": "898d2231-78ba-4d57-9847-623195505097",
+                                        "rate": {
+                                            "unit": "lbs/acre",
+                                            "value": 244.00
+                                        },
+                                        "type": "Dry",
+                                        "event": "Fertilizer",
+                                        "is_custom": false,
+                                        "is_manure": false,
+                                        "event_date": null,
+                                        "fertilizer_name": "Anhydrous Ammonia",
+                                        "injection_depth": {
+                                            "unit": "inches",
+                                            "value": null
+                                        },
+                                        "application_name": "Anhydrous ammonia applicator",
+                                        "is_urease_inhibitor_used": null,
+                                        "is_time_release_product_used": null,
+                                        "is_nitrification_inhibitor_used": null,
+                                        "application_method_other_description": null
+                                    }
+                                ],
+                                "is_incomplete": true
+                            },
+                            {
+                                "id": "82f73f4d-80c1-47e7-bce7-d89c904bc1ca",
+                                "year": 2018,
+                                "event_data": [
+                                    {
+                                        "id": "eac91df4-9484-4c1f-9699-95d00e474903",
+                                        "event": "No irrigation data available"
+                                    },
+                                    {
+                                        "id": "80bfad4b-fbde-4d86-b575-7949cb496da3",
+                                        "event": "No cover crop data available"
+                                    },
+                                    {
+                                        "id": "1c79ccfc-7945-4225-9497-de596bd47d11",
+                                        "event": "No drainage data available"
+                                    },
+                                    {
+                                        "id": "b9a1120c-23d1-4594-abbe-4e26c0c73e85",
+                                        "event": "No grazing data available"
+                                    },
+                                    {
+                                        "id": "cbe9065f-9574-4446-bc6b-ff7c0bb03e3c",
+                                        "crop": "Corn",
+                                        "event": "Plant",
+                                        "event_date": null,
+                                        "is_planting_failure": false,
+                                        "planting_failure_date": null
+                                    },
+                                    {
+                                        "id": "da5ddd0e-d60e-4256-9ef8-f1becfcdd12a",
+                                        "crop": "Corn",
+                                        "event": "Harvest",
+                                        "yield": {
+                                            "unit": "bushels/acre",
+                                            "value": 187.00
+                                        },
+                                        "event_date": null,
+                                        "biomass_removed": {
+                                            "unit": "percent",
+                                            "value": null
+                                        },
+                                        "is_cutting_baling": false,
+                                        "is_biomass_removed": null,
+                                        "remaining_height_after_cutting": {
+                                            "unit": "inches",
+                                            "value": null
+                                        }
+                                    },
+                                    {
+                                        "id": "58230e04-f812-4010-be8f-007874e92377",
+                                        "rate": {
+                                            "unit": "lbs/acre",
+                                            "value": null
+                                        },
+                                        "type": "Dry",
+                                        "event": "Fertilizer",
+                                        "is_custom": false,
+                                        "is_manure": false,
+                                        "event_date": null,
+                                        "fertilizer_name": "Anhydrous Ammonia",
+                                        "injection_depth": {
+                                            "unit": "inches",
+                                            "value": null
+                                        },
+                                        "application_name": "Anhydrous ammonia applicator",
+                                        "is_urease_inhibitor_used": null,
+                                        "is_time_release_product_used": null,
+                                        "is_nitrification_inhibitor_used": null,
+                                        "application_method_other_description": null
+                                    }
+                                ],
+                                "is_incomplete": true
+                            }
+                        ],
+                        "boundary": {
+                            "type": "MultiPolygon",
+                            "coordinates": [
+                                [
+                                    [
+                                        [
+                                            -89.0456833,
+                                            41.6557435
+                                        ],
+                                        [
+                                            -89.0456284,
+                                            41.6521852
+                                        ],
+                                        [
+                                            -89.0407112,
+                                            41.6522578
+                                        ],
+                                        [
+                                            -89.0408137,
+                                            41.6557988
+                                        ],
+                                        [
+                                            -89.0456833,
+                                            41.6557435
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        },
+                        "soil_strata": null,
+                        "app_user__id": "9d9be1aa-e07f-407a-88d6-1f0fe899c085",
+                        "soil_samples": null,
+                        "field_by_project_id": "CN-Field-6",
+                        "field_practice_changes": [
+                            {
+                                "id": "46f6a713-36d7-412a-b6aa-1222509db787",
+                                "name": "Tillage reduction"
+                            }
+                        ]
+                    }
+                ],
+                "status": "Submitted",
+                "submitted_at": "2021-12-21T21:51:16.976243+00:00",
+                "year_enrolled": null,
+                "has_self_certified": true,
+                "user_by_project_id": "CN-Producer-1",
+                "crop_module_rejected_at": null,
+                "crop_module_reviewed_at": null,
+                "crop_module_submitted_at": null,
+                "has_agreed_to_producer_agreement": true
+            },
+            {
+                "id": "274ab363-504f-4c07-a3c5-88f63bcf0318",
+                "fields": [
+                    {
+                        "id": "c328ac8e-85f4-44ff-b949-723c76ce1555",
+                        "area": {
+                            "unit": "acres",
+                            "value": 44.681
+                        },
+                        "history": [
+                            {
+                                "id": "5fc04d91-4f53-4c49-92d6-7aef5d67ca8b",
+                                "year": 2021,
+                                "event_data": [
+                                    {
+                                        "id": "f352d3a2-5845-4cf9-aaae-aad7794e760d",
+                                        "event": "No till event"
+                                    },
+                                    {
+                                        "id": "d724f210-7dfa-4bd5-ad3e-6f87a262bcb3",
+                                        "event": "No irrigation event"
+                                    },
+                                    {
+                                        "id": "d9782a21-256e-4b62-8790-39488a9fa889",
+                                        "event": "No drainage"
+                                    },
+                                    {
+                                        "id": "20a360bd-f136-48d2-85bd-89ef8a9b2c48",
+                                        "event": "No grazing event"
+                                    },
+                                    {
+                                        "id": "e8610dcf-e5b1-484b-ac87-8149ce17299f",
+                                        "crop": "Corn",
+                                        "event": "Plant",
+                                        "event_date": "2021-04-23",
+                                        "is_planting_failure": false,
+                                        "planting_failure_date": null
+                                    },
+                                    {
+                                        "id": "a2450b0c-fa0d-46e6-bf66-5df65ee1f953",
+                                        "crop": "Corn",
+                                        "event": "Harvest",
+                                        "yield": {
+                                            "unit": "bushels/acre",
+                                            "value": 220.00
+                                        },
+                                        "event_date": "2021-08-30",
+                                        "biomass_removed": {
+                                            "unit": "percent",
+                                            "value": null
+                                        },
+                                        "is_cutting_baling": false,
+                                        "is_biomass_removed": null,
+                                        "remaining_height_after_cutting": {
+                                            "unit": "inches",
+                                            "value": null
+                                        }
+                                    },
+                                    {
+                                        "id": "a5e725bc-7f15-499e-9b23-261312e1c012",
+                                        "rate": {
+                                            "unit": "lbs/acre",
+                                            "value": 244.00
+                                        },
+                                        "type": "Dry",
+                                        "event": "Fertilizer",
+                                        "is_custom": false,
+                                        "is_manure": false,
+                                        "event_date": "2020-11-12",
+                                        "fertilizer_name": "Anhydrous Ammonia",
+                                        "injection_depth": {
+                                            "unit": "inches",
+                                            "value": null
+                                        },
+                                        "application_name": "Anhydrous ammonia applicator",
+                                        "is_urease_inhibitor_used": null,
+                                        "is_time_release_product_used": false,
+                                        "is_nitrification_inhibitor_used": false,
+                                        "application_method_other_description": null
+                                    },
+                                    {
+                                        "id": "684c9f34-0378-42ac-ad8a-42354e509f99",
+                                        "event": "Cover crop",
+                                        "end_date": "2021-04-13",
+                                        "start_date": null,
+                                        "cover_crop_data": [
+                                            {
+                                                "percent": 100.00,
+                                                "species_name": "Annual Rye Grass",
+                                                "species_other_name": null
+                                            }
+                                        ],
+                                        "cover_crop_seeding_rate": {
+                                            "unit": "pounds/acre",
+                                            "value": 56.00
+                                        },
+                                        "is_cover_crop_seeded_aerially": false
+                                    }
+                                ],
+                                "is_incomplete": true
+                            },
+                            {
+                                "id": "f6b72c16-6491-4545-83b6-58582f1a09ee",
+                                "year": 2020,
+                                "event_data": [
+                                    {
+                                        "id": "2d7b47cf-deb6-4ae2-93d1-2e200412e96f",
+                                        "event": "No irrigation data available"
+                                    },
+                                    {
+                                        "id": "3a6776ea-3d8a-48df-8448-5b547f314585",
+                                        "event": "No fertilizer data available"
+                                    },
+                                    {
+                                        "id": "aa471ff6-0c72-417b-a75d-f4302d8095c7",
+                                        "event": "No drainage data available"
+                                    },
+                                    {
+                                        "id": "ffaf025a-a630-4fd5-901a-ff8ab9906776",
+                                        "event": "No grazing data available"
+                                    },
+                                    {
+                                        "id": "70129a34-3265-4ab0-9456-f985acb4436d",
+                                        "crop": "Corn",
+                                        "event": "Plant",
+                                        "event_date": null,
+                                        "is_planting_failure": false,
+                                        "planting_failure_date": null
+                                    },
+                                    {
+                                        "id": "fbb64ebe-40a3-47b8-91d7-2ca5aeb7eff8",
+                                        "crop": "Corn",
+                                        "event": "Harvest",
+                                        "yield": {
+                                            "unit": "bushels/acre",
+                                            "value": 215.00
+                                        },
+                                        "event_date": null,
+                                        "biomass_removed": {
+                                            "unit": "percent",
+                                            "value": null
+                                        },
+                                        "is_cutting_baling": false,
+                                        "is_biomass_removed": null,
+                                        "remaining_height_after_cutting": {
+                                            "unit": "inches",
+                                            "value": null
+                                        }
+                                    }
+                                ],
+                                "is_incomplete": true
+                            },
+                            {
+                                "id": "d341d5f8-e8c2-4e2e-ae23-9e5bb17efcf9",
+                                "year": 2019,
+                                "event_data": [
+                                    {
+                                        "id": "5eb9280c-4709-489f-ae0f-c42df290669e",
+                                        "event": "No irrigation data available"
+                                    },
+                                    {
+                                        "id": "dbc47d0d-3386-4216-aea7-e61223fdfcd9",
+                                        "event": "No fertilizer data available"
+                                    },
+                                    {
+                                        "id": "49ac1beb-791a-4761-bcc0-590c225ab5f3",
+                                        "event": "No drainage data available"
+                                    },
+                                    {
+                                        "id": "79d32417-5eeb-47db-b00b-c6a1be1051cd",
+                                        "event": "No grazing data available"
+                                    },
+                                    {
+                                        "id": "bd1bdaf5-f9be-4b06-9c0f-4e738c46ef83",
+                                        "crop": "Corn",
+                                        "event": "Plant",
+                                        "event_date": null,
+                                        "is_planting_failure": false,
+                                        "planting_failure_date": null
+                                    },
+                                    {
+                                        "id": "8e4b9844-20fe-4d0e-b57b-63abcf9a0c0f",
+                                        "crop": "Corn",
+                                        "event": "Harvest",
+                                        "yield": {
+                                            "unit": "bushels/acre",
+                                            "value": 223.00
+                                        },
+                                        "event_date": null,
+                                        "biomass_removed": {
+                                            "unit": "percent",
+                                            "value": null
+                                        },
+                                        "is_cutting_baling": false,
+                                        "is_biomass_removed": null,
+                                        "remaining_height_after_cutting": {
+                                            "unit": "inches",
+                                            "value": null
+                                        }
+                                    }
+                                ],
+                                "is_incomplete": true
+                            },
+                            {
+                                "id": "9f819671-bdf0-4dce-8eac-4d097d613e2c",
+                                "year": 2018,
+                                "event_data": [
+                                    {
+                                        "id": "f53e332a-85d1-4390-be49-983dae0d7a52",
+                                        "event": "No irrigation data available"
+                                    },
+                                    {
+                                        "id": "2dd2d87c-7b82-4630-9309-583c41e85f18",
+                                        "event": "No fertilizer data available"
+                                    },
+                                    {
+                                        "id": "a1f225df-c389-4000-ac98-7b7d1c1649d3",
+                                        "event": "No drainage data available"
+                                    },
+                                    {
+                                        "id": "0ad4c569-664d-4206-ba37-5e01397d931a",
+                                        "event": "No grazing data available"
+                                    },
+                                    {
+                                        "id": "499da4b2-b938-4aae-b27f-dcff4fbee74b",
+                                        "crop": "Corn",
+                                        "event": "Plant",
+                                        "event_date": null,
+                                        "is_planting_failure": false,
+                                        "planting_failure_date": null
+                                    },
+                                    {
+                                        "id": "957bf4b0-b1a8-4052-a27c-83121fc0a178",
+                                        "crop": "Corn",
+                                        "event": "Harvest",
+                                        "yield": {
+                                            "unit": "bushels/acre",
+                                            "value": 235.00
+                                        },
+                                        "event_date": null,
+                                        "biomass_removed": {
+                                            "unit": "percent",
+                                            "value": null
+                                        },
+                                        "is_cutting_baling": false,
+                                        "is_biomass_removed": null,
+                                        "remaining_height_after_cutting": {
+                                            "unit": "inches",
+                                            "value": null
+                                        }
+                                    }
+                                ],
+                                "is_incomplete": true
+                            }
+                        ],
+                        "boundary": {
+                            "type": "MultiPolygon",
+                            "coordinates": [
+                                [
+                                    [
+                                        [
+                                            -94.626141,
+                                            41.5300659
+                                        ],
+                                        [
+                                            -94.6261208,
+                                            41.5300619
+                                        ],
+                                        [
+                                            -94.626105,
+                                            41.5300601
+                                        ],
+                                        [
+                                            -94.626096,
+                                            41.5300575
+                                        ],
+                                        [
+                                            -94.6260958,
+                                            41.5300591
+                                        ],
+                                        [
+                                            -94.6258291,
+                                            41.5300287
+                                        ],
+                                        [
+                                            -94.6258264,
+                                            41.5300238
+                                        ],
+                                        [
+                                            -94.6258085,
+                                            41.5300103
+                                        ],
+                                        [
+                                            -94.6257123,
+                                            41.5300155
+                                        ],
+                                        [
+                                            -94.6245644,
+                                            41.5298849
+                                        ],
+                                        [
+                                            -94.6245648,
+                                            41.5299632
+                                        ],
+                                        [
+                                            -94.6244965,
+                                            41.5299632
+                                        ],
+                                        [
+                                            -94.6244785,
+                                            41.5300979
+                                        ],
+                                        [
+                                            -94.6244875,
+                                            41.5310204
+                                        ],
+                                        [
+                                            -94.6245234,
+                                            41.5319968
+                                        ],
+                                        [
+                                            -94.6245144,
+                                            41.5324951
+                                        ],
+                                        [
+                                            -94.6245324,
+                                            41.5325961
+                                        ],
+                                        [
+                                            -94.6244965,
+                                            41.5326096
+                                        ],
+                                        [
+                                            -94.6244965,
+                                            41.5326298
+                                        ],
+                                        [
+                                            -94.6245863,
+                                            41.5327712
+                                        ],
+                                        [
+                                            -94.6246223,
+                                            41.5327645
+                                        ],
+                                        [
+                                            -94.6246164,
+                                            41.5327483
+                                        ],
+                                        [
+                                            -94.6247391,
+                                            41.5327479
+                                        ],
+                                        [
+                                            -94.6247391,
+                                            41.532751
+                                        ],
+                                        [
+                                            -94.624811,
+                                            41.5327645
+                                        ],
+                                        [
+                                            -94.6248561,
+                                            41.5327476
+                                        ],
+                                        [
+                                            -94.6276556,
+                                            41.5327391
+                                        ],
+                                        [
+                                            -94.6276686,
+                                            41.5327847
+                                        ],
+                                        [
+                                            -94.6276866,
+                                            41.5327712
+                                        ],
+                                        [
+                                            -94.6276866,
+                                            41.532739
+                                        ],
+                                        [
+                                            -94.6279643,
+                                            41.5327381
+                                        ],
+                                        [
+                                            -94.6279652,
+                                            41.5327443
+                                        ],
+                                        [
+                                            -94.6280155,
+                                            41.532738
+                                        ],
+                                        [
+                                            -94.6284222,
+                                            41.5327367
+                                        ],
+                                        [
+                                            -94.6284684,
+                                            41.5327375
+                                        ],
+                                        [
+                                            -94.6285132,
+                                            41.5327365
+                                        ],
+                                        [
+                                            -94.630488,
+                                            41.5327305
+                                        ],
+                                        [
+                                            -94.6320899,
+                                            41.5327375
+                                        ],
+                                        [
+                                            -94.6321546,
+                                            41.5327254
+                                        ],
+                                        [
+                                            -94.6327567,
+                                            41.5327236
+                                        ],
+                                        [
+                                            -94.6328358,
+                                            41.5327375
+                                        ],
+                                        [
+                                            -94.6335997,
+                                            41.5327241
+                                        ],
+                                        [
+                                            -94.6336162,
+                                            41.532721
+                                        ],
+                                        [
+                                            -94.6338853,
+                                            41.5327201
+                                        ],
+                                        [
+                                            -94.6338845,
+                                            41.5325919
+                                        ],
+                                        [
+                                            -94.6339232,
+                                            41.5325422
+                                        ],
+                                        [
+                                            -94.6339501,
+                                            41.5324682
+                                        ],
+                                        [
+                                            -94.6339591,
+                                            41.5323537
+                                        ],
+                                        [
+                                            -94.6339321,
+                                            41.532044
+                                        ],
+                                        [
+                                            -94.6339142,
+                                            41.5314446
+                                        ],
+                                        [
+                                            -94.6339501,
+                                            41.5314379
+                                        ],
+                                        [
+                                            -94.6339501,
+                                            41.5314244
+                                        ],
+                                        [
+                                            -94.6338333,
+                                            41.531283
+                                        ],
+                                        [
+                                            -94.6337614,
+                                            41.53131
+                                        ],
+                                        [
+                                            -94.6336626,
+                                            41.5313234
+                                        ],
+                                        [
+                                            -94.6333573,
+                                            41.5313447
+                                        ],
+                                        [
+                                            -94.6332772,
+                                            41.5313445
+                                        ],
+                                        [
+                                            -94.6331256,
+                                            41.5313485
+                                        ],
+                                        [
+                                            -94.6327459,
+                                            41.5313436
+                                        ],
+                                        [
+                                            -94.6324224,
+                                            41.53131
+                                        ],
+                                        [
+                                            -94.6324079,
+                                            41.5313671
+                                        ],
+                                        [
+                                            -94.6323179,
+                                            41.5313694
+                                        ],
+                                        [
+                                            -94.6323117,
+                                            41.5313681
+                                        ],
+                                        [
+                                            -94.6323236,
+                                            41.5313302
+                                        ],
+                                        [
+                                            -94.6323236,
+                                            41.5312898
+                                        ],
+                                        [
+                                            -94.6322966,
+                                            41.531283
+                                        ],
+                                        [
+                                            -94.6321708,
+                                            41.5312696
+                                        ],
+                                        [
+                                            -94.6309127,
+                                            41.5310271
+                                        ],
+                                        [
+                                            -94.6303236,
+                                            41.5309363
+                                        ],
+                                        [
+                                            -94.6292541,
+                                            41.530704
+                                        ],
+                                        [
+                                            -94.628756,
+                                            41.530576
+                                        ],
+                                        [
+                                            -94.6275159,
+                                            41.5302864
+                                        ],
+                                        [
+                                            -94.6262937,
+                                            41.5300844
+                                        ],
+                                        [
+                                            -94.6262075,
+                                            41.530079
+                                        ],
+                                        [
+                                            -94.6261769,
+                                            41.530073
+                                        ],
+                                        [
+                                            -94.6261769,
+                                            41.530044
+                                        ],
+                                        [
+                                            -94.626141,
+                                            41.5300575
+                                        ],
+                                        [
+                                            -94.626141,
+                                            41.5300659
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        },
+                        "soil_strata": null,
+                        "app_user__id": "274ab363-504f-4c07-a3c5-88f63bcf0318",
+                        "soil_samples": null,
+                        "field_by_project_id": "CN-Field-67",
+                        "field_practice_changes": [
+                            {
+                                "id": "452e1060-99cd-48fb-8cf3-da4d02204ad7",
+                                "name": "Cover cropping"
+                            },
+                            {
+                                "id": "46f6a713-36d7-412a-b6aa-1222509db787",
+                                "name": "Tillage reduction"
+                            }
+                        ]
+                    }
+                ],
+                "status": "Submitted",
+                "submitted_at": "2021-12-21T21:44:01.271192+00:00",
+                "year_enrolled": null,
+                "has_self_certified": true,
+                "user_by_project_id": "CN-Producer-4",
+                "crop_module_rejected_at": null,
+                "crop_module_reviewed_at": null,
+                "crop_module_submitted_at": null,
+                "has_agreed_to_producer_agreement": true
+            }
+        ],
+        "soil_measurements": null
+    }
+]
