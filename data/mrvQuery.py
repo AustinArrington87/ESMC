@@ -1,7 +1,7 @@
 import json
 
 # LOAD DATA 
-file = open('corteva_export_1.17.22.json')
+file = open('Corteva_1.19.22.json')
 data = json.load(file)
 
 assets = []
