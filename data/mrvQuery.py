@@ -53,12 +53,13 @@ for proj in data:
 for prod in data:
     producers.append(prod["producers"])
 
-print("Number of Producers: ", len(producers[0]))
 print("PROJECT: ", projects[0])
 print("ASSETS: ")
 for ass in assets:
     print(ass)
 print("============PRODUCERS==================")
+print("Number of Producers: ", len(producers[0]))
+print("___________________________________")
 for prod in producers[0]:
     print(prod["user_by_project_id"], "| Producer Agreement: ", prod["has_agreed_to_producer_agreement"])
     fields.append(prod['fields'])
@@ -151,7 +152,8 @@ for crop in enrollment_crops:
 #print(barley_acres)
 
 # remove the nulls and sum up the yields per crop 
-print("2021 Total Corn Harvest", removeNull(corn_acres), "bu/acre")
-print("2021 Total Soybean Harvest", removeNull(soybean_acres), "bu/acre")
-print("2021 Total Corn Silage Harvest", removeNull(corn_silage_acres), "tons/acre")
-print("2021 Total Wheat Harvest", removeNull(wheat_acres), "bu/acre")
+print("2021 Total Corn Harvest:", removeNull(corn_acres), "bu/acre")
+print("2021 Total Soybean Harvest:", removeNull(soybean_acres), "bu/acre")
+print("2021 Total Corn Silage Harvest:", removeNull(corn_silage_acres), "tons/acre")
+print("2021 Total Wheat Harvest:", removeNull(wheat_acres), "bu/acre")
+
