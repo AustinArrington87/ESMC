@@ -9,7 +9,7 @@ def removeNull(cropAcres):
             newList.append(val)
     return sum(newList)
 # LOAD DATA 
-file = open('Corteva_1.19.22_Final.json')
+file = open('TNC_MN_1.26.22.json')
 data = json.load(file)
 
 enrollment_year = 2021
@@ -43,6 +43,7 @@ rye_acres = []
 soybean_acres = []
 corn_acres = []
 wheat_acres = []
+other_acres = []
 
 for ass in data:
     assets.append(ass["assets"])
@@ -143,6 +144,8 @@ for crop in enrollment_crops:
         rye_acres.append(crop[1])
     if crop[0] == 'Barley':
         barley_acres.append(crop[1])
+    if crop[0] == 'Other':
+        other_acres.append(crop[1])
 
 #print(corn_acres)
 #print(soybean_acres)
@@ -156,5 +159,5 @@ print(str(enrollment_year),"Total Corn Harvest:", removeNull(corn_acres), "bu/ac
 print(str(enrollment_year),"Total Soybean Harvest:", removeNull(soybean_acres), "bu/acre")
 print(str(enrollment_year),"Total Corn Silage Harvest:", removeNull(corn_silage_acres), "tons/acre")
 print(str(enrollment_year),"Total Wheat Harvest:", removeNull(wheat_acres), "bu/acre")
-
+print(str(enrollment_year),"Other Crop Harvest:", removeNull(other_acres), "bu/acre")
 
