@@ -56,7 +56,7 @@ with open(csv_file, 'r') as f:
             county = None
         
         practices.append(
-            (row.get('projectname'), row.get('farmer__app_user__id'), row.get('status'), row.get('fieldid'), row.get('latitude'), row.get('longitude'), row.get('practicechange'), row.get('yield'), row.get('name'), row.get('commodity_other_name'), row.get('unit'), state, county)
+            (row.get('projectname'), row.get('farmer__app_user__id'), row.get('status'), row.get('fieldid'), row.get('acres'), row.get('latitude'), row.get('longitude'), row.get('practicechange'), row.get('yield'), row.get('name'), row.get('commodity_other_name'), row.get('unit'), state, county)
         )
 
 #print(practices)
@@ -65,7 +65,7 @@ print("Writing to CSV...")
 ###################################
 
 # Now write to a new CSV 
-headers = ['projectname', 'state', 'county', 'farmer__app_user__id', 'status', 'fieldid', 'latitude', 'longitude', 'practicechange', 'crop', 'crop_other', 'yield', 'unit']
+headers = ['projectname', 'state', 'county', 'farmer__app_user__id', 'status', 'fieldid', 'acres', 'latitude', 'longitude', 'practicechange', 'crop', 'crop_other', 'yield', 'unit']
 
 with open('output.csv', 'w', encoding='UTF8', newline='') as f:
     writer=csv.writer(f)
@@ -73,20 +73,21 @@ with open('output.csv', 'w', encoding='UTF8', newline='') as f:
     writer.writerow(headers)
     for data in practices:
         project_name = data[0]
-        state = data[11]
-        county = data[12]
+        state = data[12]
+        county = data[13]
         farmer_id = data[1]
         status = data[2]
-        field_id = data[3]
-        lat = data[4]
-        lon = data[5]
-        practice_change = data[6]
-        crop_type = data[8]
-        crop_other = data[9]
-        crop_yield = data[7]
-        unit = data[10]
+        field_id = data[3] 
+        acres = data[4]
+        lat = data[5]
+        lon = data[6]
+        practice_change = data[7]
+        crop_type = data[9]
+        crop_other = data[10]
+        crop_yield = data[8]
+        unit = data[11]
         
-        data = [project_name, state, county, farmer_id, status, field_id, lat, lon, practice_change, crop_type, crop_other, crop_yield, unit]
+        data = [project_name, state, county, farmer_id, status, field_id, acres, lat, lon, practice_change, crop_type, crop_other, crop_yield, unit]
         
         writer.writerow(data)
         
