@@ -1,0 +1,53 @@
+{
+  "session_name": "example session",
+  "scenarios": [
+    {
+      "name": "baseline",
+      "location": {
+        "latlon": {
+          "latitude": "43.1340",
+          "longitude": "70.9264"
+        },
+        "area": 100,
+        "area_unit": "hectare"
+      },
+      "rotations": [
+        {
+          "phases": [
+            {
+              "start_date": "2022-04-01",
+              "end_date": "2022-09-01",
+              "management_events": {
+                "cropping": [
+                  {
+                    "start_date": "2022-04-01",
+                    "end_date": "2022-09-01",
+                    "name": "corn, grain"
+                  }
+                ],
+                "till": [
+                  {
+                    "date": "2022-10-01",
+                    "depth": 8,
+                    "soil_inverted": false
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "weather_sources": [
+        "GLOBAL"
+      ],
+      "soil_sources": [
+        "GLOBAL"
+      ]
+    }
+  ]
+}
+
+
+
+
+

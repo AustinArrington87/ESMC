@@ -1,0 +1,248 @@
+{
+  "session_name": "e9446f85-caae-4ffb-8fbc-f032d5516f8f",
+  "scenarios": [
+    {
+      "name": "baseline",
+      "location": {
+        "latlon": {
+          "latitude": "38.6003272",
+          "longitude": "-85.6696419"
+        },
+        "area": 60.471,
+        "area_unit": "acres"
+      },
+      "rotations": [
+        //3 seasons ago - 2018 (Enrolling Year 2021)
+        {
+          "phases": [
+            {
+              "start_date": "2018-04-01",
+              "end_date": "2018-11-15",
+              "management_events": {
+                "cropping": [
+                  {
+                    "start_date": "2018-05-15",
+                    "end_date": "2018-11-10",
+                    "name": "soybeans"
+                  }
+                ],
+                "till": [
+                  {
+                    "date": "2018-05-10",
+                    "depth": 5.08,
+                    "soil_inverted": true
+                  },
+                  {
+                    "date": "2018-05-11",
+                    "depth": 5.08,
+                    "soil_inverted": true
+                  }
+                ]
+              }
+            },
+            // 2 seasons ago
+            {
+              "start_date": "2018-11-16",
+              "end_date": "2019-11-30",
+              "management_events": {
+                "cropping": [
+                  {
+                    "start_date": "2019-06-05",
+                    "end_date": "2019-10-26",
+                    "name": "soybeans"
+                  }
+                ],
+                "till": [
+                  {
+                    "date": "2018-11-27",
+                    "depth": 5.08,
+                    "soil_inverted": true
+                  }
+                ]
+              }
+            },
+            // 1 season ago
+            {
+              "start_date": "2020-04-01",
+              "end_date": "2020-11-30",
+              "management_events": {
+                "cropping": [
+                  {
+                    "start_date": "2020-06-03",
+                    "end_date": "2020-11-16",
+                    "name": "corn, grain"
+                  }
+                ],
+                // no Till event in 2020 for this filed
+                // fertilization event 
+                "application": [
+                  {
+                    "name": "Urea Ammonium Nitrate at 30%",
+                    "date": "2020-06-04",
+                    "amount": "21.85",
+                    "type": "basic_inorganic",
+                    "amount_type": "product",
+                    "method": "incorporate"
+                  },
+                  {
+                    "name": "Urea Ammonium Nitrate at 30%",
+                    "date": "2020-07-08",
+                    "amount": "29.5",
+                    "type": "basic_inorganic",
+                    "amount_type": "product",
+                    "method": "incorporate"
+                  }
+                ] // end fert application
+              }
+            },
+            // current season - assume continuation of business as usual
+            {
+              "start_date": "2020-10-01",
+              "end_date": "2021-11-30",
+              "management_events": {
+                "cropping": [
+                  {
+                    "start_date": "2021-05-21",
+                    "end_date": "2021-10-20",
+                    "name": "soybeans"
+                  } // don't include the cover crop practice change
+                ]
+              }
+            }
+          ] // end rotations list
+        }, // end first Scenario,
+        ////////////////////////////////////////////////////////////////
+        //Project scenario
+       {
+      "name": "project",
+      "location": {
+        "latlon": {
+          "latitude": "38.6003272",
+          "longitude": "-85.6696419"
+        },
+        "area": 60.471,
+        "area_unit": "acres"
+      },
+      "rotations": [
+        //3 seasons ago - 2018 (Enrolling Year 2021)
+        {
+          "phases": [
+            {
+              "start_date": "2018-04-01",
+              "end_date": "2018-11-15",
+              "management_events": {
+                "cropping": [
+                  {
+                    "start_date": "2018-05-15",
+                    "end_date": "2018-11-10",
+                    "name": "soybeans"
+                  }
+                ],
+                "till": [
+                  {
+                    "date": "2018-05-10",
+                    "depth": 5.08,
+                    "soil_inverted": true
+                  },
+                  {
+                    "date": "2018-05-11",
+                    "depth": 5.08,
+                    "soil_inverted": true
+                  }
+                ]
+              }
+            },
+            // 2 seasons ago
+            {
+              "start_date": "2018-11-16",
+              "end_date": "2019-11-30",
+              "management_events": {
+                "cropping": [
+                  {
+                    "start_date": "2019-06-05",
+                    "end_date": "2019-10-26",
+                    "name": "soybeans"
+                  }
+                ],
+                "till": [
+                  {
+                    "date": "2018-11-27",
+                    "depth": 5.08,
+                    "soil_inverted": true
+                  }
+                ]
+              }
+            },
+            // 1 season ago
+            {
+              "start_date": "2020-04-01",
+              "end_date": "2020-11-30",
+              "management_events": {
+                "cropping": [
+                  {
+                    "start_date": "2020-06-03",
+                    "end_date": "2020-11-16",
+                    "name": "corn, grain"
+                  }
+                ],
+                // no Till event in 2020 for this filed
+                // fertilization event 
+                "application": [
+                  {
+                    "name": "Urea Ammonium Nitrate at 30%",
+                    "date": "2020-06-04",
+                    "amount": "21.85",
+                    "type": "basic_inorganic",
+                    "amount_type": "product",
+                    "method": "incorporate"
+                  },
+                  {
+                    "name": "Urea Ammonium Nitrate at 30%",
+                    "date": "2020-07-08",
+                    "amount": "29.5",
+                    "type": "basic_inorganic",
+                    "amount_type": "product",
+                    "method": "incorporate"
+                  }
+                ] // end fert application
+              }
+            },
+            // current season - assume continuation of business as usual
+            {
+              "start_date": "2020-10-01",
+              "end_date": "2021-11-30",
+              "management_events": {
+                "cropping": [
+                  {
+                    "start_date": "2021-05-21",
+                    "end_date": "2021-10-20",
+                    "name": "soybeans"
+                  },
+                  // this time the Rye cover crop is included 
+                  {
+                    "start_date": "2020-10-15",
+                    "end_date": "2021-12-31",
+                    "name": "rye"
+                  }
+                ]
+                // no till event 
+              }
+            }
+          ] // end rotations list
+        }
+        // end Project Scenario
+      ],
+      "weather_sources": [
+        "GLOBAL"
+      ],
+      "soil_sources": [
+        "GLOBAL"
+      ]
+    }
+  ]
+}
+
+
+
+
+

@@ -1,0 +1,2282 @@
+{
+    "id": "e9446f85-caae-4ffb-8fbc-f032d5516f8f",
+    "date": "2022-06-24T14:49:16.839917-05:00",
+    "assets": [
+        "Scope 1 WQL Credit"
+    ],
+    "project": "Data Modeling",
+    "version": "2.0",
+    "producers": [
+        {
+            "id": "bcaad085-5c26-4fcb-996e-b7b48d627eee",
+            "fields": [
+                {
+                    "id": "9dbbe3fa-c8c7-433f-950c-4cd20eadacb8",
+                    "area": {
+                        "unit": "acres",
+                        "value": 60.471
+                    },
+                    "history": [
+                        {
+                            "id": "b22a8556-183d-4438-a9f2-9bbb8c2c563a",
+                            "year": 2020,
+                            "event_data": [
+                                {
+                                    "id": "05cd7130-e57b-4eae-8614-ef15dfd9f707",
+                                    "event": "No irrigation event"
+                                },
+                                {
+                                    "id": "7db955f9-291f-414a-a0eb-5a585683fe92",
+                                    "crop": "Corn",
+                                    "event": "Plant",
+                                    "event_date": "2020-06-03",
+                                    "is_planting_failure": false,
+                                    "planting_failure_date": null
+                                },
+                                {
+                                    "id": "d0a689b2-ae94-426d-96a8-d24a8926548d",
+                                    "event": "No till event"
+                                },
+                                {
+                                    "id": "b3ebf1b2-ebd0-43b2-b0b6-bfc58f0e5ed5",
+                                    "event": "No drainage"
+                                },
+                                {
+                                    "id": "e8df7cc2-45c7-4021-8070-9e69ad0b36ba",
+                                    "rate": {
+                                        "unit": "gal/acre",
+                                        "value": 21.85
+                                    },
+                                    "type": "Liquid",
+                                    "event": "Fertilizer",
+                                    "is_custom": false,
+                                    "is_manure": false,
+                                    "event_date": "2020-06-04",
+                                    "fertilizer_name": "Urea Ammonium Nitrate 32% (UAN-32)",
+                                    "injection_depth": {
+                                        "unit": "inches",
+                                        "value": null
+                                    },
+                                    "application_name": "Surface banded",
+                                    "is_urease_inhibitor_used": null,
+                                    "is_time_release_product_used": false,
+                                    "is_nitrification_inhibitor_used": false,
+                                    "application_method_other_description": null
+                                },
+                                {
+                                    "id": "9ee6bc3f-9129-446c-9765-0e0dcf520243",
+                                    "rate": {
+                                        "unit": "gal/acre",
+                                        "value": 29.50
+                                    },
+                                    "type": "Liquid",
+                                    "event": "Fertilizer",
+                                    "is_custom": false,
+                                    "is_manure": false,
+                                    "event_date": "2020-07-08",
+                                    "fertilizer_name": "Urea Ammonium Nitrate 32% (UAN-32)",
+                                    "injection_depth": {
+                                        "unit": "inches",
+                                        "value": null
+                                    },
+                                    "application_name": "Surface banded",
+                                    "is_urease_inhibitor_used": null,
+                                    "is_time_release_product_used": false,
+                                    "is_nitrification_inhibitor_used": false,
+                                    "application_method_other_description": null
+                                },
+                                {
+                                    "id": "cbd4efcb-2fb8-43e5-8cf4-9e43c5c5d0fb",
+                                    "crop": "Corn",
+                                    "event": "Harvest",
+                                    "yield": {
+                                        "unit": "bushels/acre",
+                                        "value": 103.00
+                                    },
+                                    "event_date": "2020-11-16",
+                                    "biomass_removed": {
+                                        "unit": "percent",
+                                        "value": null
+                                    },
+                                    "is_cutting_baling": false,
+                                    "is_biomass_removed": false,
+                                    "remaining_height_after_cutting": {
+                                        "unit": "inches",
+                                        "value": null
+                                    }
+                                },
+                                {
+                                    "id": "cd531625-1b8d-42fd-9ac2-665e02829c1d",
+                                    "event": "No cover crop event"
+                                },
+                                {
+                                    "id": "8add0b26-fab4-4749-8d6f-a9118838ec7b",
+                                    "event": "No grazing event"
+                                }
+                            ],
+                            "is_incomplete": false
+                        },
+                        {
+                            "id": "8a729e7c-d60a-48c8-bb97-61dc2ab51f2c",
+                            "year": 2019,
+                            "event_data": [
+                                {
+                                    "id": "1f23514a-7a43-452b-aff2-616a8294151a",
+                                    "event": "Till",
+                                    "event_date": "2018-11-27",
+                                    "tillage_type": "Disc",
+                                    "tillage_depth": {
+                                        "unit": "inches",
+                                        "value": 2
+                                    }
+                                },
+                                {
+                                    "id": "1c6b06b9-3533-47a5-a028-965cfe233a2d",
+                                    "event": "No cover crop event"
+                                },
+                                {
+                                    "id": "6cb681cd-5f63-45ec-a105-594adfcf6a5e",
+                                    "crop": "Soybeans",
+                                    "event": "Harvest",
+                                    "yield": {
+                                        "unit": "bushels/acre",
+                                        "value": 41.00
+                                    },
+                                    "event_date": "2019-10-26",
+                                    "biomass_removed": {
+                                        "unit": "percent",
+                                        "value": null
+                                    },
+                                    "is_cutting_baling": false,
+                                    "is_biomass_removed": null,
+                                    "remaining_height_after_cutting": {
+                                        "unit": "inches",
+                                        "value": null
+                                    }
+                                },
+                                {
+                                    "id": "3203e730-c412-48b5-984a-d22735ef87c1",
+                                    "crop": "Soybeans",
+                                    "event": "Plant",
+                                    "event_date": "2019-07-05",
+                                    "is_planting_failure": false,
+                                    "planting_failure_date": null
+                                },
+                                {
+                                    "id": "173042a6-dfb6-4b7f-91a4-7353eb7da191",
+                                    "event": "No drainage"
+                                },
+                                {
+                                    "id": "fbd7d1a4-4f55-4521-b287-00932edd7299",
+                                    "event": "No fertilizer event"
+                                },
+                                {
+                                    "id": "29c38eff-eae1-4c28-833f-2690b8204ca4",
+                                    "event": "No irrigation event"
+                                },
+                                {
+                                    "id": "50e21e7c-76ad-43dd-b2d8-2945fb6d3782",
+                                    "event": "No grazing event"
+                                }
+                            ],
+                            "is_incomplete": false
+                        },
+                        {
+                            "id": "e15c8af9-3e3a-4f92-8c9d-be05e8b25396",
+                            "year": 2018,
+                            "event_data": [
+                                {
+                                    "id": "23124b5c-297d-42d4-908d-e1db65a34f26",
+                                    "event": "Till",
+                                    "event_date": "2018-05-10",
+                                    "tillage_type": "Disc",
+                                    "tillage_depth": {
+                                        "unit": "inches",
+                                        "value": 2
+                                    }
+                                },
+                                {
+                                    "id": "7291b58e-e253-47be-8f20-57ee9b4e2db3",
+                                    "event": "Till",
+                                    "event_date": "2018-05-11",
+                                    "tillage_type": "Disc",
+                                    "tillage_depth": {
+                                        "unit": "inches",
+                                        "value": 2
+                                    }
+                                },
+                                {
+                                    "id": "6e70549b-56e4-4ad5-9656-6d559cc8a470",
+                                    "event": "No fertilizer event"
+                                },
+                                {
+                                    "id": "46fb357e-30be-4f55-8d37-45805af88c65",
+                                    "event": "No cover crop event"
+                                },
+                                {
+                                    "id": "ce9888b5-05b4-4794-9234-864d61d867a1",
+                                    "event": "No irrigation event"
+                                },
+                                {
+                                    "id": "004aea9b-3a03-4bb6-b89f-025f96924792",
+                                    "event": "No drainage"
+                                },
+                                {
+                                    "id": "77e03866-517e-401b-bc1d-f142d567c103",
+                                    "event": "No grazing event"
+                                },
+                                {
+                                    "id": "e93bb1f4-0892-46d3-b096-5a95b7e61d6e",
+                                    "crop": "Soybeans",
+                                    "event": "Plant",
+                                    "event_date": "2018-05-15",
+                                    "is_planting_failure": false,
+                                    "planting_failure_date": null
+                                },
+                                {
+                                    "id": "21ad0658-624c-4c93-8d01-b8ac07476f7a",
+                                    "crop": "Soybeans",
+                                    "event": "Harvest",
+                                    "yield": {
+                                        "unit": "bushels/acre",
+                                        "value": 45.00
+                                    },
+                                    "event_date": "2018-11-10",
+                                    "biomass_removed": {
+                                        "unit": "percent",
+                                        "value": null
+                                    },
+                                    "is_cutting_baling": false,
+                                    "is_biomass_removed": null,
+                                    "remaining_height_after_cutting": {
+                                        "unit": "inches",
+                                        "value": null
+                                    }
+                                }
+                            ],
+                            "is_incomplete": false
+                        },
+                        {
+                            "id": "e83b4f6f-65ab-4414-99b8-1028ba80934b",
+                            "year": 2021,
+                            "event_data": [
+                                {
+                                    "id": "39a3d005-a593-4158-a284-b78e6e576641",
+                                    "crop": "Soybeans",
+                                    "event": "Harvest",
+                                    "yield": {
+                                        "unit": "bushels/acre",
+                                        "value": 34.00
+                                    },
+                                    "event_date": "2021-10-20",
+                                    "biomass_removed": {
+                                        "unit": "percent",
+                                        "value": 50.00
+                                    },
+                                    "is_cutting_baling": false,
+                                    "is_biomass_removed": false,
+                                    "remaining_height_after_cutting": {
+                                        "unit": "inches",
+                                        "value": null
+                                    }
+                                },
+                                {
+                                    "id": "2b6ae6c3-0f47-4b65-a767-710d57b6c095",
+                                    "event": "No fertilizer event"
+                                },
+                                {
+                                    "id": "8cd89d55-6ee4-4f4d-a2e4-d1601b3b712b",
+                                    "event": "No irrigation event"
+                                },
+                                {
+                                    "id": "58f325ce-1cc1-4704-8033-fa4f7ce6688d",
+                                    "event": "Cover crop",
+                                    "end_date": null,
+                                    "start_date": "2020-10-15",
+                                    "cover_crop_data": [
+                                        {
+                                            "percent": 100.00,
+                                            "species_name": "Cereal Rye"
+                                        }
+                                    ],
+                                    "cover_crop_seeding_rate": {
+                                        "unit": "pounds/acre",
+                                        "value": 35.00
+                                    },
+                                    "is_cover_crop_seeded_aerially": false
+                                },
+                                {
+                                    "id": "604d09ef-a55a-42dd-be3c-a41820916cfd",
+                                    "event": "No grazing event"
+                                },
+                                {
+                                    "id": "d0d8a3a7-e80d-48ba-8b2b-34b1f74dbc43",
+                                    "event": "No drainage"
+                                },
+                                {
+                                    "id": "883579fc-56e7-496b-9aa0-db2b2c12d51b",
+                                    "event": "No till event"
+                                },
+                                {
+                                    "id": "a0fef2a6-5878-4e26-848a-ecbfd77bea49",
+                                    "crop": "Soybeans",
+                                    "event": "Plant",
+                                    "event_date": "2021-05-21",
+                                    "is_planting_failure": false,
+                                    "planting_failure_date": null
+                                }
+                            ],
+                            "is_incomplete": false
+                        }
+                    ],
+                    "boundary": {
+                        "type": "MultiPolygon",
+                        "coordinates": [
+                            [
+                                [
+                                    [
+                                        -85.6696419,
+                                        38.6003272
+                                    ],
+                                    [
+                                        -85.6690234,
+                                        38.6006929
+                                    ],
+                                    [
+                                        -85.6686986,
+                                        38.6009066
+                                    ],
+                                    [
+                                        -85.6684769,
+                                        38.6010644
+                                    ],
+                                    [
+                                        -85.6683581,
+                                        38.6011774
+                                    ],
+                                    [
+                                        -85.6683157,
+                                        38.6012614
+                                    ],
+                                    [
+                                        -85.6675853,
+                                        38.6016455
+                                    ],
+                                    [
+                                        -85.6667052,
+                                        38.602175
+                                    ],
+                                    [
+                                        -85.6655258,
+                                        38.6028597
+                                    ],
+                                    [
+                                        -85.6639529,
+                                        38.6038109
+                                    ],
+                                    [
+                                        -85.6619742,
+                                        38.6016889
+                                    ],
+                                    [
+                                        -85.6608591,
+                                        38.6022826
+                                    ],
+                                    [
+                                        -85.6606892,
+                                        38.6023782
+                                    ],
+                                    [
+                                        -85.6606132,
+                                        38.602438
+                                    ],
+                                    [
+                                        -85.6593995,
+                                        38.6030975
+                                    ],
+                                    [
+                                        -85.6589006,
+                                        38.6024824
+                                    ],
+                                    [
+                                        -85.6603429,
+                                        38.6016271
+                                    ],
+                                    [
+                                        -85.6620966,
+                                        38.6006515
+                                    ],
+                                    [
+                                        -85.6651829,
+                                        38.5989644
+                                    ],
+                                    [
+                                        -85.6653043,
+                                        38.5991284
+                                    ],
+                                    [
+                                        -85.6654475,
+                                        38.5992674
+                                    ],
+                                    [
+                                        -85.6655196,
+                                        38.599314
+                                    ],
+                                    [
+                                        -85.6656217,
+                                        38.5993151
+                                    ],
+                                    [
+                                        -85.6656806,
+                                        38.5992815
+                                    ],
+                                    [
+                                        -85.6657698,
+                                        38.5991909
+                                    ],
+                                    [
+                                        -85.6658727,
+                                        38.5991463
+                                    ],
+                                    [
+                                        -85.6660923,
+                                        38.5991031
+                                    ],
+                                    [
+                                        -85.6662243,
+                                        38.5990588
+                                    ],
+                                    [
+                                        -85.6662843,
+                                        38.5989679
+                                    ],
+                                    [
+                                        -85.6663302,
+                                        38.598854
+                                    ],
+                                    [
+                                        -85.6663184,
+                                        38.5987051
+                                    ],
+                                    [
+                                        -85.6661776,
+                                        38.5984206
+                                    ],
+                                    [
+                                        -85.6659755,
+                                        38.5981605
+                                    ],
+                                    [
+                                        -85.6672255,
+                                        38.5974412
+                                    ],
+                                    [
+                                        -85.6686953,
+                                        38.5991966
+                                    ],
+                                    [
+                                        -85.6684655,
+                                        38.5993132
+                                    ],
+                                    [
+                                        -85.6682732,
+                                        38.5994598
+                                    ],
+                                    [
+                                        -85.6682569,
+                                        38.5995512
+                                    ],
+                                    [
+                                        -85.6682698,
+                                        38.5996429
+                                    ],
+                                    [
+                                        -85.668224,
+                                        38.5997568
+                                    ],
+                                    [
+                                        -85.6680767,
+                                        38.5998352
+                                    ],
+                                    [
+                                        -85.6672686,
+                                        38.6001579
+                                    ],
+                                    [
+                                        -85.6670324,
+                                        38.6003154
+                                    ],
+                                    [
+                                        -85.6667192,
+                                        38.6006895
+                                    ],
+                                    [
+                                        -85.6665398,
+                                        38.6009278
+                                    ],
+                                    [
+                                        -85.6664797,
+                                        38.6010187
+                                    ],
+                                    [
+                                        -85.666508,
+                                        38.6010648
+                                    ],
+                                    [
+                                        -85.6665662,
+                                        38.6010769
+                                    ],
+                                    [
+                                        -85.6666539,
+                                        38.6010665
+                                    ],
+                                    [
+                                        -85.6668007,
+                                        38.6010109
+                                    ],
+                                    [
+                                        -85.6670828,
+                                        38.6007395
+                                    ],
+                                    [
+                                        -85.6675097,
+                                        38.6005269
+                                    ],
+                                    [
+                                        -85.6677732,
+                                        38.6004727
+                                    ],
+                                    [
+                                        -85.6679055,
+                                        38.6004169
+                                    ],
+                                    [
+                                        -85.6679947,
+                                        38.6003264
+                                    ],
+                                    [
+                                        -85.6682041,
+                                        38.6000427
+                                    ],
+                                    [
+                                        -85.6683529,
+                                        38.5998841
+                                    ],
+                                    [
+                                        -85.668632,
+                                        38.5997729
+                                    ],
+                                    [
+                                        -85.668837,
+                                        38.5997294
+                                    ],
+                                    [
+                                        -85.6690118,
+                                        38.5997429
+                                    ],
+                                    [
+                                        -85.6691923,
+                                        38.5997902
+                                    ],
+                                    [
+                                        -85.6696419,
+                                        38.6003272
+                                    ]
+                                ]
+                            ]
+                        ]
+                    },
+                    "soil_strata": null,
+                    "app_user__id": "bcaad085-5c26-4fcb-996e-b7b48d627eee",
+                    "soil_samples": null,
+                    "field_by_project_id": "DATAAPI-Field-1",
+                    "field_practice_changes": [
+                        {
+                            "id": "452e1060-99cd-48fb-8cf3-da4d02204ad7",
+                            "name": "Cover cropping"
+                        }
+                    ]
+                },
+                {
+                    "id": "7983e1e2-e3b9-4326-81c3-f088d599c883",
+                    "area": {
+                        "unit": "acres",
+                        "value": 116.805
+                    },
+                    "history": [
+                        {
+                            "id": "b586e836-245a-4677-86dc-ca0065d675e1",
+                            "year": 2020,
+                            "event_data": [
+                                {
+                                    "id": "15af7211-e37d-413e-b2b1-4931284453c6",
+                                    "event": "No cover crop event"
+                                },
+                                {
+                                    "id": "4f2ffd67-d966-40cd-827f-3e36d8a2308d",
+                                    "rate": {
+                                        "unit": "gal/acre",
+                                        "value": 28.00
+                                    },
+                                    "type": "Liquid",
+                                    "event": "Fertilizer",
+                                    "is_custom": false,
+                                    "is_manure": false,
+                                    "event_date": "2020-07-09",
+                                    "fertilizer_name": "Urea Ammonium Nitrate 32% (UAN-32)",
+                                    "injection_depth": {
+                                        "unit": "inches",
+                                        "value": null
+                                    },
+                                    "application_name": "Surface banded",
+                                    "is_urease_inhibitor_used": null,
+                                    "is_time_release_product_used": false,
+                                    "is_nitrification_inhibitor_used": false,
+                                    "application_method_other_description": null
+                                },
+                                {
+                                    "id": "90767fba-33ed-4e8b-a5b0-b87450113675",
+                                    "event": "No irrigation event"
+                                },
+                                {
+                                    "id": "5e173b79-a470-4178-b1af-42714cecf1cd",
+                                    "event": "No drainage"
+                                },
+                                {
+                                    "id": "e0a18dad-b3f3-4695-b5df-78fa36a2da6f",
+                                    "event": "No grazing event"
+                                },
+                                {
+                                    "id": "d6a93c71-a708-453f-8215-f0d550f87c0e",
+                                    "rate": {
+                                        "unit": "gal/acre",
+                                        "value": 20.00
+                                    },
+                                    "type": "Liquid",
+                                    "event": "Fertilizer",
+                                    "is_custom": false,
+                                    "is_manure": false,
+                                    "event_date": "2020-07-03",
+                                    "fertilizer_name": "Urea Ammonium Nitrate 32% (UAN-32)",
+                                    "injection_depth": {
+                                        "unit": "inches",
+                                        "value": null
+                                    },
+                                    "application_name": "Surface banded",
+                                    "is_urease_inhibitor_used": null,
+                                    "is_time_release_product_used": false,
+                                    "is_nitrification_inhibitor_used": false,
+                                    "application_method_other_description": null
+                                },
+                                {
+                                    "id": "4c607351-ef0d-43f3-b07b-83be263361c3",
+                                    "event": "No till event"
+                                },
+                                {
+                                    "id": "9dc8a4d1-4c53-4d39-be7b-656629396e28",
+                                    "crop": "Corn",
+                                    "event": "Plant",
+                                    "event_date": "2020-06-02",
+                                    "is_planting_failure": false,
+                                    "planting_failure_date": null
+                                },
+                                {
+                                    "id": "d1863bf8-c7fd-4447-93d9-d7d108b08b2a",
+                                    "crop": "Corn",
+                                    "event": "Harvest",
+                                    "yield": {
+                                        "unit": "bushels/acre",
+                                        "value": 115.00
+                                    },
+                                    "event_date": "2020-11-18",
+                                    "biomass_removed": {
+                                        "unit": "percent",
+                                        "value": null
+                                    },
+                                    "is_cutting_baling": false,
+                                    "is_biomass_removed": false,
+                                    "remaining_height_after_cutting": {
+                                        "unit": "inches",
+                                        "value": null
+                                    }
+                                }
+                            ],
+                            "is_incomplete": false
+                        },
+                        {
+                            "id": "b6132456-4c09-481b-9081-d3b809c1acae",
+                            "year": 2019,
+                            "event_data": [
+                                {
+                                    "id": "608a8818-bd09-451c-8083-7f5a9453486c",
+                                    "event": "Till",
+                                    "event_date": "2018-11-27",
+                                    "tillage_type": "Disc",
+                                    "tillage_depth": {
+                                        "unit": "inches",
+                                        "value": 2
+                                    }
+                                },
+                                {
+                                    "id": "b9ca3598-ae46-4fc9-9dfa-1a6ba2368cba",
+                                    "event": "No drainage"
+                                },
+                                {
+                                    "id": "b06028c6-bdb2-480c-9eb7-68b226550ca3",
+                                    "event": "No irrigation event"
+                                },
+                                {
+                                    "id": "bf9775de-784d-4c39-a567-2bee93211ac7",
+                                    "crop": "Soybeans",
+                                    "event": "Harvest",
+                                    "yield": {
+                                        "unit": "bushels/acre",
+                                        "value": 47.00
+                                    },
+                                    "event_date": "2019-10-25",
+                                    "biomass_removed": {
+                                        "unit": "percent",
+                                        "value": null
+                                    },
+                                    "is_cutting_baling": false,
+                                    "is_biomass_removed": null,
+                                    "remaining_height_after_cutting": {
+                                        "unit": "inches",
+                                        "value": null
+                                    }
+                                },
+                                {
+                                    "id": "c8b6a2f8-c9d2-4c6a-a985-c843ff0462a2",
+                                    "crop": "Soybeans",
+                                    "event": "Plant",
+                                    "event_date": "2019-07-06",
+                                    "is_planting_failure": false,
+                                    "planting_failure_date": null
+                                },
+                                {
+                                    "id": "c710b498-255e-457e-9808-8b682edc9e93",
+                                    "event": "No grazing event"
+                                },
+                                {
+                                    "id": "f8bd6039-9eaa-4713-8855-021713400cd5",
+                                    "event": "No cover crop event"
+                                },
+                                {
+                                    "id": "3380312e-6984-4dd1-86c6-78eb51abe3b6",
+                                    "event": "No fertilizer event"
+                                }
+                            ],
+                            "is_incomplete": false
+                        },
+                        {
+                            "id": "a7ebcd6e-6e68-4425-9391-fb1791bd69db",
+                            "year": 2018,
+                            "event_data": [
+                                {
+                                    "id": "2872cd27-1123-4edc-a7e5-55802d9a2ba7",
+                                    "event": "Till",
+                                    "event_date": "2018-05-10",
+                                    "tillage_type": "Disc",
+                                    "tillage_depth": {
+                                        "unit": "inches",
+                                        "value": 2
+                                    }
+                                },
+                                {
+                                    "id": "e46c1a9b-287f-4f70-bd1e-2be061a5b631",
+                                    "event": "Till",
+                                    "event_date": "2018-05-11",
+                                    "tillage_type": "Disc",
+                                    "tillage_depth": {
+                                        "unit": "inches",
+                                        "value": 2
+                                    }
+                                },
+                                {
+                                    "id": "46b713a6-48fe-4eb2-882f-e88c1b07a5d5",
+                                    "crop": "Soybeans",
+                                    "event": "Harvest",
+                                    "yield": {
+                                        "unit": "bushels/acre",
+                                        "value": 46.00
+                                    },
+                                    "event_date": "2018-11-11",
+                                    "biomass_removed": {
+                                        "unit": "percent",
+                                        "value": null
+                                    },
+                                    "is_cutting_baling": false,
+                                    "is_biomass_removed": null,
+                                    "remaining_height_after_cutting": {
+                                        "unit": "inches",
+                                        "value": null
+                                    }
+                                },
+                                {
+                                    "id": "c83ef44f-3eab-4c7d-8175-373b1a621b7d",
+                                    "event": "No cover crop event"
+                                },
+                                {
+                                    "id": "9b7abd63-40a9-4196-b508-35eec404c84c",
+                                    "event": "No irrigation event"
+                                },
+                                {
+                                    "id": "57450fdb-4e5a-4b88-89b6-7fa0241c6013",
+                                    "event": "No grazing event"
+                                },
+                                {
+                                    "id": "da66a915-9748-4240-a15f-e9beb79c476b",
+                                    "event": "No fertilizer event"
+                                },
+                                {
+                                    "id": "bf94c21c-5f46-4912-a4a6-60650beb8886",
+                                    "event": "No drainage"
+                                },
+                                {
+                                    "id": "1fd42fc4-fbd4-4888-b0c2-3f2d49742881",
+                                    "crop": "Soybeans",
+                                    "event": "Plant",
+                                    "event_date": "2018-05-16",
+                                    "is_planting_failure": false,
+                                    "planting_failure_date": null
+                                }
+                            ],
+                            "is_incomplete": false
+                        },
+                        {
+                            "id": "0ba2b71e-3b9a-48fc-8d51-81eef0ef1395",
+                            "year": 2021,
+                            "event_data": [
+                                {
+                                    "id": "c557a0eb-a813-472a-8da8-6827ea35ea37",
+                                    "event": "No till event"
+                                },
+                                {
+                                    "id": "8c5ca739-530a-4351-adae-27948f4f111a",
+                                    "crop": "Soybeans",
+                                    "event": "Plant",
+                                    "event_date": "2021-05-21",
+                                    "is_planting_failure": false,
+                                    "planting_failure_date": null
+                                },
+                                {
+                                    "id": "9ab0d289-9063-420b-9339-df16cbca8283",
+                                    "event": "No irrigation event"
+                                },
+                                {
+                                    "id": "7eb20c95-b07d-4ccc-9696-3a8f6cd59935",
+                                    "event": "No drainage"
+                                },
+                                {
+                                    "id": "ea0b875a-bf5e-47f5-8235-a028ad7edaf7",
+                                    "crop": "Soybeans",
+                                    "event": "Harvest",
+                                    "yield": {
+                                        "unit": "bushels/acre",
+                                        "value": 34.00
+                                    },
+                                    "event_date": "2021-10-19",
+                                    "biomass_removed": {
+                                        "unit": "percent",
+                                        "value": null
+                                    },
+                                    "is_cutting_baling": false,
+                                    "is_biomass_removed": false,
+                                    "remaining_height_after_cutting": {
+                                        "unit": "inches",
+                                        "value": null
+                                    }
+                                },
+                                {
+                                    "id": "833aa79d-65db-4342-acd4-4a92b783b4f2",
+                                    "event": "Cover crop",
+                                    "end_date": null,
+                                    "start_date": "2020-10-15",
+                                    "cover_crop_data": [
+                                        {
+                                            "percent": 100.00,
+                                            "species_name": "Cereal Rye"
+                                        }
+                                    ],
+                                    "cover_crop_seeding_rate": {
+                                        "unit": "pounds/acre",
+                                        "value": 35.00
+                                    },
+                                    "is_cover_crop_seeded_aerially": false
+                                },
+                                {
+                                    "id": "f6aee35d-95b2-4e6b-b0a4-af7fff6d243d",
+                                    "event": "No fertilizer event"
+                                },
+                                {
+                                    "id": "75308c46-9ba3-4002-974a-b9ff79aa1a82",
+                                    "event": "No grazing event"
+                                }
+                            ],
+                            "is_incomplete": false
+                        }
+                    ],
+                    "boundary": {
+                        "type": "MultiPolygon",
+                        "coordinates": [
+                            [
+                                [
+                                    [
+                                        -85.6151307,
+                                        38.5956092
+                                    ],
+                                    [
+                                        -85.6136317,
+                                        38.5963651
+                                    ],
+                                    [
+                                        -85.6149573,
+                                        38.5979601
+                                    ],
+                                    [
+                                        -85.6152871,
+                                        38.5982502
+                                    ],
+                                    [
+                                        -85.6151866,
+                                        38.5984217
+                                    ],
+                                    [
+                                        -85.6116293,
+                                        38.5984356
+                                    ],
+                                    [
+                                        -85.6116072,
+                                        38.5949581
+                                    ],
+                                    [
+                                        -85.6117559,
+                                        38.5949488
+                                    ],
+                                    [
+                                        -85.6119315,
+                                        38.5949165
+                                    ],
+                                    [
+                                        -85.6132293,
+                                        38.5941652
+                                    ],
+                                    [
+                                        -85.614923,
+                                        38.5932925
+                                    ],
+                                    [
+                                        -85.6154086,
+                                        38.5938247
+                                    ],
+                                    [
+                                        -85.6163643,
+                                        38.5949347
+                                    ],
+                                    [
+                                        -85.6165676,
+                                        38.5949829
+                                    ],
+                                    [
+                                        -85.6170683,
+                                        38.5947256
+                                    ],
+                                    [
+                                        -85.6183369,
+                                        38.5939738
+                                    ],
+                                    [
+                                        -85.6184135,
+                                        38.5937801
+                                    ],
+                                    [
+                                        -85.6182586,
+                                        38.5934922
+                                    ],
+                                    [
+                                        -85.6181309,
+                                        38.5933076
+                                    ],
+                                    [
+                                        -85.6185775,
+                                        38.5928322
+                                    ],
+                                    [
+                                        -85.6185964,
+                                        38.5926035
+                                    ],
+                                    [
+                                        -85.6184248,
+                                        38.5924298
+                                    ],
+                                    [
+                                        -85.6182237,
+                                        38.5922672
+                                    ],
+                                    [
+                                        -85.6178913,
+                                        38.5921145
+                                    ],
+                                    [
+                                        -85.6176876,
+                                        38.5920892
+                                    ],
+                                    [
+                                        -85.6173669,
+                                        38.5920854
+                                    ],
+                                    [
+                                        -85.6188645,
+                                        38.5913235
+                                    ],
+                                    [
+                                        -85.6204017,
+                                        38.5930068
+                                    ],
+                                    [
+                                        -85.6213625,
+                                        38.5938535
+                                    ],
+                                    [
+                                        -85.6220511,
+                                        38.5943062
+                                    ],
+                                    [
+                                        -85.6220209,
+                                        38.5944464
+                                    ],
+                                    [
+                                        -85.6220168,
+                                        38.5946609
+                                    ],
+                                    [
+                                        -85.6223556,
+                                        38.5950512
+                                    ],
+                                    [
+                                        -85.6226244,
+                                        38.5952975
+                                    ],
+                                    [
+                                        -85.6228248,
+                                        38.5952999
+                                    ],
+                                    [
+                                        -85.6229695,
+                                        38.5953588
+                                    ],
+                                    [
+                                        -85.623148,
+                                        38.5955612
+                                    ],
+                                    [
+                                        -85.6235473,
+                                        38.5956517
+                                    ],
+                                    [
+                                        -85.6238698,
+                                        38.5959416
+                                    ],
+                                    [
+                                        -85.6239947,
+                                        38.5961452
+                                    ],
+                                    [
+                                        -85.6219956,
+                                        38.5972606
+                                    ],
+                                    [
+                                        -85.6196824,
+                                        38.5984922
+                                    ],
+                                    [
+                                        -85.6168936,
+                                        38.5999436
+                                    ],
+                                    [
+                                        -85.615941,
+                                        38.5989333
+                                    ],
+                                    [
+                                        -85.616403,
+                                        38.5988063
+                                    ],
+                                    [
+                                        -85.6165375,
+                                        38.5986362
+                                    ],
+                                    [
+                                        -85.6163665,
+                                        38.5984282
+                                    ],
+                                    [
+                                        -85.6161226,
+                                        38.5982193
+                                    ],
+                                    [
+                                        -85.6160963,
+                                        38.5980702
+                                    ],
+                                    [
+                                        -85.6165321,
+                                        38.5974001
+                                    ],
+                                    [
+                                        -85.6164917,
+                                        38.597228
+                                    ],
+                                    [
+                                        -85.6165694,
+                                        38.5971863
+                                    ],
+                                    [
+                                        -85.6151307,
+                                        38.5956092
+                                    ]
+                                ]
+                            ]
+                        ]
+                    },
+                    "soil_strata": null,
+                    "app_user__id": "bcaad085-5c26-4fcb-996e-b7b48d627eee",
+                    "soil_samples": null,
+                    "field_by_project_id": "DATAAPI-Field-2",
+                    "field_practice_changes": [
+                        {
+                            "id": "452e1060-99cd-48fb-8cf3-da4d02204ad7",
+                            "name": "Cover cropping"
+                        }
+                    ]
+                },
+                {
+                    "id": "1a8a5e8f-7ce7-4b94-98fe-2952f9af0251",
+                    "area": {
+                        "unit": "acres",
+                        "value": 41.589
+                    },
+                    "history": [
+                        {
+                            "id": "f29516ed-b7e8-41d9-9ee1-c7cb085a6fa1",
+                            "year": 2018,
+                            "event_data": [
+                                {
+                                    "id": "7e40ec4e-3cfc-4654-9794-23e61dba2687",
+                                    "event": "Till",
+                                    "event_date": "2018-05-10",
+                                    "tillage_type": "Disc",
+                                    "tillage_depth": {
+                                        "unit": "inches",
+                                        "value": 2
+                                    }
+                                },
+                                {
+                                    "id": "47386f51-5598-4f93-8eb4-511314c105c4",
+                                    "event": "Till",
+                                    "event_date": "2018-05-11",
+                                    "tillage_type": "Disc",
+                                    "tillage_depth": {
+                                        "unit": "inches",
+                                        "value": 2
+                                    }
+                                },
+                                {
+                                    "id": "27acb6a0-cf14-4e5c-81a7-a759f5a79f7d",
+                                    "event": "No drainage"
+                                },
+                                {
+                                    "id": "2e135fe0-cbc6-4f85-8eda-511b74b83d39",
+                                    "event": "No irrigation event"
+                                },
+                                {
+                                    "id": "ea9b9fc8-df35-421b-9c19-5be551506b04",
+                                    "crop": "Soybeans",
+                                    "event": "Harvest",
+                                    "yield": {
+                                        "unit": "bushels/acre",
+                                        "value": 46.00
+                                    },
+                                    "event_date": "2018-11-11",
+                                    "biomass_removed": {
+                                        "unit": "percent",
+                                        "value": null
+                                    },
+                                    "is_cutting_baling": false,
+                                    "is_biomass_removed": false,
+                                    "remaining_height_after_cutting": {
+                                        "unit": "inches",
+                                        "value": null
+                                    }
+                                },
+                                {
+                                    "id": "d82fe54b-c709-427c-aa96-9e0e84b0470b",
+                                    "crop": "Soybeans",
+                                    "event": "Plant",
+                                    "event_date": "2018-05-16",
+                                    "is_planting_failure": false,
+                                    "planting_failure_date": null
+                                },
+                                {
+                                    "id": "9a26d565-1435-4412-b35d-83d818e9d484",
+                                    "event": "No cover crop event"
+                                },
+                                {
+                                    "id": "9e9b6206-e06f-4f5a-8211-dc1ebe92a643",
+                                    "event": "No grazing event"
+                                },
+                                {
+                                    "id": "90312755-8081-4c4e-a616-e46470aa5017",
+                                    "event": "No fertilizer event"
+                                }
+                            ],
+                            "is_incomplete": false
+                        },
+                        {
+                            "id": "e009ee12-95e2-4b31-8c70-a1a9230acf5e",
+                            "year": 2019,
+                            "event_data": [
+                                {
+                                    "id": "a262c215-d7e0-4de3-a9e5-54ed70a9bd4f",
+                                    "event": "Till",
+                                    "event_date": "2019-11-27",
+                                    "tillage_type": "Disc",
+                                    "tillage_depth": {
+                                        "unit": "inches",
+                                        "value": 2
+                                    }
+                                },
+                                {
+                                    "id": "66b0be10-0e06-4b00-9cc6-8cfa655a9002",
+                                    "crop": "Soybeans",
+                                    "event": "Plant",
+                                    "event_date": "2019-07-06",
+                                    "is_planting_failure": false,
+                                    "planting_failure_date": null
+                                },
+                                {
+                                    "id": "bc3a118c-9bff-4340-b5b8-dbe0d51a0bda",
+                                    "event": "No grazing event"
+                                },
+                                {
+                                    "id": "e878e903-32cf-4820-8cf2-9b4cc8bbfc4e",
+                                    "event": "No fertilizer event"
+                                },
+                                {
+                                    "id": "d72bdacf-2e8e-475d-84fe-651006097399",
+                                    "event": "No drainage"
+                                },
+                                {
+                                    "id": "87a3a89a-3ced-4081-a07c-a2ef7782da21",
+                                    "event": "No cover crop event"
+                                },
+                                {
+                                    "id": "0f47d2d3-afe4-4392-89f1-a2d936b6e328",
+                                    "event": "No irrigation event"
+                                },
+                                {
+                                    "id": "bc9cfea2-4f6a-465a-8cba-12194ca807a2",
+                                    "crop": "Soybeans",
+                                    "event": "Harvest",
+                                    "yield": {
+                                        "unit": "bushels/acre",
+                                        "value": 47.00
+                                    },
+                                    "event_date": "2019-10-25",
+                                    "biomass_removed": {
+                                        "unit": "percent",
+                                        "value": null
+                                    },
+                                    "is_cutting_baling": false,
+                                    "is_biomass_removed": false,
+                                    "remaining_height_after_cutting": {
+                                        "unit": "inches",
+                                        "value": null
+                                    }
+                                }
+                            ],
+                            "is_incomplete": false
+                        },
+                        {
+                            "id": "cac05c70-011b-427d-878b-ca625ca5838a",
+                            "year": 2020,
+                            "event_data": [
+                                {
+                                    "id": "79e3c464-2415-4385-8730-0ef9f80187fb",
+                                    "event": "No grazing event"
+                                },
+                                {
+                                    "id": "77f8dfa1-4ecb-4d57-8382-cec5d6f4a0b5",
+                                    "event": "No irrigation event"
+                                },
+                                {
+                                    "id": "6e3fdac5-3f2f-4ca1-9c76-75d65cd9d8bc",
+                                    "rate": {
+                                        "unit": "gal/acre",
+                                        "value": 20.00
+                                    },
+                                    "type": "Liquid",
+                                    "event": "Fertilizer",
+                                    "is_custom": false,
+                                    "is_manure": false,
+                                    "event_date": "2020-06-03",
+                                    "fertilizer_name": "Urea Ammonium Nitrate 32% (UAN-32)",
+                                    "injection_depth": {
+                                        "unit": "inches",
+                                        "value": null
+                                    },
+                                    "application_name": "Surface banded",
+                                    "is_urease_inhibitor_used": null,
+                                    "is_time_release_product_used": false,
+                                    "is_nitrification_inhibitor_used": false,
+                                    "application_method_other_description": null
+                                },
+                                {
+                                    "id": "631fe50c-006d-4934-a07d-0a6c17f55208",
+                                    "event": "No cover crop event"
+                                },
+                                {
+                                    "id": "5f8b5f24-a592-4f77-a8f9-8e0644623823",
+                                    "crop": "Corn",
+                                    "event": "Harvest",
+                                    "yield": {
+                                        "unit": "bushels/acre",
+                                        "value": 115.00
+                                    },
+                                    "event_date": "2020-11-18",
+                                    "biomass_removed": {
+                                        "unit": "percent",
+                                        "value": null
+                                    },
+                                    "is_cutting_baling": false,
+                                    "is_biomass_removed": false,
+                                    "remaining_height_after_cutting": {
+                                        "unit": "inches",
+                                        "value": null
+                                    }
+                                },
+                                {
+                                    "id": "636b3b12-c989-4110-8b91-861d656fc1c8",
+                                    "rate": {
+                                        "unit": "gal/acre",
+                                        "value": 28.00
+                                    },
+                                    "type": "Liquid",
+                                    "event": "Fertilizer",
+                                    "is_custom": false,
+                                    "is_manure": false,
+                                    "event_date": "2020-07-09",
+                                    "fertilizer_name": "Urea Ammonium Nitrate 32% (UAN-32)",
+                                    "injection_depth": {
+                                        "unit": "inches",
+                                        "value": null
+                                    },
+                                    "application_name": "Surface banded",
+                                    "is_urease_inhibitor_used": null,
+                                    "is_time_release_product_used": false,
+                                    "is_nitrification_inhibitor_used": false,
+                                    "application_method_other_description": null
+                                },
+                                {
+                                    "id": "38c22626-8a55-48fb-aaa6-dfbfc797d6e3",
+                                    "event": "No till event"
+                                },
+                                {
+                                    "id": "1b45f686-c613-4aa6-9fe9-4504a9ed928f",
+                                    "crop": "Corn",
+                                    "event": "Plant",
+                                    "event_date": "2020-06-02",
+                                    "is_planting_failure": false,
+                                    "planting_failure_date": null
+                                },
+                                {
+                                    "id": "2384c076-a48b-4839-98ba-bc5242eb8e36",
+                                    "event": "No drainage"
+                                }
+                            ],
+                            "is_incomplete": false
+                        },
+                        {
+                            "id": "7b4997b3-c8f9-40d9-a5a3-6643a548ab5d",
+                            "year": 2021,
+                            "event_data": [
+                                {
+                                    "id": "89bb796f-aab6-4bf1-8808-7441a99ec455",
+                                    "event": "No fertilizer event"
+                                },
+                                {
+                                    "id": "ca288ba6-cd93-46e6-8d17-301ee3db6d84",
+                                    "event": "No irrigation event"
+                                },
+                                {
+                                    "id": "7c0b6feb-f9c2-483a-b2ab-1159252768b1",
+                                    "event": "No grazing event"
+                                },
+                                {
+                                    "id": "10c08dcc-1612-4f33-9dad-dc513b3b8e8d",
+                                    "event": "No drainage"
+                                },
+                                {
+                                    "id": "977efb60-ea4a-4095-b417-aec6080d6139",
+                                    "event": "No till event"
+                                },
+                                {
+                                    "id": "55bc1634-897c-460a-b04d-e992561ef289",
+                                    "crop": "Soybeans",
+                                    "event": "Harvest",
+                                    "yield": {
+                                        "unit": "bushels/acre",
+                                        "value": 34.00
+                                    },
+                                    "event_date": "2021-10-19",
+                                    "biomass_removed": {
+                                        "unit": "percent",
+                                        "value": null
+                                    },
+                                    "is_cutting_baling": false,
+                                    "is_biomass_removed": false,
+                                    "remaining_height_after_cutting": {
+                                        "unit": "inches",
+                                        "value": null
+                                    }
+                                },
+                                {
+                                    "id": "99764914-258b-4de7-acfb-97c2d105068c",
+                                    "event": "Cover crop",
+                                    "end_date": null,
+                                    "start_date": "2020-10-15",
+                                    "cover_crop_data": [
+                                        {
+                                            "percent": 100.00,
+                                            "species_name": "Cereal Rye"
+                                        }
+                                    ],
+                                    "cover_crop_seeding_rate": {
+                                        "unit": "pounds/acre",
+                                        "value": 35.00
+                                    },
+                                    "is_cover_crop_seeded_aerially": false
+                                },
+                                {
+                                    "id": "b655cde7-9f47-4786-b717-d8a0b7d62941",
+                                    "crop": "Soybeans",
+                                    "event": "Plant",
+                                    "event_date": "2021-05-21",
+                                    "is_planting_failure": false,
+                                    "planting_failure_date": null
+                                }
+                            ],
+                            "is_incomplete": false
+                        }
+                    ],
+                    "boundary": {
+                        "type": "MultiPolygon",
+                        "coordinates": [
+                            [
+                                [
+                                    [
+                                        -85.6380606,
+                                        38.6054268
+                                    ],
+                                    [
+                                        -85.6380411,
+                                        38.6053163
+                                    ],
+                                    [
+                                        -85.6380832,
+                                        38.6046301
+                                    ],
+                                    [
+                                        -85.6371496,
+                                        38.6030971
+                                    ],
+                                    [
+                                        -85.6365437,
+                                        38.6019799
+                                    ],
+                                    [
+                                        -85.636402,
+                                        38.6017608
+                                    ],
+                                    [
+                                        -85.6363005,
+                                        38.6017253
+                                    ],
+                                    [
+                                        -85.6361552,
+                                        38.6017007
+                                    ],
+                                    [
+                                        -85.6359362,
+                                        38.6017096
+                                    ],
+                                    [
+                                        -85.635262,
+                                        38.6018849
+                                    ],
+                                    [
+                                        -85.6351891,
+                                        38.601884
+                                    ],
+                                    [
+                                        -85.6351315,
+                                        38.601849
+                                    ],
+                                    [
+                                        -85.6351036,
+                                        38.60178
+                                    ],
+                                    [
+                                        -85.6351049,
+                                        38.6017114
+                                    ],
+                                    [
+                                        -85.6364959,
+                                        38.5991068
+                                    ],
+                                    [
+                                        -85.6365405,
+                                        38.5990615
+                                    ],
+                                    [
+                                        -85.6366278,
+                                        38.599074
+                                    ],
+                                    [
+                                        -85.636758,
+                                        38.5991327
+                                    ],
+                                    [
+                                        -85.6370315,
+                                        38.599319
+                                    ],
+                                    [
+                                        -85.6373882,
+                                        38.5997352
+                                    ],
+                                    [
+                                        -85.6378187,
+                                        38.6001064
+                                    ],
+                                    [
+                                        -85.6385329,
+                                        38.6009044
+                                    ],
+                                    [
+                                        -85.6402315,
+                                        38.6028583
+                                    ],
+                                    [
+                                        -85.6415024,
+                                        38.6044147
+                                    ],
+                                    [
+                                        -85.6396222,
+                                        38.6054628
+                                    ],
+                                    [
+                                        -85.639481,
+                                        38.6055276
+                                    ],
+                                    [
+                                        -85.6381543,
+                                        38.6055007
+                                    ],
+                                    [
+                                        -85.6380606,
+                                        38.6054268
+                                    ]
+                                ]
+                            ]
+                        ]
+                    },
+                    "soil_strata": null,
+                    "app_user__id": "bcaad085-5c26-4fcb-996e-b7b48d627eee",
+                    "soil_samples": null,
+                    "field_by_project_id": "DATAAPI-Field-3",
+                    "field_practice_changes": [
+                        {
+                            "id": "452e1060-99cd-48fb-8cf3-da4d02204ad7",
+                            "name": "Cover cropping"
+                        }
+                    ]
+                },
+                {
+                    "id": "2b85b56d-fdc4-4c38-ac12-b5576b7a59c5",
+                    "area": {
+                        "unit": "acres",
+                        "value": 74.355
+                    },
+                    "history": [
+                        {
+                            "id": "a7187517-4470-4a13-98a3-21ca217c6ee3",
+                            "year": 2018,
+                            "event_data": [
+                                {
+                                    "id": "77950786-815b-433c-bdd1-9287531b00d1",
+                                    "event": "Till",
+                                    "event_date": "2018-05-10",
+                                    "tillage_type": "Disc",
+                                    "tillage_depth": {
+                                        "unit": "inches",
+                                        "value": 2
+                                    }
+                                },
+                                {
+                                    "id": "e3d1c551-f438-476e-85fe-bdf58d4d213e",
+                                    "event": "Till",
+                                    "event_date": "2018-12-11",
+                                    "tillage_type": "Disc",
+                                    "tillage_depth": {
+                                        "unit": "inches",
+                                        "value": 2
+                                    }
+                                },
+                                {
+                                    "id": "8529e39b-a194-4884-a204-0ba807cb55ea",
+                                    "crop": "Soybeans",
+                                    "event": "Plant",
+                                    "event_date": "2018-05-15",
+                                    "is_planting_failure": false,
+                                    "planting_failure_date": null
+                                },
+                                {
+                                    "id": "13f10ff9-3e26-4f13-ab49-b6a6bbeec248",
+                                    "event": "No fertilizer event"
+                                },
+                                {
+                                    "id": "811e30e2-5b8d-48e7-aa79-eb74f1c44a8c",
+                                    "event": "No grazing event"
+                                },
+                                {
+                                    "id": "60e936d1-4dff-4b11-a3c6-3ca3d5dd9b7b",
+                                    "event": "No drainage"
+                                },
+                                {
+                                    "id": "68cf6725-e663-4b5c-81b6-538ba8fadef9",
+                                    "event": "No cover crop event"
+                                },
+                                {
+                                    "id": "97bce3c4-afc5-4906-a3f4-18470cec0e25",
+                                    "crop": "Soybeans",
+                                    "event": "Harvest",
+                                    "yield": {
+                                        "unit": "bushels/acre",
+                                        "value": 45.00
+                                    },
+                                    "event_date": "2018-11-10",
+                                    "biomass_removed": {
+                                        "unit": "percent",
+                                        "value": null
+                                    },
+                                    "is_cutting_baling": false,
+                                    "is_biomass_removed": null,
+                                    "remaining_height_after_cutting": {
+                                        "unit": "inches",
+                                        "value": null
+                                    }
+                                },
+                                {
+                                    "id": "f56e339c-8baf-4328-8bd6-12241d454ae1",
+                                    "event": "No irrigation event"
+                                }
+                            ],
+                            "is_incomplete": false
+                        },
+                        {
+                            "id": "b5255e4f-e39e-490b-96b1-dfa456bc341a",
+                            "year": 2021,
+                            "event_data": [
+                                {
+                                    "id": "e27949af-ee1b-47fd-9d01-ba2634226c60",
+                                    "event": "No drainage"
+                                },
+                                {
+                                    "id": "a5255889-7b72-47f1-b19c-5d9c71075608",
+                                    "event": "No fertilizer event"
+                                },
+                                {
+                                    "id": "73bfb0cf-048f-4e56-afb6-3675eed933d8",
+                                    "event": "No grazing event"
+                                },
+                                {
+                                    "id": "812b4657-4c06-44fd-8a34-fed6e414bca1",
+                                    "event": "Cover crop",
+                                    "end_date": null,
+                                    "start_date": "2020-10-15",
+                                    "cover_crop_data": [
+                                        {
+                                            "percent": 100.00,
+                                            "species_name": "Cereal Rye"
+                                        }
+                                    ],
+                                    "cover_crop_seeding_rate": {
+                                        "unit": "pounds/acre",
+                                        "value": 35.00
+                                    },
+                                    "is_cover_crop_seeded_aerially": false
+                                },
+                                {
+                                    "id": "8e774efa-23d2-44dc-a6f1-440b88ea2c7a",
+                                    "event": "No till event"
+                                },
+                                {
+                                    "id": "0bec9f7e-5085-445d-bc9f-363cca77f38d",
+                                    "crop": "Soybeans",
+                                    "event": "Plant",
+                                    "event_date": "2021-05-21",
+                                    "is_planting_failure": false,
+                                    "planting_failure_date": null
+                                },
+                                {
+                                    "id": "f5f70c66-0ff7-4300-858e-2419c13202d3",
+                                    "crop": "Soybeans",
+                                    "event": "Harvest",
+                                    "yield": {
+                                        "unit": "bushels/acre",
+                                        "value": 42.00
+                                    },
+                                    "event_date": "2021-10-20",
+                                    "biomass_removed": {
+                                        "unit": "percent",
+                                        "value": null
+                                    },
+                                    "is_cutting_baling": false,
+                                    "is_biomass_removed": false,
+                                    "remaining_height_after_cutting": {
+                                        "unit": "inches",
+                                        "value": null
+                                    }
+                                },
+                                {
+                                    "id": "8671ae85-cdf4-433c-803f-60b8a33e1f35",
+                                    "event": "No irrigation event"
+                                }
+                            ],
+                            "is_incomplete": false
+                        },
+                        {
+                            "id": "8569adb3-8cc8-48af-848e-35f42068d3ac",
+                            "year": 2019,
+                            "event_data": [
+                                {
+                                    "id": "a216a20b-8bac-4e44-af84-9dbfe07cf884",
+                                    "event": "Till",
+                                    "event_date": "2019-11-27",
+                                    "tillage_type": "Disc",
+                                    "tillage_depth": {
+                                        "unit": "inches",
+                                        "value": 2
+                                    }
+                                },
+                                {
+                                    "id": "b831d0ba-669b-4294-ac1c-a6e979b9f1d4",
+                                    "event": "No drainage"
+                                },
+                                {
+                                    "id": "e5d8b0ea-1176-469a-8bea-bf9a5c966451",
+                                    "event": "No fertilizer event"
+                                },
+                                {
+                                    "id": "005fb524-dece-4e64-9449-8195a2679ff0",
+                                    "crop": "Soybeans",
+                                    "event": "Plant",
+                                    "event_date": "2019-07-05",
+                                    "is_planting_failure": false,
+                                    "planting_failure_date": null
+                                },
+                                {
+                                    "id": "205e613d-1019-41b2-b079-8b54c3505412",
+                                    "event": "No irrigation event"
+                                },
+                                {
+                                    "id": "e392c8b6-9e99-462e-8c0c-4a7448240950",
+                                    "event": "No cover crop event"
+                                },
+                                {
+                                    "id": "bfb467ff-9e97-4b75-9e5c-b921b3c65756",
+                                    "crop": "Soybeans",
+                                    "event": "Harvest",
+                                    "yield": {
+                                        "unit": "bushels/acre",
+                                        "value": 41.00
+                                    },
+                                    "event_date": "2019-10-26",
+                                    "biomass_removed": {
+                                        "unit": "percent",
+                                        "value": null
+                                    },
+                                    "is_cutting_baling": false,
+                                    "is_biomass_removed": false,
+                                    "remaining_height_after_cutting": {
+                                        "unit": "inches",
+                                        "value": null
+                                    }
+                                },
+                                {
+                                    "id": "d48d1538-6816-40fb-85cc-2435a281ebb4",
+                                    "event": "No grazing event"
+                                }
+                            ],
+                            "is_incomplete": false
+                        },
+                        {
+                            "id": "80f7aa91-b648-47ad-bcb6-f7840780a946",
+                            "year": 2020,
+                            "event_data": [
+                                {
+                                    "id": "8f61700a-903e-45b8-87c4-10aa5f95b911",
+                                    "event": "No grazing event"
+                                },
+                                {
+                                    "id": "de8b6750-4556-46c2-8ad6-e7d2c959085a",
+                                    "crop": "Corn",
+                                    "event": "Harvest",
+                                    "yield": {
+                                        "unit": "bushels/acre",
+                                        "value": 103.00
+                                    },
+                                    "event_date": "2020-11-16",
+                                    "biomass_removed": {
+                                        "unit": "percent",
+                                        "value": null
+                                    },
+                                    "is_cutting_baling": false,
+                                    "is_biomass_removed": false,
+                                    "remaining_height_after_cutting": {
+                                        "unit": "inches",
+                                        "value": null
+                                    }
+                                },
+                                {
+                                    "id": "b164e55d-4d0c-4d20-9342-f36ba6c344ff",
+                                    "event": "No cover crop event"
+                                },
+                                {
+                                    "id": "aca70613-a304-4318-8900-71e97aab9a53",
+                                    "event": "No drainage"
+                                },
+                                {
+                                    "id": "da46a202-e84a-4dd7-8f71-03a9ef98e477",
+                                    "event": "No irrigation event"
+                                },
+                                {
+                                    "id": "90e781d1-85a5-4edb-9da8-9fc9abe134d2",
+                                    "event": "No till event"
+                                },
+                                {
+                                    "id": "b5e5f338-cf33-408c-b4f8-1460ee7deea3",
+                                    "rate": {
+                                        "unit": "gal/acre",
+                                        "value": 21.85
+                                    },
+                                    "type": "Liquid",
+                                    "event": "Fertilizer",
+                                    "is_custom": false,
+                                    "is_manure": false,
+                                    "event_date": "2020-06-04",
+                                    "fertilizer_name": "Urea Ammonium Nitrate 32% (UAN-32)",
+                                    "injection_depth": {
+                                        "unit": "inches",
+                                        "value": null
+                                    },
+                                    "application_name": "Surface banded",
+                                    "is_urease_inhibitor_used": null,
+                                    "is_time_release_product_used": false,
+                                    "is_nitrification_inhibitor_used": false,
+                                    "application_method_other_description": null
+                                },
+                                {
+                                    "id": "3b4d429f-ad3d-4512-9a8e-e1a44feac6df",
+                                    "crop": "Corn",
+                                    "event": "Plant",
+                                    "event_date": "2020-06-03",
+                                    "is_planting_failure": false,
+                                    "planting_failure_date": null
+                                },
+                                {
+                                    "id": "1ce0bd69-acdc-442f-a397-64d58155a7cf",
+                                    "rate": {
+                                        "unit": "gal/acre",
+                                        "value": 29.50
+                                    },
+                                    "type": "Liquid",
+                                    "event": "Fertilizer",
+                                    "is_custom": false,
+                                    "is_manure": false,
+                                    "event_date": "2020-07-08",
+                                    "fertilizer_name": "Urea Ammonium Nitrate 32% (UAN-32)",
+                                    "injection_depth": {
+                                        "unit": "inches",
+                                        "value": null
+                                    },
+                                    "application_name": "Surface banded",
+                                    "is_urease_inhibitor_used": null,
+                                    "is_time_release_product_used": false,
+                                    "is_nitrification_inhibitor_used": false,
+                                    "application_method_other_description": null
+                                }
+                            ],
+                            "is_incomplete": false
+                        }
+                    ],
+                    "boundary": {
+                        "type": "MultiPolygon",
+                        "coordinates": [
+                            [
+                                [
+                                    [
+                                        -85.6892384,
+                                        38.5961733
+                                    ],
+                                    [
+                                        -85.6894357,
+                                        38.595948
+                                    ],
+                                    [
+                                        -85.6905547,
+                                        38.5953676
+                                    ],
+                                    [
+                                        -85.6910221,
+                                        38.5955433
+                                    ],
+                                    [
+                                        -85.6911627,
+                                        38.595831
+                                    ],
+                                    [
+                                        -85.6912744,
+                                        38.5961069
+                                    ],
+                                    [
+                                        -85.6913473,
+                                        38.5961077
+                                    ],
+                                    [
+                                        -85.6914454,
+                                        38.5963262
+                                    ],
+                                    [
+                                        -85.6915473,
+                                        38.5963388
+                                    ],
+                                    [
+                                        -85.6918762,
+                                        38.5966973
+                                    ],
+                                    [
+                                        -85.6920782,
+                                        38.596814
+                                    ],
+                                    [
+                                        -85.6923657,
+                                        38.5970461
+                                    ],
+                                    [
+                                        -85.6920559,
+                                        38.5972372
+                                    ],
+                                    [
+                                        -85.6920389,
+                                        38.5973743
+                                    ],
+                                    [
+                                        -85.6925991,
+                                        38.5980595
+                                    ],
+                                    [
+                                        -85.6893168,
+                                        38.599864
+                                    ],
+                                    [
+                                        -85.6889161,
+                                        38.6000582
+                                    ],
+                                    [
+                                        -85.6881951,
+                                        38.5994371
+                                    ],
+                                    [
+                                        -85.687977,
+                                        38.5994003
+                                    ],
+                                    [
+                                        -85.6877722,
+                                        38.5994324
+                                    ],
+                                    [
+                                        -85.6876558,
+                                        38.5994196
+                                    ],
+                                    [
+                                        -85.6875083,
+                                        38.5995095
+                                    ],
+                                    [
+                                        -85.6873629,
+                                        38.599485
+                                    ],
+                                    [
+                                        -85.6872783,
+                                        38.5993238
+                                    ],
+                                    [
+                                        -85.6871925,
+                                        38.5992313
+                                    ],
+                                    [
+                                        -85.6868528,
+                                        38.5994678
+                                    ],
+                                    [
+                                        -85.686501,
+                                        38.5995669
+                                    ],
+                                    [
+                                        -85.6863141,
+                                        38.599416
+                                    ],
+                                    [
+                                        -85.6863331,
+                                        38.5991759
+                                    ],
+                                    [
+                                        -85.6864539,
+                                        38.5989483
+                                    ],
+                                    [
+                                        -85.686181,
+                                        38.5987164
+                                    ],
+                                    [
+                                        -85.6859186,
+                                        38.5987134
+                                    ],
+                                    [
+                                        -85.6858524,
+                                        38.5983465
+                                    ],
+                                    [
+                                        -85.6859832,
+                                        38.5983708
+                                    ],
+                                    [
+                                        -85.6863483,
+                                        38.5983406
+                                    ],
+                                    [
+                                        -85.6868345,
+                                        38.5980714
+                                    ],
+                                    [
+                                        -85.6866516,
+                                        38.5977031
+                                    ],
+                                    [
+                                        -85.6870349,
+                                        38.5974785
+                                    ],
+                                    [
+                                        -85.6881707,
+                                        38.5967703
+                                    ],
+                                    [
+                                        -85.6892165,
+                                        38.5961983
+                                    ],
+                                    [
+                                        -85.6892384,
+                                        38.5961733
+                                    ]
+                                ]
+                            ],
+                            [
+                                [
+                                    [
+                                        -85.6853833,
+                                        38.6020778
+                                    ],
+                                    [
+                                        -85.6843827,
+                                        38.6025587
+                                    ],
+                                    [
+                                        -85.6837626,
+                                        38.6029752
+                                    ],
+                                    [
+                                        -85.6832614,
+                                        38.6032671
+                                    ],
+                                    [
+                                        -85.6829485,
+                                        38.6028287
+                                    ],
+                                    [
+                                        -85.682635,
+                                        38.6024246
+                                    ],
+                                    [
+                                        -85.6820189,
+                                        38.6018226
+                                    ],
+                                    [
+                                        -85.681462,
+                                        38.6011754
+                                    ],
+                                    [
+                                        -85.6809727,
+                                        38.6007915
+                                    ],
+                                    [
+                                        -85.6818574,
+                                        38.6002955
+                                    ],
+                                    [
+                                        -85.682554,
+                                        38.6004781
+                                    ],
+                                    [
+                                        -85.6835444,
+                                        38.6005441
+                                    ],
+                                    [
+                                        -85.683619,
+                                        38.6004558
+                                    ],
+                                    [
+                                        -85.6838671,
+                                        38.6004471
+                                    ],
+                                    [
+                                        -85.6844487,
+                                        38.6005452
+                                    ],
+                                    [
+                                        -85.6851487,
+                                        38.6005416
+                                    ],
+                                    [
+                                        -85.6858805,
+                                        38.6004011
+                                    ],
+                                    [
+                                        -85.6861032,
+                                        38.6001861
+                                    ],
+                                    [
+                                        -85.6872747,
+                                        38.5999246
+                                    ],
+                                    [
+                                        -85.6884587,
+                                        38.5997777
+                                    ],
+                                    [
+                                        -85.6889053,
+                                        38.6000802
+                                    ],
+                                    [
+                                        -85.6872251,
+                                        38.6010456
+                                    ],
+                                    [
+                                        -85.6863135,
+                                        38.6014474
+                                    ],
+                                    [
+                                        -85.6853729,
+                                        38.6020682
+                                    ],
+                                    [
+                                        -85.6853833,
+                                        38.6020778
+                                    ]
+                                ]
+                            ],
+                            [
+                                [
+                                    [
+                                        -85.6833855,
+                                        38.5994388
+                                    ],
+                                    [
+                                        -85.6851783,
+                                        38.5984336
+                                    ],
+                                    [
+                                        -85.6862225,
+                                        38.5996439
+                                    ],
+                                    [
+                                        -85.6860273,
+                                        38.5999507
+                                    ],
+                                    [
+                                        -85.6856584,
+                                        38.6001869
+                                    ],
+                                    [
+                                        -85.6854411,
+                                        38.6001043
+                                    ],
+                                    [
+                                        -85.6850608,
+                                        38.6001687
+                                    ],
+                                    [
+                                        -85.6849477,
+                                        38.5999729
+                                    ],
+                                    [
+                                        -85.6843623,
+                                        38.6000807
+                                    ],
+                                    [
+                                        -85.6841916,
+                                        38.5998499
+                                    ],
+                                    [
+                                        -85.6839105,
+                                        38.6000642
+                                    ],
+                                    [
+                                        -85.6835916,
+                                        38.5999576
+                                    ],
+                                    [
+                                        -85.6835246,
+                                        38.5996364
+                                    ],
+                                    [
+                                        -85.6833855,
+                                        38.5994388
+                                    ]
+                                ]
+                            ]
+                        ]
+                    },
+                    "soil_strata": null,
+                    "app_user__id": "bcaad085-5c26-4fcb-996e-b7b48d627eee",
+                    "soil_samples": null,
+                    "field_by_project_id": "DATAAPI-Field-4",
+                    "field_practice_changes": [
+                        {
+                            "id": "452e1060-99cd-48fb-8cf3-da4d02204ad7",
+                            "name": "Cover cropping"
+                        }
+                    ]
+                }
+            ],
+            "status": "In-progress",
+            "submitted_at": null,
+            "year_enrolled": 2021,
+            "has_self_certified": false,
+            "user_by_project_id": "DATAAPI-Producer-1",
+            "crop_module_rejected_at": null,
+            "crop_module_reviewed_at": null,
+            "crop_module_submitted_at": null,
+            "has_agreed_to_producer_agreement": null
+        }
+    ],
+    "soil_measurements": null
+}
