@@ -7,5 +7,5 @@ url = "https://gql.esmcportal.org/api/rest/project_names"
 header = {'x-hasura-admin-secret': 'EnterSecret'}
 # call API
 r = requests.get(url, headers=header)
-print(r.text)
+print(r.json())
 
