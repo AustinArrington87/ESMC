@@ -2,7 +2,7 @@ import requests
 import json
 
 # load JSON file 
-loadData = open("dndc_test.json", 'r')
+loadData = open("test.json", 'r')
 dicData = json.loads(loadData.read())
 print(dicData)
 
