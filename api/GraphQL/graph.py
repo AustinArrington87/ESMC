@@ -1,20 +1,16 @@
 import requests
 import json
 
-# make post request to Project Names GraphQL Endpoint
+# Get Project abbreviations 
 url = "https://gql.esmcportal.org/api/rest/project_names"
 # add API credentials
-header = {'x-hasura-admin-secret': 'D2FwLafuZdMQuDue7gv66xkD8xuSgW'}
+header = {'x-hasura-admin-secret': 'EnterAPIKey'}
 # call API
 r = requests.get(url, headers=header)
 print(r.json())
 
-
-url2 = "https://gql.esmcportal.org/api/rest/project_names_abbr"
+# get field data for GMP project 
+url2 = "https://gql.esmcportal.org/api/rest/fields"
 payload = {'abbr': 'GMP'}
 r = requests.get(url2, headers=header, params=payload)
 print(r.json())
-
-# url2 = "https://gql.esmcportal.org/api/rest/project_names_abbr?abbr=GMP"
-# r = requests.get(url2, headers=header)
-# print(r.json())
