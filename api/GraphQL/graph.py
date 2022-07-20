@@ -38,18 +38,28 @@ print("Producer: ", farmerId)
 print("Number of Fields: ", len(fields))
 print("Total Acreage: ", sum(acreageList))
 
+# get enrollment year for field 
+url3 = "https://gql.esmcportal.org/api/rest/get_enrollment_year" 
 pracChanges = []
 # get practice change info for a single field 
-url3 = "https://gql.esmcportal.org/api/rest/getFieldPracticeChanges"
+url4 = "https://gql.esmcportal.org/api/rest/getFieldPracticeChanges"
 for i in fieldIdList:
+	payload = {'fieldId': i}
+	enrollment_obj = requests.get(url3, headers=header, params=payload)
+	enrollment_year = enrollment_obj.json()['esmcFarmerProjectField'][0]['farmer_project']['enrollment_year']
+	proj_name = enrollment_obj.json()['esmcFarmerProjectField'][0]['farmer_project']['project']['name']
 	pracChangeDic = {}
-	payload = {'fieldId': i,'year': '2021'}
-	r = requests.get(url3, headers=header, params=payload)
+	# pass in enrollment year 
+	payload = {'fieldId': i,'year': enrollment_year}
+	r = requests.get(url4, headers=header, params=payload)
 	#print(r.json())
 	pracChangeDic['id'] = i
 	pracChangeDic['pracChange'] = r.json()['practiceChanges']
+	pracChangeDic['project'] = proj_name
+	# now put in enrollment year 
 	pracChanges.append(pracChangeDic)
+
 
 print("Practice Changes by Field")
 for prac in pracChanges:
-	print(prac['id'], " | ", prac['pracChange'])
+	print(prac['id'], " | ", prac['pracChange'], " | ", prac['project'])
