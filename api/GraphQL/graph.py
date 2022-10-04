@@ -2,16 +2,16 @@ import requests
 import json
 
 # Get Project abbreviations 
-url = "https://gql.esmcportal.org/api/rest/project_names"
+url = "https://graphql.ecoharvest.ag/api/rest/project_names"
 # add API credentials
-header = {'x-hasura-admin-secret': 'EnterAPIKey'}
+header = {'x-hasura-admin-secret': 'EnterSecretHere'}
 # call API
 r = requests.get(url, headers=header)
-#print(r.json())
+print(r.json())
 
 # get field data for GMP project 
-url2 = "https://gql.esmcportal.org/api/rest/fields"
-payload = {'abbr': 'GMP'}
+url2 = "https://graphql.ecoharvest.ag/api/rest/fields"
+payload = {'abbr': 'SCT'}
 r = requests.get(url2, headers=header, params=payload)
 #print(r.json())
 fieldDic1 = r.json()['esmcProject'][0]
@@ -33,16 +33,17 @@ for field in fields:
 #print(fieldIdList)
 # sum field acres 
 print("Project Name: ", projectName)
+print("FarmerID: ", farmerId)
 print("Current Enrollment Year: ", enrollmentYear)
 print("Producer: ", farmerId)
 print("Number of Fields: ", len(fields))
 print("Total Acreage: ", sum(acreageList))
 
 # get enrollment year for field 
-url3 = "https://gql.esmcportal.org/api/rest/get_enrollment_year" 
+url3 = "https://graphql.ecoharvest.ag/api/rest/get_enrollment_year" 
 pracChanges = []
 # get practice change info for a single field 
-url4 = "https://gql.esmcportal.org/api/rest/getFieldPracticeChanges"
+url4 = "https://graphql.ecoharvest.ag/api/rest/getFieldPracticeChanges"
 for i in fieldIdList:
 	payload = {'fieldId': i}
 	enrollment_obj = requests.get(url3, headers=header, params=payload)
@@ -63,3 +64,9 @@ for i in fieldIdList:
 print("Practice Changes by Field")
 for prac in pracChanges:
 	print(prac['id'], " | ", prac['pracChange'], " | ", prac['project'])
+
+
+
+
+
+
