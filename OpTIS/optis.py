@@ -9,7 +9,7 @@ def unique(list1):
 # define data frames from MRV and OpTIS
 df_mrv = pd.read_csv('mrv_data.csv', usecols = ['project_name', 'producer_name', 'id', 'field_name', 
 	'initial_year', 'season', 'practice_name', 'crop_name'])
-df_opt = pd.read_csv('optis_data.csv', usecols = ['Name', 'Id', 'year', 'cover_crop', 'conf_index_cover_crop', 
+df_opt = pd.read_csv('optis_data.csv', usecols = ['Name', 'Id', 'source', 'year', 'cover_crop', 'conf_index_cover_crop', 
 	'fall_till_class', 'conf_index_fall_res', 'spring_till_class', 'conf_index_spring_res', 'name'])
 
 #pd.options.display.max_rows = 9999
@@ -34,31 +34,31 @@ project_list = projects.to_list()
 project_list_unique = unique(project_list)
 print(project_list_unique)
 
-# isolate Benson Hills project 
+### Isolate a project --> Benson Hills 
+
+# isolate Benson Hills MRV project 
 Benson_Hill = df_mrv.loc[df_mrv['project_name'] == 'Benson Hill']
-print(Benson_Hill)
+#print(Benson_Hill)
 # only look at rows where there is not a NULL in practice_name
 Benson_Hill_prac = Benson_Hill[Benson_Hill['practice_name'] != '[NULL]']
-print(Benson_Hill_prac)
+#print(Benson_Hill_prac)
+# now isolate frame by year 
+Benson_Hill_2021 = Benson_Hill_prac[Benson_Hill_prac['season'] == 2021]
+print(Benson_Hill_2021)
 
 
 ##### OpTIS Data #####
-print(df_opt)
+#print(df_opt)
+Benson_Hill_Optis = df_opt.loc[df_opt['source'] == 'Benson Hill 2021 Fields']
+#print(Benson_Hill_Optis)
+# isolate frame by year
+Benson_Hill_Optis_2021 = Benson_Hill_Optis[Benson_Hill_Optis['year'] == 2021]
+print(Benson_Hill_Optis_2021)
 
+# now check ids 
+#df_new[df_new['l_ext'].isin([31, 22, 30, 25, 64])]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#df1.merge(df2, left_on='objectdesc', right_on='objdescription')[['Content', 'objectdesc', 'TS_id', 'idname']]
+#Benson_Hill_prac.merge(Benson_Hill_Optis, left_on="id", right_on='Id')[['project_name', 'producer_name', 'id', 'field_name', 'season', 'practice_name', 'crop_name']]
 
 
