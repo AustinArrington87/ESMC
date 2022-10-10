@@ -55,10 +55,20 @@ Benson_Hill_Optis = df_opt.loc[df_opt['source'] == 'Benson Hill 2021 Fields']
 Benson_Hill_Optis_2021 = Benson_Hill_Optis[Benson_Hill_Optis['year'] == 2021]
 print(Benson_Hill_Optis_2021)
 
-# now check ids 
+# check ids 
 #df_new[df_new['l_ext'].isin([31, 22, 30, 25, 64])]
 
 #df1.merge(df2, left_on='objectdesc', right_on='objdescription')[['Content', 'objectdesc', 'TS_id', 'idname']]
 #Benson_Hill_prac.merge(Benson_Hill_Optis, left_on="id", right_on='Id')[['project_name', 'producer_name', 'id', 'field_name', 'season', 'practice_name', 'crop_name']]
+
+BH_2021_Merged = Benson_Hill_2021.merge(Benson_Hill_Optis_2021, left_on="id", right_on='Id')[['project_name', 'producer_name', 'id', 'field_name', 
+	'initial_year', 'season', 'practice_name', 'crop_name', 'cover_crop', 'conf_index_cover_crop', 
+	'fall_till_class', 'conf_index_fall_res', 'spring_till_class', 'conf_index_spring_res', 'name']]
+
+
+print(BH_2021_Merged)
+
+# export DataFrame to CSV
+BH_2021_Merged.to_csv('BH_2021_Merged.csv', encoding='utf-8')
 
 
