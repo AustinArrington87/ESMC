@@ -65,10 +65,25 @@ BH_2021_Merged = Benson_Hill_2021.merge(Benson_Hill_Optis_2021, left_on="id", ri
 	'initial_year', 'season', 'practice_name', 'crop_name', 'cover_crop', 'conf_index_cover_crop', 
 	'fall_till_class', 'conf_index_fall_res', 'spring_till_class', 'conf_index_spring_res', 'name']]
 
-
 print(BH_2021_Merged)
-
 # export DataFrame to CSV
-BH_2021_Merged.to_csv('BH_2021_Merged.csv', encoding='utf-8')
+#BH_2021_Merged.to_csv('BH_2021_Merged.csv', encoding='utf-8')
+
+# Export CSV of all years (2021-2015), Merging MRV and OpTIS data for Benson Hills project 
+BH_AllYears_Merged = Benson_Hill_prac.merge(Benson_Hill_Optis, left_on="id", right_on='Id')[['project_name', 'producer_name', 'id', 'field_name', 
+	'initial_year', 'season', 'practice_name', 'crop_name', 'cover_crop', 'conf_index_cover_crop', 
+	'fall_till_class', 'conf_index_fall_res', 'spring_till_class', 'conf_index_spring_res', 'name']]
+print(BH_AllYears_Merged)
+BH_AllYears_Merged.to_csv('BH_AllYears_Merged.csv', encoding='utf-8')
+
+# Author: Austin Arrington
+# Copyright Ecosystem Services Market Consoritum (ESMC) 2022 
+
+
+
+
+
+
+
 
 
