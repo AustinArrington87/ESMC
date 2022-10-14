@@ -2,14 +2,19 @@ import csv
 import pandas as pd
 import numpy as np
 
-
-
 project_years = [2021, 2020, 2019, 2018]
+optis_lookback = [2017, 2016, 2015]
 
 # Load Data
 file1 = 'mrv_data.csv'
 file2 = 'optis_data.csv'
 project_name = "Benson_Hill"
+
+# dump your merged MRV-Optis data frames here 
+dataBucket = []
+
+# for additional OpTIS lookback
+optisLookback = []
 
 def unique(list1):
 	x = np.array(list1)
@@ -57,13 +62,37 @@ def MergeDataByYear (season, project, mrv_file, opt_file):
 	'initial_year', 'year', 'practice_name', 'crop_name', 'cover_crop', 'conf_index_cover_crop', 
 	'fall_till_class', 'conf_index_fall_res', 'spring_till_class', 'conf_index_spring_res', 'name']]
 
+	dataBucket.append(MRV_Opt_Merged)
+	# export CSV
 	MRV_Opt_Merged.to_csv(project+'_Merged_'+str(season)+'.csv', encoding='utf-8')
 
+def OPT (season, project, opt_file):
 
-# call function 
+	df_opt = pd.read_csv(opt_file, usecols = ['Name', 'Id', 'source', 'year', 'cover_crop', 'conf_index_cover_crop', 
+	'fall_till_class', 'conf_index_fall_res', 'spring_till_class', 'conf_index_spring_res', 'name'])
 
+	# isolate Benson Hills MRV project 
+	if project == "Benson_Hill":
+		opt_projName = "Benson Hill 2021 Fields"
+
+	OPTprojectFrame = df_opt.loc[df_opt['source'] == opt_projName]
+	OPTprojFrameByYear = OPTprojectFrame[OPTprojectFrame['year'] == season]
+
+	print(OPTprojFrameByYear)
+	optisLookback.append(OPTprojFrameByYear)
+	OPTprojFrameByYear.to_csv(project+'_OptisLookback_'+str(season)+'.csv', encoding='utf-8')
+
+# call function and export CSVs 
 for year in project_years:
 	MergeDataByYear(year, project_name, file1, file2)
+
+print(dataBucket)
+#print(len(dataBucket))
+
+# OpTIS lookback 
+for year in optis_lookback:
+	OPT(year, project_name, file2)
+
 
 
 # Copyright 2022 ESMC
