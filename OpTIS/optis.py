@@ -4,6 +4,9 @@ import numpy as np
 
 project_years = [2021, 2020, 2019, 2018]
 optis_lookback = [2017, 2016, 2015]
+field_ids = []
+crops = []
+projects = []
 
 # Load Data
 file1 = 'mrv_data.csv'
@@ -38,6 +41,7 @@ def MergeDataByYear (season, project, mrv_file, opt_file):
 	id_list = ids.to_list()
 	id_list_unique = unique(id_list)
 	print(id_list_unique)
+	field_ids.append(id_list_unique)
 
 	# projects 
 	projects = df_mrv['project_name']
@@ -55,8 +59,8 @@ def MergeDataByYear (season, project, mrv_file, opt_file):
 	OPTprojectFrame = df_opt.loc[df_opt['source'] == opt_projName]
 	OPTprojFrameByYear = OPTprojectFrame[OPTprojectFrame['year'] == season]
 
-	print(MRVprojFrameByYear)
-	print(OPTprojFrameByYear)
+	#print(MRVprojFrameByYear)
+	#print(OPTprojFrameByYear)
 
 	MRV_Opt_Merged = MRVprojFrameByYear.merge(OPTprojFrameByYear, left_on="id", right_on='Id')[['project_name', 'producer_name', 'id', 'field_name', 
 	'initial_year', 'year', 'practice_name', 'crop_name', 'cover_crop', 'conf_index_cover_crop', 
@@ -64,7 +68,7 @@ def MergeDataByYear (season, project, mrv_file, opt_file):
 
 	dataBucket.append(MRV_Opt_Merged)
 	# export CSV
-	MRV_Opt_Merged.to_csv(project+'_Merged_'+str(season)+'.csv', encoding='utf-8')
+	#MRV_Opt_Merged.to_csv(project+'_Merged_'+str(season)+'.csv', encoding='utf-8')
 
 def OPT (season, project, opt_file):
 
@@ -78,21 +82,40 @@ def OPT (season, project, opt_file):
 	OPTprojectFrame = df_opt.loc[df_opt['source'] == opt_projName]
 	OPTprojFrameByYear = OPTprojectFrame[OPTprojectFrame['year'] == season]
 
-	print(OPTprojFrameByYear)
+	#print(OPTprojFrameByYear)
 	optisLookback.append(OPTprojFrameByYear)
-	OPTprojFrameByYear.to_csv(project+'_OptisLookback_'+str(season)+'.csv', encoding='utf-8')
+	#OPTprojFrameByYear.to_csv(project+'_OptisLookback_'+str(season)+'.csv', encoding='utf-8')
 
 # call function and export CSVs 
 for year in project_years:
 	MergeDataByYear(year, project_name, file1, file2)
 
-print(dataBucket)
+#print(dataBucket)
 #print(len(dataBucket))
 
 # OpTIS lookback 
 for year in optis_lookback:
 	OPT(year, project_name, file2)
 
+#print(optis_lookback)
+# now go through the data frames and run OpTIS checks 
+# dump your merged MRV-Optis data frames here 
 
+# enrollment year data, index 0 in dataBucket 
+# 2021 year
+dataEnrollment = dataBucket[0]
+# 2020 (2021 minus 1)
+dataEnrollmentMin1 = dataBucket[1]
+
+print(dataEnrollment)
+print(dataEnrollmentMin1)
+
+print(dataEnrollment['id'])
+print(dataEnrollment['practice_name'])
+print(dataEnrollment['crop_name'])
+
+# for i in field_ids:
+# 	if dataEnrollment['id'] == i:
+# 		print(i)
 
 # Copyright 2022 ESMC
