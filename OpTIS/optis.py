@@ -97,25 +97,76 @@ for year in project_years:
 for year in optis_lookback:
 	OPT(year, project_name, file2)
 
-#print(optis_lookback)
-# now go through the data frames and run OpTIS checks 
-# dump your merged MRV-Optis data frames here 
+# normalize data 
+for d in dataBucket:
+	# replace "Corn, Grain" with "Corn" in MRV data
+	d['crop_name'] = d['crop_name'].str.replace('Corn, Grain', 'Corn')
 
 # enrollment year data, index 0 in dataBucket 
 # 2021 year
 dataEnrollment = dataBucket[0]
 # 2020 (2021 minus 1)
 dataEnrollmentMin1 = dataBucket[1]
+#2019 (2021 minus 2)
+dataEnrollmentMin2 = dataBucket[2]
+#2018 (2021 minus 3)
+dataEnrollmentMin3 = dataBucket[3]
 
 print(dataEnrollment)
 print(dataEnrollmentMin1)
+print(dataEnrollmentMin2)
+print(dataEnrollmentMin3)
 
-print(dataEnrollment['id'])
-print(dataEnrollment['practice_name'])
-print(dataEnrollment['crop_name'])
+mrv_CDL_errors = []
+# check if crops are equal from MRV to Optis / CDL 
+mrvCDL_0 = dataEnrollment['crop_name'].equals(dataEnrollment['name'])
+mrvCDL_1 = dataEnrollmentMin1['crop_name'].equals(dataEnrollmentMin1['name'])
+mrvCDL_2 = dataEnrollmentMin2['crop_name'].equals(dataEnrollmentMin2['name'])
+mrvCDL_3 = dataEnrollmentMin3['crop_name'].equals(dataEnrollmentMin3['name'])
 
-# for i in field_ids:
-# 	if dataEnrollment['id'] == i:
-# 		print(i)
+if mrvCDL_0 == True:
+	print("2021 MRV and CDL Pass Check")
+else:
+	print("2021 MRV and CDL Fail Check")
+	mrv_CDL_errors.append(project_years[0])
+if mrvCDL_1 == True:
+	print("2020 MRV and CDL Pass Check")
+else:
+	print("2020 MRV and CDL Fail Check")
+	mrv_CDL_errors.append(project_years[1])
+if mrvCDL_2 == True:
+	print("2019 MRV and CDL Pass Check")
+else:
+	print("2019 MRV and CDL Fail Check")
+	mrv_CDL_errors.append(project_years[2])
+if mrvCDL_3 == True:
+	print("2018 MRV and CDL Pass Check")
+else:
+	print("2018 MRV and CDL Fail Check")
+	mrv_CDL_errors.append(project_years[3])
+
+#print(mrv_CDL_errors)
+
+# check when is last year crop grown 
+cropYearMin1 = dataEnrollment['crop_name'].equals(dataEnrollmentMin1['crop_name'])
+cropYearMin2 = dataEnrollment['crop_name'].equals(dataEnrollmentMin2['crop_name'])
+cropYearMin3 = dataEnrollment['crop_name'].equals(dataEnrollmentMin3['crop_name'])
+
+if cropYearMin1 == True:
+	LastCropYear = project_years[1]
+elif cropYearMin2 == True:
+	LastCropYear = project_years[2]
+elif cropYearMin3 == True:
+	LastCropYear = project_years[3]
+else:
+	LastCropYear = None
+
+# check if full rotation was captured, and wwhat is the last year crop was grown 
+if LastCropYear == None:
+	print("Full Crop Rotation Not Captured")
+else:
+	print("Last Crop Year for Practice Change Check:", LastCropYear)
+
+# check for Null Values 
 
 # Copyright 2022 ESMC
