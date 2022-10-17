@@ -290,10 +290,7 @@ if LastCropYear == eyMin3:
 	coverCropCountLastCropYear = dataEnrollmentMin3['cover_crop'].sum()
 	bad_fields_cc.append(dataEnrollmentMin3.loc[dataEnrollmentMin3['cover_crop'] >= 1, 'id'])
 
-
 # cover crop eligibility check 
-
-
 if dataEnrollment['practice_name'].str.contains('Cover').any():
 	#print(coverCropCountLastCropYear)
 	if coverCropCountLastCropYear >= 1:
@@ -316,5 +313,4 @@ print("""
 ------------------------------------------------------------------------------ 
 """)
 
-
-# Copyright 2022 ESMC
+# Written by Austin Arrington. Copyright 2022 ESMC
