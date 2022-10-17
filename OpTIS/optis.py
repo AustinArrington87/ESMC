@@ -25,8 +25,8 @@ def unique(list1):
 
 def MergeDataByYear (season, project, mrv_file, opt_file):
 
-	df_mrv = pd.read_csv(mrv_file, usecols = ['project_name', 'producer_name', 'id', 'field_name', 
-	'initial_year', 'season', 'practice_name', 'crop_name'])
+	df_mrv = pd.read_csv(mrv_file, usecols = ['project_name', 'producer_name', 'id', 'field_name', 'acres',
+		'initial_year', 'season', 'practice_name', 'crop_name'])
 
 	df_opt = pd.read_csv(opt_file, usecols = ['Name', 'Id', 'source', 'year', 'cover_crop', 'conf_index_cover_crop', 
 	'fall_till_class', 'conf_index_fall_res', 'spring_till_class', 'conf_index_spring_res', 'name'])
@@ -63,7 +63,7 @@ def MergeDataByYear (season, project, mrv_file, opt_file):
 	#print(OPTprojFrameByYear)
 
 	MRV_Opt_Merged = MRVprojFrameByYear.merge(OPTprojFrameByYear, left_on="id", right_on='Id')[['project_name', 'producer_name', 'id', 'field_name', 
-	'initial_year', 'year', 'practice_name', 'crop_name', 'cover_crop', 'conf_index_cover_crop', 
+	'acres', 'initial_year', 'year', 'practice_name', 'crop_name', 'cover_crop', 'conf_index_cover_crop', 
 	'fall_till_class', 'conf_index_fall_res', 'spring_till_class', 'conf_index_spring_res', 'name']]
 
 	dataBucket.append(MRV_Opt_Merged)
@@ -167,6 +167,60 @@ if LastCropYear == None:
 else:
 	print("Last Crop Year for Practice Change Check:", LastCropYear)
 
-# check for Null Values 
+# check for acreage, reference field ID list 
+
+#print(field_ids)
+print(dataEnrollment['id'])
+print(dataEnrollment['acres'])
+print("Project Name: " + project_name)
+# count rows 
+row_count, col_count = dataEnrollment.shape
+# Field count
+print("Total Fields: ", row_count)
+# sum acres 
+print("Total Acres: ", dataEnrollment['acres'].sum())
+
+# sum nulls in OpTIS data. Most likely areas where cloud cover obscures satallite image
+# OpTIS Performance Analysis
+NullFallTill = dataEnrollment['fall_till_class'].isna().sum()
+NullSpringTill = dataEnrollment['spring_till_class'].isna().sum()
+percentFallTillNull = NullFallTill/row_count
+percentSpringTillNull = NullSpringTill/row_count
+print("Percent of Fields with missing 2021 Fall Tillage Estimates: " +str(percentFallTillNull*100)+"%")
+print("Percent of Fields with missing 2021 Spring Tillage Estimages: "+str(percentSpringTillNull*100)+"%")
+
+projectStatus = "Passed"
+
+if percentFallTillNull >= 0.5:
+
+	projectTillStatus = """
+
+Failed
+
+At least half of the fields are missing Fall Tillage data for the enrollment year. 
+
+"""
+
+if percentSpringTillNull >= 0.5:
+
+	projectTillStatus = """
+
+Failed
+
+At least half of the fields are missing Spring Tillage data for the enrollment year. 
+
+"""
+
+if percentSpringTillNull >= 0.5 and percentFallTillNull >= 0.5:
+
+	projectTillStatus = """
+
+Failed
+
+At least half of the fields are missing both Spring Tillage data for the enrollment year. 
+
+"""
+
+print(project_name+" OpTIS Tillage Status: " + projectTillStatus)
 
 # Copyright 2022 ESMC
