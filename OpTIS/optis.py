@@ -130,29 +130,6 @@ mrvCDL_1 = dataEnrollmentMin1['crop_name'].equals(dataEnrollmentMin1['name'])
 mrvCDL_2 = dataEnrollmentMin2['crop_name'].equals(dataEnrollmentMin2['name'])
 mrvCDL_3 = dataEnrollmentMin3['crop_name'].equals(dataEnrollmentMin3['name'])
 
-if mrvCDL_0 == True:
-	print("2021 MRV and CDL Pass Check")
-else:
-	print("2021 MRV and CDL Fail Check")
-	mrv_CDL_errors.append(project_years[0])
-if mrvCDL_1 == True:
-	print("2020 MRV and CDL Pass Check")
-else:
-	print("2020 MRV and CDL Fail Check")
-	mrv_CDL_errors.append(project_years[1])
-if mrvCDL_2 == True:
-	print("2019 MRV and CDL Pass Check")
-else:
-	print("2019 MRV and CDL Fail Check")
-	mrv_CDL_errors.append(project_years[2])
-if mrvCDL_3 == True:
-	print("2018 MRV and CDL Pass Check")
-else:
-	print("2018 MRV and CDL Fail Check")
-	mrv_CDL_errors.append(project_years[3])
-
-#print(mrv_CDL_errors)
-
 # check when is last year crop grown 
 cropYearMin1 = dataEnrollment['crop_name'].equals(dataEnrollmentMin1['crop_name'])
 cropYearMin2 = dataEnrollment['crop_name'].equals(dataEnrollmentMin2['crop_name'])
@@ -174,12 +151,6 @@ else:
 	LastCropYear = None
 
 
-# check if full rotation was captured, and wwhat is the last year crop was grown 
-if LastCropYear == None:
-	print("Full Crop Rotation Not Captured")
-else:
-	print("Last Crop Year for Practice Change Check:", LastCropYear)
-
 # check for acreage, reference field ID list 
 
 #print(field_ids)
@@ -196,6 +167,12 @@ print("Total Fields: ", row_count)
 # sum acres 
 print("Total Acres: ", dataEnrollment['acres'].sum())
 
+# check if full rotation was captured, and wwhat is the last year crop was grown 
+if LastCropYear == None:
+	print("Full Crop Rotation Not Captured")
+else:
+	print("Last Crop Year for Practice Change Check:", LastCropYear)
+
 print("Practice Changes by Field")
 print(dataEnrollment['field_name']+": "+dataEnrollment['practice_name'])
 
@@ -203,10 +180,40 @@ print(dataEnrollment['field_name']+": "+dataEnrollment['practice_name'])
 # OpTIS Performance Analysis
 NullFallTill = dataEnrollment['fall_till_class'].isna().sum()
 NullSpringTill = dataEnrollment['spring_till_class'].isna().sum()
+NullCC = dataEnrollment['cover_crop'].isna().sum()
 percentFallTillNull = NullFallTill/row_count
 percentSpringTillNull = NullSpringTill/row_count
+percentCCNull = NullCC/row_count
 print("Percent of Fields with missing 2021 Fall Tillage Estimates: " +str(percentFallTillNull*100)+"%")
 print("Percent of Fields with missing 2021 Spring Tillage Estimages: "+str(percentSpringTillNull*100)+"%")
+print("Percent of Fields with missing 2021 Cover Crop Estimages: "+str(percentCCNull*100)+"%")
+print("""
+------------------------------------------------------------------------------ 
+""")
+
+print("OpTIS CDL to MRV Crop Check")
+
+if mrvCDL_0 == True:
+	print("2021 MRV and CDL Pass Check")
+else:
+	print("2021 MRV and CDL Fail Check")
+	mrv_CDL_errors.append(project_years[0])
+if mrvCDL_1 == True:
+	print("2020 MRV and CDL Pass Check")
+else:
+	print("2020 MRV and CDL Fail Check")
+	mrv_CDL_errors.append(project_years[1])
+if mrvCDL_2 == True:
+	print("2019 MRV and CDL Pass Check")
+else:
+	print("2019 MRV and CDL Fail Check")
+	mrv_CDL_errors.append(project_years[2])
+if mrvCDL_3 == True:
+	print("2018 MRV and CDL Pass Check")
+else:
+	print("2018 MRV and CDL Fail Check")
+	mrv_CDL_errors.append(project_years[3])
+
 print("""
 ------------------------------------------------------------------------------ 
 """)
@@ -252,22 +259,25 @@ print(" OpTIS Tillage Status: " + projectTillStatus)
 print("""
 ------------------------------------------------------------------------------ 
 """)
-
+# TILLAGE and COVER CROPPING
 
 if LastCropYear == eyMin1:
 	percentFallTillNull_Prac = NullFallTillMin1/row_count
 	percentSpringTillNull_Prac = NullSpringTillMin1/row_count
 	coverCropCountLastCropYear = dataEnrollmentMin1['cover_crop'].sum()
+	bad_fields_cc.append(dataEnrollmentMin1.loc[dataEnrollmentMin1['cover_crop'] >= 1, 'id'])
 if LastCropYear == eyMin2:
 	# tillage 
 	percentFallTillNull_Prac = NullFallTillMin2/row_count
 	percentSpringTillNull_Prac = NullSpringTillMin2/row_count
 	# cover cropping
 	coverCropCountLastCropYear = dataEnrollmentMin2['cover_crop'].sum()
+	bad_fields_cc.append(dataEnrollmentMin2.loc[dataEnrollmentMin2['cover_crop'] >= 1, 'id'])
 if LastCropYear == eyMin3:
 	percentFallTillNull_Prac = NullFallTillMin3/row_count
 	percentSpringTillNull_Prac = NullSpringTillMin3/row_count
 	coverCropCountLastCropYear = dataEnrollmentMin3['cover_crop'].sum()
+	bad_fields_cc.append(dataEnrollmentMin3.loc[dataEnrollmentMin3['cover_crop'] >= 1, 'id'])
 
 
 if percentFallTillNull_Prac >= 0.5:
@@ -305,16 +315,34 @@ Fall tillage data.
 """
 
 print(" OpTIS Practice Change Eligibility: " + projectPracticeStatus)
+print("""
+------------------------------------------------------------------------------ 
+""")
 
 # cover crop check 
 
+
 if dataEnrollment['practice_name'].str.contains('Cover').any():
-	print(coverCropCountLastCropYear)
+	#print(coverCropCountLastCropYear)
+	if coverCropCountLastCropYear >= 1:
+		projectCoverCropStatus = """
+
+Failed
+
+In the last year this crop was grown OpTis flags cover crop occurence. 
+However, Cover Cropping is listed as a practice change.
+
+"""
 	#print(True)
-	#print(dataEnrollment['cover_crop'])
-	#print(dataEnrollment['cover_crop'].sum())
 
+print("OpTIS Cover Cropping Eligibility: " + projectCoverCropStatus)
+print("Fields with OpTIS / MRV incongruencies")
+for b in bad_fields_cc:
+	print(b)
 
-#print(bad_fields_cc)
+print("""
+------------------------------------------------------------------------------ 
+""")
+
 
 # Copyright 2022 ESMC
