@@ -13,6 +13,7 @@ crops = []
 projects = []
 # put the "bad fields" with historical cover crops caught in Optis, not recorded in MRV
 bad_fields_cc = []
+bad_fields_tillage = []
 
 # Load Data
 file1 = 'mrv_data.csv'
@@ -217,7 +218,7 @@ else:
 print("""
 ------------------------------------------------------------------------------ 
 """)
-
+# TILLAGE 
 projectTillStatus = "Passed"
 projectPracticeStatus = "Passed"
 projectCoverCropStatus = "Passed"
@@ -229,7 +230,6 @@ if percentFallTillNull >= 0.5:
 Failed
 
 At least half of the fields are missing Fall Tillage data for the enrollment year. 
-
 """
 
 if percentSpringTillNull >= 0.5:
@@ -239,7 +239,6 @@ if percentSpringTillNull >= 0.5:
 Failed
 
 At least half of the fields are missing Spring Tillage data for the enrollment year. 
-
 """
 
 if percentSpringTillNull >= 0.5 and percentFallTillNull >= 0.5:
@@ -248,19 +247,31 @@ if percentSpringTillNull >= 0.5 and percentFallTillNull >= 0.5:
 
 Failed
 
-At least half of the fields are missing both Spring Tillage data for the enrollment year. 
-
+At least half of the fields are missing both Spring and Fall Tillage data for the enrollment year. 
 """
 
-print(" OpTIS Tillage Status: " + projectTillStatus)
+# check for tillage practice change eligibility. If they are doing tillage reduction,
+# should not have feilds with conventional till in the practice change year 
 
+if dataEnrollment['practice_name'].str.contains('Tillage').any():
+	bad_fields_tillage.append(dataEnrollment.loc[dataEnrollment['fall_till_class'] == 1, 'id'])
+
+for b in bad_fields_tillage:
+	if b.empty == True:
+		print(" OpTIS Tillage Eligibility: " + projectTillStatus)
+	else:
+		projectTillStatus2 = """
+
+There are fields in the enrollment year with conventional tillage flagged by OpTIS, but tillage reduction
+is assigned as a practice change.  
+
+"""
+		print(" OpTIS Tillage Eligibility: " + projectTillStatus + projectTillStatus2 + bad_fields_tillage)
+###################################
 # PRACTICE CHANGE
-
 print("""
 ------------------------------------------------------------------------------ 
 """)
-# TILLAGE and COVER CROPPING
-
 if LastCropYear == eyMin1:
 	percentFallTillNull_Prac = NullFallTillMin1/row_count
 	percentSpringTillNull_Prac = NullSpringTillMin1/row_count
@@ -280,46 +291,7 @@ if LastCropYear == eyMin3:
 	bad_fields_cc.append(dataEnrollmentMin3.loc[dataEnrollmentMin3['cover_crop'] >= 1, 'id'])
 
 
-if percentFallTillNull_Prac >= 0.5:
-
-	projectPracticeStatus = """
-
-Failed
-
-In the last year this crop was grown, at least half of the fields are missing 
-Fall tillage data. 
-
-"""
-
-
-if percentSpringTillNull_Prac >= 0.5:
-
-	projectPracticeStatus = """
-
-Failed
-
-In the last year this crop was grown, at least half of the fields are missing 
-Fall tillage data. 
-
-"""
-
-if percentSpringTillNull_Prac >= 0.5 and percentFallTillNull_Prac >= 0.5:
-
-	projectPracticeStatus = """
-
-Failed
-
-In the last year this crop was grown, at least half of the fields are missing 
-Fall tillage data. 
-
-"""
-
-print(" OpTIS Practice Change Eligibility: " + projectPracticeStatus)
-print("""
------------------------------------------------------------------------------- 
-""")
-
-# cover crop check 
+# cover crop eligibility check 
 
 
 if dataEnrollment['practice_name'].str.contains('Cover').any():
@@ -336,7 +308,7 @@ However, Cover Cropping is listed as a practice change.
 	#print(True)
 
 print("OpTIS Cover Cropping Eligibility: " + projectCoverCropStatus)
-print("Fields with OpTIS / MRV incongruencies")
+print("Fields with OpTIS / MRV cover crop incongruencies")
 for b in bad_fields_cc:
 	print(b)
 
