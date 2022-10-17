@@ -2,11 +2,17 @@ import csv
 import pandas as pd
 import numpy as np
 
-project_years = [2021, 2020, 2019, 2018]
+enrollment_year = 2021
+eyMin1 = enrollment_year-1
+eyMin2 = enrollment_year-2
+eyMin3 = enrollment_year-3
+project_years = [enrollment_year, eyMin1, eyMin2, eyMin3]
 optis_lookback = [2017, 2016, 2015]
 field_ids = []
 crops = []
 projects = []
+# put the "bad fields" with historical cover crops caught in Optis, not recorded in MRV
+bad_fields_cc = []
 
 # Load Data
 file1 = 'mrv_data.csv'
@@ -154,12 +160,19 @@ cropYearMin3 = dataEnrollment['crop_name'].equals(dataEnrollmentMin3['crop_name'
 
 if cropYearMin1 == True:
 	LastCropYear = project_years[1]
+	NullFallTillMin1 = dataEnrollmentMin1['fall_till_class'].isna().sum()
+	NullSpringTillMin1 = dataEnrollmentMin1['spring_till_class'].isna().sum()
 elif cropYearMin2 == True:
 	LastCropYear = project_years[2]
+	NullFallTillMin2 = dataEnrollmentMin2['fall_till_class'].isna().sum()
+	NullSpringTillMin2 = dataEnrollmentMin2['spring_till_class'].isna().sum()
 elif cropYearMin3 == True:
 	LastCropYear = project_years[3]
+	NullFallTillMin3 = dataEnrollmentMin3['fall_till_class'].isna().sum()
+	NullSpringTillMin3 = dataEnrollmentMin3['spring_till_class'].isna().sum()
 else:
 	LastCropYear = None
+
 
 # check if full rotation was captured, and wwhat is the last year crop was grown 
 if LastCropYear == None:
@@ -172,6 +185,9 @@ else:
 #print(field_ids)
 print(dataEnrollment['id'])
 print(dataEnrollment['acres'])
+print("""
+------------------------------OpTIS Report----------------------------------- 
+""")
 print("Project Name: " + project_name)
 # count rows 
 row_count, col_count = dataEnrollment.shape
@@ -179,6 +195,9 @@ row_count, col_count = dataEnrollment.shape
 print("Total Fields: ", row_count)
 # sum acres 
 print("Total Acres: ", dataEnrollment['acres'].sum())
+
+print("Practice Changes by Field")
+print(dataEnrollment['field_name']+": "+dataEnrollment['practice_name'])
 
 # sum nulls in OpTIS data. Most likely areas where cloud cover obscures satallite image
 # OpTIS Performance Analysis
@@ -188,8 +207,13 @@ percentFallTillNull = NullFallTill/row_count
 percentSpringTillNull = NullSpringTill/row_count
 print("Percent of Fields with missing 2021 Fall Tillage Estimates: " +str(percentFallTillNull*100)+"%")
 print("Percent of Fields with missing 2021 Spring Tillage Estimages: "+str(percentSpringTillNull*100)+"%")
+print("""
+------------------------------------------------------------------------------ 
+""")
 
-projectStatus = "Passed"
+projectTillStatus = "Passed"
+projectPracticeStatus = "Passed"
+projectCoverCropStatus = "Passed"
 
 if percentFallTillNull >= 0.5:
 
@@ -221,6 +245,76 @@ At least half of the fields are missing both Spring Tillage data for the enrollm
 
 """
 
-print(project_name+" OpTIS Tillage Status: " + projectTillStatus)
+print(" OpTIS Tillage Status: " + projectTillStatus)
+
+# PRACTICE CHANGE
+
+print("""
+------------------------------------------------------------------------------ 
+""")
+
+
+if LastCropYear == eyMin1:
+	percentFallTillNull_Prac = NullFallTillMin1/row_count
+	percentSpringTillNull_Prac = NullSpringTillMin1/row_count
+	coverCropCountLastCropYear = dataEnrollmentMin1['cover_crop'].sum()
+if LastCropYear == eyMin2:
+	# tillage 
+	percentFallTillNull_Prac = NullFallTillMin2/row_count
+	percentSpringTillNull_Prac = NullSpringTillMin2/row_count
+	# cover cropping
+	coverCropCountLastCropYear = dataEnrollmentMin2['cover_crop'].sum()
+if LastCropYear == eyMin3:
+	percentFallTillNull_Prac = NullFallTillMin3/row_count
+	percentSpringTillNull_Prac = NullSpringTillMin3/row_count
+	coverCropCountLastCropYear = dataEnrollmentMin3['cover_crop'].sum()
+
+
+if percentFallTillNull_Prac >= 0.5:
+
+	projectPracticeStatus = """
+
+Failed
+
+In the last year this crop was grown, at least half of the fields are missing 
+Fall tillage data. 
+
+"""
+
+
+if percentSpringTillNull_Prac >= 0.5:
+
+	projectPracticeStatus = """
+
+Failed
+
+In the last year this crop was grown, at least half of the fields are missing 
+Fall tillage data. 
+
+"""
+
+if percentSpringTillNull_Prac >= 0.5 and percentFallTillNull_Prac >= 0.5:
+
+	projectPracticeStatus = """
+
+Failed
+
+In the last year this crop was grown, at least half of the fields are missing 
+Fall tillage data. 
+
+"""
+
+print(" OpTIS Practice Change Eligibility: " + projectPracticeStatus)
+
+# cover crop check 
+
+if dataEnrollment['practice_name'].str.contains('Cover').any():
+	print(coverCropCountLastCropYear)
+	#print(True)
+	#print(dataEnrollment['cover_crop'])
+	#print(dataEnrollment['cover_crop'].sum())
+
+
+#print(bad_fields_cc)
 
 # Copyright 2022 ESMC
