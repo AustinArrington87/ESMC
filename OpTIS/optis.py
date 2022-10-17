@@ -186,8 +186,8 @@ percentFallTillNull = NullFallTill/row_count
 percentSpringTillNull = NullSpringTill/row_count
 percentCCNull = NullCC/row_count
 print("Percent of Fields with missing 2021 Fall Tillage Estimates: " +str(percentFallTillNull*100)+"%")
-print("Percent of Fields with missing 2021 Spring Tillage Estimages: "+str(percentSpringTillNull*100)+"%")
-print("Percent of Fields with missing 2021 Cover Crop Estimages: "+str(percentCCNull*100)+"%")
+print("Percent of Fields with missing 2021 Spring Tillage Estimates: "+str(percentSpringTillNull*100)+"%")
+print("Percent of Fields with missing 2021 Cover Crop Estimates: "+str(percentCCNull*100)+"%")
 print("""
 ------------------------------------------------------------------------------ 
 """)
@@ -301,7 +301,7 @@ if dataEnrollment['practice_name'].str.contains('Cover').any():
 
 Failed
 
-In the last year this crop was grown OpTis flags cover crop occurence. 
+In the last year this crop was grown OpTis flags cover crop occurrence. 
 However, Cover Cropping is listed as a practice change.
 
 """
