@@ -56,7 +56,7 @@ def MergeDataByYear (season, project, mrv_file, opt_file):
 	project_list_unique = unique(project_list)
 	print(project_list_unique)
 
-	# isolate Benson Hills MRV project 
+	# noralize project names between OpTis and MRV 
 	if project == "Benson_Hill":
 		mrv_projName = "Benson Hill"
 		opt_projName = "Benson Hill 2021 Fields"
@@ -66,16 +66,12 @@ def MergeDataByYear (season, project, mrv_file, opt_file):
 	OPTprojectFrame = df_opt.loc[df_opt['source'] == opt_projName]
 	OPTprojFrameByYear = OPTprojectFrame[OPTprojectFrame['year'] == season]
 
-	#print(MRVprojFrameByYear)
-	#print(OPTprojFrameByYear)
-
 	MRV_Opt_Merged = MRVprojFrameByYear.merge(OPTprojFrameByYear, left_on="id", right_on='Id')[['project_name', 'producer_name', 'id', 'field_name', 
 	'acres', 'initial_year', 'year', 'practice_name', 'crop_name', 'cover_crop', 'conf_index_cover_crop', 
 	'fall_till_class', 'conf_index_fall_res', 'spring_till_class', 'conf_index_spring_res', 'name']]
 
 	dataBucket.append(MRV_Opt_Merged)
 	# export CSV
-	#MRV_Opt_Merged.to_csv(project+'_Merged_'+str(season)+'.csv', encoding='utf-8')
 
 def OPT (season, project, opt_file):
 
@@ -88,17 +84,11 @@ def OPT (season, project, opt_file):
 
 	OPTprojectFrame = df_opt.loc[df_opt['source'] == opt_projName]
 	OPTprojFrameByYear = OPTprojectFrame[OPTprojectFrame['year'] == season]
-
-	#print(OPTprojFrameByYear)
 	optisLookback.append(OPTprojFrameByYear)
-	#OPTprojFrameByYear.to_csv(project+'_OptisLookback_'+str(season)+'.csv', encoding='utf-8')
 
 # call function and export CSVs 
 for year in project_years:
 	MergeDataByYear(year, project_name, file1, file2)
-
-#print(dataBucket)
-#print(len(dataBucket))
 
 # OpTIS lookback 
 for year in optis_lookback:
@@ -151,10 +141,7 @@ elif cropYearMin3 == True:
 else:
 	LastCropYear = None
 
-
 # check for acreage, reference field ID list 
-
-#print(field_ids)
 print(dataEnrollment['id'])
 print(dataEnrollment['acres'])
 print("""
@@ -302,7 +289,6 @@ In the last year this crop was grown OpTis flags cover crop occurrence.
 However, Cover Cropping is listed as a practice change.
 
 """
-	#print(True)
 
 print("OpTIS Cover Cropping Eligibility: " + projectCoverCropStatus)
 print("Fields with OpTIS / MRV cover crop incongruencies")
