@@ -228,7 +228,6 @@ projectCoverCropStatus = "Passed"
 if percentFallTillNull >= 0.5:
 
 	projectTillStatus = """
-
 Failed
 
 At least half of the fields are missing Fall Tillage data for the enrollment year. 
@@ -245,7 +244,6 @@ At least half of the fields are missing Spring Tillage data for the enrollment y
 if percentSpringTillNull >= 0.5 and percentFallTillNull >= 0.5:
 
 	projectTillStatus = """
-
 Failed
 
 At least half of the fields are missing both Spring and Fall Tillage data for the enrollment year. 
@@ -267,15 +265,12 @@ for b in bad_fields_tillage:
 		print("There are fields in the enrollment year with conventional tillage flagged by OpTIS, but tillage reduction is assigned as a practice change.")
 		print("Fields with OpTIS / MRV tillage incongruencies")
 		print(b)
-
 ### END TILLAGE SECTION 
-
 ###################################
 # PRACTICE CHANGE - Determine when last time commodity crop was grown 
 print("""
 ------------------------------------------------------------------------------ 
 """)
-
 if LastCropYear == eyMin1:
 	percentFallTillNull_Prac = NullFallTillMin1/row_count
 	percentSpringTillNull_Prac = NullSpringTillMin1/row_count
@@ -294,7 +289,6 @@ if LastCropYear == eyMin3:
 	percentSpringTillNull_Prac = NullSpringTillMin3/row_count
 	coverCropCountLastCropYear = dataEnrollmentMin3['cover_crop'].sum()
 	bad_fields_cc.append(dataEnrollmentMin3.loc[dataEnrollmentMin3['cover_crop'] >= 1, 'id'])
-
 # cover crop eligibility check 
 if dataEnrollment['practice_name'].str.contains('Cover').any():
 	#print(coverCropCountLastCropYear)
@@ -323,7 +317,6 @@ for b in bad_fields_cc:
 	else:
 		print("Fields with OpTIS / cover crop incongruencies")
 		print(b)
-
 print("""
 ------------------------------------------------------------------------------ 
 """)
