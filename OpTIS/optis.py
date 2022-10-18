@@ -178,6 +178,18 @@ percentCCNull = NullCC/row_count
 print("Percent of Fields with missing 2021 Fall Tillage Estimates: " +str(percentFallTillNull*100)+"%")
 print("Percent of Fields with missing 2021 Spring Tillage Estimates: "+str(percentSpringTillNull*100)+"%")
 print("Percent of Fields with missing 2021 Cover Crop Estimates: "+str(percentCCNull*100)+"%")
+cc_fail = []
+till_fail = []
+print("Fields with Failed Cover Crop Confidence Index 2021-2018:")
+for d in dataBucket:
+	#print(d['conf_index_cover_crop'])
+	#print(d['conf_index_fall_res'])
+	cc_fail.append(d.loc[d['conf_index_cover_crop'] <= 70, 'id'])
+cc_fail = unique(cc_fail)
+
+percent_CC_ConfFail = len(cc_fail)/row_count
+print("Percent of Fields with Failed Cover Crop Confidence Index 2021-2018: " +str(percent_CC_ConfFail*100)+"%")
+
 print("""
 ------------------------------------------------------------------------------ 
 """)
@@ -263,11 +275,13 @@ for b in bad_fields_tillage:
 print("""
 ------------------------------------------------------------------------------ 
 """)
+
 if LastCropYear == eyMin1:
 	percentFallTillNull_Prac = NullFallTillMin1/row_count
 	percentSpringTillNull_Prac = NullSpringTillMin1/row_count
 	coverCropCountLastCropYear = dataEnrollmentMin1['cover_crop'].sum()
 	bad_fields_cc.append(dataEnrollmentMin1.loc[dataEnrollmentMin1['cover_crop'] >= 1, 'id'])
+
 if LastCropYear == eyMin2:
 	# tillage 
 	percentFallTillNull_Prac = NullFallTillMin2/row_count
