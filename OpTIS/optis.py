@@ -404,11 +404,11 @@ At least half of the fields are missing both Spring and Fall Tillage data for th
 """
 
 # check for tillage practice change eligibility. If they are doing tillage reduction,
-# should not have feilds with conventional till in the practice change year 
+# should not have feilds with conventional till in the practice change year. If confidence index >= 40 then the estimate is "reliable"
 
 if dataEnrollment['practice_name'].str.contains('Tillage').any():
-	bad_fields_tillage.append(dataEnrollment.loc[dataEnrollment['fall_till_class'] == 1, 'id'])
-	bad_fields_tillage.append(dataEnrollment.loc[dataEnrollment['spring_till_class'] == 1, 'id'])
+	bad_fields_tillage.append(dataEnrollment.loc[(dataEnrollment['fall_till_class'] == 1) & (dataEnrollment['conf_index_fall_res'] >= 40), 'id'])
+	bad_fields_tillage.append(dataEnrollment.loc[(dataEnrollment['spring_till_class'] == 1) & (dataEnrollment['conf_index_spring_res'] >= 40), 'id'])
 
 print("OpTIS Tillage Eligibility: " + projectTillStatusNull)
 
@@ -416,20 +416,22 @@ for b in bad_fields_tillage:
 	if b.empty == True:
 		pass
 	else:
-		print("There are fields in the enrollment year with conventional tillage flagged by OpTIS, but tillage reduction is assigned as a practice change.")
+		print("There are fields in the project year with conventional tillage flagged by OpTIS, but tillage reduction is assigned as a practice change.")
 		print("Fields with OpTIS / MRV tillage incongruencies")
-		print(b)
+		print(b.values)
 ### END TILLAGE SECTION 
 ###################################
 # PRACTICE CHANGE - Determine when last time commodity crop was grown 
 print("""
 ------------------------------------------------------------------------------ 
 """)
+
+# if cover crop was practice change, but cover crop is shown the last year commodity was grown (and conficence > 0.7, flag field)
 if LastCropYear == eyMin1:
 	percentFallTillNull_Prac = NullFallTillMin1/row_count
 	percentSpringTillNull_Prac = NullSpringTillMin1/row_count
 	coverCropCountLastCropYear = dataEnrollmentMin1['cover_crop'].sum()
-	bad_fields_cc.append(dataEnrollmentMin1.loc[dataEnrollmentMin1['cover_crop'] >= 1, 'id'])
+	bad_fields_cc.append(dataEnrollmentMin1.loc[(dataEnrollmentMin1['cover_crop'] >= 1) & (dataEnrollmentMin1['conf_index_cover_crop'] >= 0.7), 'id'])
 
 if LastCropYear == eyMin2:
 	# tillage 
@@ -437,12 +439,12 @@ if LastCropYear == eyMin2:
 	percentSpringTillNull_Prac = NullSpringTillMin2/row_count
 	# cover cropping
 	coverCropCountLastCropYear = dataEnrollmentMin2['cover_crop'].sum()
-	bad_fields_cc.append(dataEnrollmentMin2.loc[dataEnrollmentMin2['cover_crop'] >= 1, 'id'])
+	bad_fields_cc.append(dataEnrollmentMin2.loc[(dataEnrollmentMin2['cover_crop'] >= 1) & (dataEnrollmentMin2['conf_index_cover_crop'] >= 0.7), 'id'])
 if LastCropYear == eyMin3:
 	percentFallTillNull_Prac = NullFallTillMin3/row_count
 	percentSpringTillNull_Prac = NullSpringTillMin3/row_count
 	coverCropCountLastCropYear = dataEnrollmentMin3['cover_crop'].sum()
-	bad_fields_cc.append(dataEnrollmentMin3.loc[dataEnrollmentMin3['cover_crop'] >= 1, 'id'])
+	bad_fields_cc.append(dataEnrollmentMin3.loc[(dataEnrollmentMin3['cover_crop'] >= 1) & (dataEnrollmentMin3['conf_index_cover_crop'] >= 0.7), 'id'])
 # cover crop eligibility check 
 if dataEnrollment['practice_name'].str.contains('Cover').any():
 	#print(coverCropCountLastCropYear)
