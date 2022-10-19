@@ -452,7 +452,7 @@ if dataEnrollment['practice_name'].str.contains('Cover').any():
 		projectCoverCropStatus = """
 Failed
 
-In the last year this crop was grown, OpTis flags cover crop occurrence. 
+In the last year this crop was grown, OpTis flagged cover crop or winter commodity occurrence. 
 However, Cover Cropping is listed as a practice change.
 """
 
