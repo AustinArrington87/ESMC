@@ -320,7 +320,7 @@ if Springtill_fail2.any():
 	print(str(eyMin1)+" Fields with Failed Spring Tillage Confidence Index:")
 	print(Springtill_fail2)
 	percent_SpringTill_ConfFail = len(Springtill_fail2)/row_count
-	print("Percent of "+str(eyMin1)+" Fields with Failed Spring Tilage Confidence Index: " +str(percent_SpringTill_ConfFail *100)+"%")
+	print("Percent of "+str(eyMin1)+" Fields with Failed Spring Tillage Confidence Index: " +str(percent_SpringTill_ConfFail *100)+"%")
 	print("--------------------------------------------------------------------")
 else:
 	print("All "+str(eyMin1)+" Fields Pass Spring Tillage Confidence Index")
@@ -330,7 +330,7 @@ if Springtill_fail3.any():
 	print(str(eyMin2)+" Fields with Failed Spring Tillage Confidence Index:")
 	print(Springtill_fail3)
 	percent_SpringTill_ConfFail = len(Springtill_fail3)/row_count
-	print("Percent of "+str(eyMin2)+" Fields with Failed Spring Tilage Confidence Index: " +str(percent_SpringTill_ConfFail *100)+"%")
+	print("Percent of "+str(eyMin2)+" Fields with Failed Spring Tillage Confidence Index: " +str(percent_SpringTill_ConfFail *100)+"%")
 	print("--------------------------------------------------------------------")
 else:
 	print("All "+str(eyMin2)+" Fields Pass Spring Tillage Confidence Index")
@@ -340,7 +340,7 @@ if Springtill_fail4.any():
 	print(str(eyMin3)+" Fields with Failed Spring Tillage Confidence Index:")
 	print(Springtill_fail4)
 	percent_SpringTill_ConfFail = len(Springtill_fail4)/row_count
-	print("Percent of "+str(eyMin3)+" Fields with Failed Spring Tilage Confidence Index: " +str(percent_SpringTill_ConfFail *100)+"%")
+	print("Percent of "+str(eyMin3)+" Fields with Failed Spring Tillage Confidence Index: " +str(percent_SpringTill_ConfFail *100)+"%")
 	print("--------------------------------------------------------------------")
 else:
 	print("All "+str(eyMin3)+" Fields Pass Spring Tillage Confidence Index")
