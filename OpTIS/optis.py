@@ -163,10 +163,11 @@ if LastCropYear == None:
 else:
 	print("Last Crop Year for Practice Change Check:", LastCropYear)
 
-print("Practice Changes & Commodity Crop by Field")
-print(dataEnrollment['field_name']+" ("+dataEnrollment['id']+")"+": "+dataEnrollment['practice_name'])
-print(dataEnrollment['field_name']+" ("+dataEnrollment['id']+"): "+dataEnrollment['crop_name'])
-
+print("Practice Changes by Field")
+print(dataEnrollment['field_name'].values+" ("+dataEnrollment['id'].values+")"+": "+dataEnrollment['practice_name'].values)
+print("Commodity Crop by Field")
+print(dataEnrollment['field_name'].values+" ("+dataEnrollment['id'].values+"): "+dataEnrollment['crop_name'].values)
+print("--------------------------------------------------------------------")
 # sum nulls in OpTIS data. Most likely areas where cloud cover obscures satallite image
 # OpTIS Performance Analysis
 NullFallTill = dataEnrollment['fall_till_class'].isna().sum()
@@ -175,24 +176,177 @@ NullCC = dataEnrollment['cover_crop'].isna().sum()
 percentFallTillNull = NullFallTill/row_count
 percentSpringTillNull = NullSpringTill/row_count
 percentCCNull = NullCC/row_count
+print("NULL Values in Project Year:")
 print("Percent of Fields with missing 2021 Fall Tillage Estimates: " +str(percentFallTillNull*100)+"%")
 print("Percent of Fields with missing 2021 Spring Tillage Estimates: "+str(percentSpringTillNull*100)+"%")
 print("Percent of Fields with missing 2021 Cover Crop Estimates: "+str(percentCCNull*100)+"%")
-cc_fail = []
-till_fail = []
-print("Fields with Failed Cover Crop Confidence Index 2021-2018:")
-for d in dataBucket:
-	#print(d['conf_index_cover_crop'])
-	#print(d['conf_index_fall_res'])
-	cc_fail.append(d.loc[d['conf_index_cover_crop'] <= 70, 'id'])
-cc_fail = unique(cc_fail)
-print(cc_fail)
-percent_CC_ConfFail = len(cc_fail)/row_count
-print("Percent of Fields with Failed Cover Crop Confidence Index 2021-2018: " +str(percent_CC_ConfFail*100)+"%")
+print("--------------------------------------------------------------------")
+cc_fail1 = []
+cc_fail2 = []
+cc_fail3 = []
+cc_fail4 = []
+cc_fail1.append(dataEnrollment.loc[dataEnrollment['conf_index_cover_crop'] <= 0.7, 'id'].values)
+cc_fail2.append(dataEnrollmentMin1.loc[dataEnrollmentMin1['conf_index_cover_crop'] <= 0.7, 'id'].values)
+cc_fail3.append(dataEnrollmentMin2.loc[dataEnrollmentMin2['conf_index_cover_crop'] <= 0.7, 'id'].values)
+cc_fail4.append(dataEnrollmentMin3.loc[dataEnrollmentMin3['conf_index_cover_crop'] <= 0.7, 'id'].values)
+cc_fail1 = unique(cc_fail1)
+cc_fail2 = unique(cc_fail2)
+cc_fail3 = unique(cc_fail3)
+cc_fail4 = unique(cc_fail4)
 
-print("""
------------------------------------------------------------------------------- 
-""")
+if cc_fail1.any():
+	print(str(enrollment_year)+" Fields with Failed Cover Crop Confidence Index:")
+	print(cc_fail1)
+	percent_CC_ConfFail = len(cc_fail1)/row_count
+	print("Percent of "+str(enrollment_year)+" Fields with Failed Cover Crop Confidence Index: " +str(percent_CC_ConfFail*100)+"%")
+	print("--------------------------------------------------------------------")
+else:
+	print("All "+str(enrollment_year)+" Fields Pass Cover Crop Confidence Index")
+	print("--------------------------------------------------------------------")
+
+if cc_fail2.any():
+	print(str(eyMin1)+" Fields with Failed Cover Crop Confidence Index:")
+	print(cc_fail2)
+	percent_CC_ConfFail = len(cc_fail2)/row_count
+	print("Percent of "+str(eyMin1)+" Fields with Failed Cover Crop Confidence Index: " +str(percent_CC_ConfFail*100)+"%")
+	print("--------------------------------------------------------------------")
+else:
+	print("All "+str(eyMin1)+" Fields Pass Cover Crop Confidence Index")
+	print("--------------------------------------------------------------------")
+
+if cc_fail3.any():
+	print(str(eyMin2)+" Fields with Failed Cover Crop Confidence Index:")
+	print(cc_fail3)
+	percent_CC_ConfFail = len(cc_fail3)/row_count
+	print("Percent of "+str(eyMin2)+" Fields with Failed Cover Crop Confidence Index: " +str(percent_CC_ConfFail*100)+"%")
+	print("--------------------------------------------------------------------")
+else:
+	print("All "+str(eyMin2)+" Fields Pass Cover Crop Confidence Index")
+	print("--------------------------------------------------------------------")
+
+if cc_fail4.any():
+	print(str(eyMin3)+" Fields with Failed Cover Crop Confidence Index:")
+	print(cc_fail4)
+	percent_CC_ConfFail = len(cc_fail4)/row_count
+	print("Percent of "+str(eyMin3)+" Fields with Failed Cover Crop Confidence Index: " +str(percent_CC_ConfFail*100)+"%")
+	print("--------------------------------------------------------------------")
+else:
+	print("All "+str(eyMin3)+" Fields Pass Cover Crop Confidence Index")
+	print("--------------------------------------------------------------------")
+
+# till confidence check 
+
+Falltill_fail1 = []
+Falltill_fail2 = []
+Falltill_fail3 = []
+Falltill_fail4 = []
+Falltill_fail1.append(dataEnrollment.loc[dataEnrollment['conf_index_fall_res'] <= 40, 'id'].values)
+Falltill_fail2.append(dataEnrollmentMin1.loc[dataEnrollmentMin1['conf_index_fall_res'] <= 40, 'id'].values)
+Falltill_fail3.append(dataEnrollmentMin2.loc[dataEnrollmentMin2['conf_index_fall_res'] <= 40, 'id'].values)
+Falltill_fail4.append(dataEnrollmentMin3.loc[dataEnrollmentMin3['conf_index_fall_res'] <= 40, 'id'].values)
+Falltill_fail1 = unique(Falltill_fail1)
+Falltill_fail2 = unique(Falltill_fail2)
+Falltill_fail3 = unique(Falltill_fail3)
+Falltill_fail4 = unique(Falltill_fail4)
+
+
+if Falltill_fail1.any():
+	print(str(enrollment_year)+" Fields with Failed Fall Tillage Confidence Index:")
+	print(Falltill_fail1)
+	percent_FallTill_ConfFail = len(Falltill_fail1)/row_count
+	print("Percent of "+str(enrollment_year)+" Fields with Failed Fall Tilage Confidence Index: " +str(percent_FallTill_ConfFail *100)+"%")
+	print("--------------------------------------------------------------------")
+else:
+	print("All "+str(enrollment_year)+" Fields Pass Fall Tillage Confidence Index")
+	print("--------------------------------------------------------------------")
+
+if Falltill_fail2.any():
+	print(str(eyMin1)+" Fields with Failed Fall Tillage Confidence Index:")
+	print(Falltill_fail2)
+	percent_FallTill_ConfFail = len(Falltill_fail2)/row_count
+	print("Percent of "+str(eyMin1)+" Fields with Failed Fall Tilage Confidence Index: " +str(percent_FallTill_ConfFail *100)+"%")
+	print("--------------------------------------------------------------------")
+else:
+	print("All "+str(eyMin1)+" Fields Pass Fall Tillage Confidence Index")
+	print("--------------------------------------------------------------------")
+
+if Falltill_fail3.any():
+	print(str(eyMin2)+" Fields with Failed Fall Tillage Confidence Index:")
+	print(Falltill_fail3)
+	percent_FallTill_ConfFail = len(Falltill_fail3)/row_count
+	print("Percent of "+str(eyMin2)+" Fields with Failed Fall Tilage Confidence Index: " +str(percent_FallTill_ConfFail *100)+"%")
+	print("--------------------------------------------------------------------")
+else:
+	print("All "+str(eyMin2)+" Fields Pass Fall Tillage Confidence Index")
+	print("--------------------------------------------------------------------")
+
+if Falltill_fail4.any():
+	print(str(eyMin3)+" Fields with Failed Fall Tillage Confidence Index:")
+	print(Falltill_fail4)
+	percent_FallTill_ConfFail = len(Falltill_fail4)/row_count
+	print("Percent of "+str(eyMin3)+" Fields with Failed Fall Tilage Confidence Index: " +str(percent_FallTill_ConfFail *100)+"%")
+	print("--------------------------------------------------------------------")
+else:
+	print("All "+str(eyMin3)+" Fields Pass Fall Tillage Confidence Index")
+	print("--------------------------------------------------------------------")
+
+# Spring TIll check 
+
+Springtill_fail1 = []
+Springtill_fail2 = []
+Springtill_fail3 = []
+Springtill_fail4 = []
+Springtill_fail1.append(dataEnrollment.loc[dataEnrollment['conf_index_spring_res'] <= 40, 'id'].values)
+Springtill_fail2.append(dataEnrollmentMin1.loc[dataEnrollmentMin1['conf_index_spring_res'] <= 40, 'id'].values)
+Springtill_fail3.append(dataEnrollmentMin2.loc[dataEnrollmentMin2['conf_index_spring_res'] <= 40, 'id'].values)
+Springtill_fail4.append(dataEnrollmentMin3.loc[dataEnrollmentMin3['conf_index_spring_res'] <= 40, 'id'].values)
+Springtill_fail1 = unique(Springtill_fail1)
+Springtill_fail2 = unique(Springtill_fail2)
+Springtill_fail3 = unique(Springtill_fail3)
+Springtill_fail4 = unique(Springtill_fail4)
+
+
+if Springtill_fail1.any():
+	print(str(enrollment_year)+" Fields with Failed Spring Tillage Confidence Index:")
+	print(Springtill_fail1)
+	percent_SpringTill_ConfFail = len(Springtill_fail1)/row_count
+	print("Percent of "+str(enrollment_year)+" Fields with Failed Spring Tilage Confidence Index: " +str(percent_SpringTill_ConfFail *100)+"%")
+	print("--------------------------------------------------------------------")
+else:
+	print("All "+str(enrollment_year)+" Fields Pass Spring Tillage Confidence Index")
+	print("--------------------------------------------------------------------")
+
+if Springtill_fail2.any():
+	print(str(eyMin1)+" Fields with Failed Spring Tillage Confidence Index:")
+	print(Springtill_fail2)
+	percent_SpringTill_ConfFail = len(Springtill_fail2)/row_count
+	print("Percent of "+str(eyMin1)+" Fields with Failed Spring Tilage Confidence Index: " +str(percent_SpringTill_ConfFail *100)+"%")
+	print("--------------------------------------------------------------------")
+else:
+	print("All "+str(eyMin1)+" Fields Pass Spring Tillage Confidence Index")
+	print("--------------------------------------------------------------------")
+
+if Springtill_fail3.any():
+	print(str(eyMin2)+" Fields with Failed Spring Tillage Confidence Index:")
+	print(Springtill_fail3)
+	percent_SpringTill_ConfFail = len(Springtill_fail3)/row_count
+	print("Percent of "+str(eyMin2)+" Fields with Failed Spring Tilage Confidence Index: " +str(percent_SpringTill_ConfFail *100)+"%")
+	print("--------------------------------------------------------------------")
+else:
+	print("All "+str(eyMin2)+" Fields Pass Spring Tillage Confidence Index")
+	print("--------------------------------------------------------------------")
+
+if Springtill_fail4.any():
+	print(str(eyMin3)+" Fields with Failed Spring Tillage Confidence Index:")
+	print(Springtill_fail4)
+	percent_SpringTill_ConfFail = len(Springtill_fail4)/row_count
+	print("Percent of "+str(eyMin3)+" Fields with Failed Spring Tilage Confidence Index: " +str(percent_SpringTill_ConfFail *100)+"%")
+	print("--------------------------------------------------------------------")
+else:
+	print("All "+str(eyMin3)+" Fields Pass Spring Tillage Confidence Index")
+	print("--------------------------------------------------------------------")
+
+# CDL Check 
 
 print("OpTIS CDL to MRV Crop Check")
 
@@ -227,7 +381,7 @@ projectCoverCropStatus = "Passed"
 
 if percentFallTillNull >= 0.5:
 
-	projectTillStatus = """
+	projectTillStatusNull = """
 Failed
 
 At least half of the fields are missing Fall Tillage data for the enrollment year. 
@@ -235,7 +389,7 @@ At least half of the fields are missing Fall Tillage data for the enrollment yea
 
 if percentSpringTillNull >= 0.5:
 
-	projectTillStatus = """
+	projectTillStatusNull = """
 Failed
 
 At least half of the fields are missing Spring Tillage data for the enrollment year. 
@@ -243,7 +397,7 @@ At least half of the fields are missing Spring Tillage data for the enrollment y
 
 if percentSpringTillNull >= 0.5 and percentFallTillNull >= 0.5:
 
-	projectTillStatus = """
+	projectTillStatusNull = """
 Failed
 
 At least half of the fields are missing both Spring and Fall Tillage data for the enrollment year. 
@@ -256,7 +410,7 @@ if dataEnrollment['practice_name'].str.contains('Tillage').any():
 	bad_fields_tillage.append(dataEnrollment.loc[dataEnrollment['fall_till_class'] == 1, 'id'])
 	bad_fields_tillage.append(dataEnrollment.loc[dataEnrollment['spring_till_class'] == 1, 'id'])
 
-print("OpTIS Tillage Eligibility: " + projectTillStatus)
+print("OpTIS Tillage Eligibility: " + projectTillStatusNull)
 
 for b in bad_fields_tillage:
 	if b.empty == True:
@@ -303,7 +457,6 @@ However, Cover Cropping is listed as a practice change.
 if percentCCNull >= 0.5:
 
 	projectCCStatusNull = """
-
 At least half of the fields are missing cover crop data for the enrollment year. 
 """
 else:
@@ -316,7 +469,7 @@ for b in bad_fields_cc:
 		pass
 	else:
 		print("Fields with OpTIS / cover crop incongruencies")
-		print(b)
+		print(b.values)
 print("""
 ------------------------------------------------------------------------------ 
 """)
