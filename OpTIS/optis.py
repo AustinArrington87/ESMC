@@ -16,11 +16,15 @@ projects = []
 # put the "bad fields" with historical cover crops caught in Optis, not recorded in MRV
 bad_fields_cc = []
 bad_fields_tillage = []
+bad_fields_tillage1 = []
+bad_fields_tillage2 = []
+bad_fields_tillage3 = []
 
 # Load Data
 file1 = 'mrv_data.csv'
 file2 = 'optis_data.csv'
-project_name = "Benson_Hill"
+#project_name = "Benson_Hill"
+project_name = "Corteva"
 
 # dump your merged MRV-Optis data frames here 
 dataBucket = []
@@ -62,6 +66,12 @@ def MergeDataByYear (season, project, mrv_file, opt_file):
 	if project == "Benson_Hill":
 		mrv_projName = "Benson Hill"
 		opt_projName = "Benson Hill 2021 Fields"
+	if project == "Corteva":
+		mrv_projName = "Corteva"
+		opt_projName = "Corteva 2021 Fields"
+	# if project == "Corteva":
+	# 	mrv_projName = "Corteva"
+	# 	opt_projName = "Corteva 2021 Fields"
 
 	MRVprojectFrame = df_mrv.loc[df_mrv['project_name'] == mrv_projName]
 	MRVprojFrameByYear = MRVprojectFrame[MRVprojectFrame['season'] == season]
@@ -83,6 +93,8 @@ def OPT (season, project, opt_file):
 	# isolate Benson Hills MRV project 
 	if project == "Benson_Hill":
 		opt_projName = "Benson Hill 2021 Fields"
+	if project == "Corteva":
+		opt_projName = "Corteva 2021 Fields"
 
 	OPTprojectFrame = df_opt.loc[df_opt['source'] == opt_projName]
 	OPTprojFrameByYear = OPTprojectFrame[OPTprojectFrame['year'] == season]
@@ -100,6 +112,11 @@ for year in optis_lookback:
 for d in dataBucket:
 	# replace "Corn, Grain" with "Corn" in MRV data
 	d['crop_name'] = d['crop_name'].str.replace('Corn, Grain', 'Corn')
+	d['crop_name'] = d['crop_name'].str.replace('Corn, Silage', 'Corn')
+	d['crop_name'] = d['crop_name'].str.replace('Wheat, Winter', 'Winter Wheat')
+	d['crop_name'] = d['crop_name'].str.replace('Wheat, Spring', 'Spring Wheat')
+	d['crop_name'] = d['crop_name'].str.replace('Sorghum, Grain', 'Sorghum')
+
 
 # enrollment year data, index 0 in dataBucket 
 # 2021 year
@@ -158,10 +175,10 @@ print("Total Fields: ", row_count)
 print("Total Acres: ", dataEnrollment['acres'].sum())
 
 # check if full rotation was captured, and wwhat is the last year crop was grown 
-if LastCropYear == None:
-	print("Full Crop Rotation Not Captured")
-else:
-	print("Last Crop Year for Practice Change Check:", LastCropYear)
+# if LastCropYear == None:
+# 	pass
+# else:
+# 	print("Last Crop Year for Practice Change Check:", LastCropYear)
 
 print("Practice Changes by Field")
 print(dataEnrollment['field_name'].values+" ("+dataEnrollment['id'].values+")"+": "+dataEnrollment['practice_name'].values)
@@ -375,50 +392,105 @@ print("""
 ------------------------------------------------------------------------------ 
 """)
 # TILLAGE 
-projectTillStatus = "Passed"
+projectTillStatus1 = "Passed"
+projectTillStatus2 = "Passed"
 projectPracticeStatus = "Passed"
 projectCoverCropStatus = "Passed"
 
 if percentFallTillNull >= 0.5:
 
 	projectTillStatusNull = """
+
 Failed
 
 At least half of the fields are missing Fall Tillage data for the enrollment year. 
 """
 
-if percentSpringTillNull >= 0.5:
+elif percentSpringTillNull >= 0.5:
 
 	projectTillStatusNull = """
+
 Failed
 
 At least half of the fields are missing Spring Tillage data for the enrollment year. 
 """
 
-if percentSpringTillNull >= 0.5 and percentFallTillNull >= 0.5:
+elif percentSpringTillNull >= 0.5 and percentFallTillNull >= 0.5:
 
 	projectTillStatusNull = """
+
 Failed
 
 At least half of the fields are missing both Spring and Fall Tillage data for the enrollment year. 
 """
 
+else:
+	projectTillStatusNull = ""
+
 # check for tillage practice change eligibility. If they are doing tillage reduction,
 # should not have feilds with conventional till in the practice change year. If confidence index >= 40 then the estimate is "reliable"
 
+bad_till_year = ""
+
 if dataEnrollment['practice_name'].str.contains('Tillage').any():
+	# conventional tillage in enrollment year
 	bad_fields_tillage.append(dataEnrollment.loc[(dataEnrollment['fall_till_class'] == 1) & (dataEnrollment['conf_index_fall_res'] >= 40), 'id'])
-	bad_fields_tillage.append(dataEnrollment.loc[(dataEnrollment['spring_till_class'] == 1) & (dataEnrollment['conf_index_spring_res'] >= 40), 'id'])
+	bad_fields_tillage1.append(dataEnrollment.loc[(dataEnrollment['spring_till_class'] == 1) & (dataEnrollment['conf_index_spring_res'] >= 40), 'id'])
+	bad_till_year = enrollment_year
+
+	# check if no-till was tagged in the past 
+	if LastCropYear == eyMin1:
+		bad_fields_tillage2.append(dataEnrollmentMin1.loc[(dataEnrollmentMin1['fall_till_class'] == 3) & (dataEnrollmentMin1['conf_index_fall_res'] >= 40), 'id'])
+		bad_fields_tillage3.append(dataEnrollmentMin1.loc[(dataEnrollmentMin1['spring_till_class'] == 3) & (dataEnrollmentMin1['conf_index_spring_res'] >= 40), 'id'])
+		bad_till_year = eyMin1
+	if LastCropYear == eyMin2:
+		bad_fields_tillage2.append(dataEnrollmentMin2.loc[(dataEnrollmentMin2['fall_till_class'] == 3) & (dataEnrollmentMin2['conf_index_fall_res'] >= 40), 'id'])
+		bad_fields_tillage3.append(dataEnrollmentMin2.loc[(dataEnrollmentMin2['spring_till_class'] == 3) & (dataEnrollmentMin2['conf_index_spring_res'] >= 40), 'id'])
+		bad_till_year = eyMin2
+	if LastCropYear == eyMin3:
+		bad_fields_tillage2.append(dataEnrollmentMin3.loc[(dataEnrollmentMin3['fall_till_class'] == 3) & (dataEnrollmentMin3['conf_index_fall_res'] >= 40), 'id'])
+		bad_fields_tillage3.append(dataEnrollmentMin3.loc[(dataEnrollmentMin3['spring_till_class'] == 3) & (dataEnrollmentMin3['conf_index_spring_res'] >= 40), 'id'])
+		bad_till_year = eyMin3
+
+
 
 print("OpTIS Tillage Eligibility: " + projectTillStatusNull)
+
 
 for b in bad_fields_tillage:
 	if b.empty == True:
 		pass
 	else:
-		print("There are fields in the project year with conventional tillage flagged by OpTIS, but tillage reduction is assigned as a practice change.")
+		print("There are "+str(enrollment_year)+" fields in the project year with Fall conventional tillage flagged by OpTIS, but tillage reduction is assigned as a practice change.")
 		print("Fields with OpTIS / MRV tillage incongruencies")
 		print(b.values)
+
+for b in bad_fields_tillage1:
+	if b.empty == True:
+		pass
+	else:
+		print("There are "+str(enrollment_year)+" fields in the project year with Spring conventional tillage flagged by OpTIS, but tillage reduction is assigned as a practice change.")
+		print("Fields with OpTIS / MRV tillage incongruencies")
+		print(b.values)
+
+
+for b in bad_fields_tillage2:
+	if b.empty == True:
+		pass
+	else:
+		print("There are "+str(bad_till_year)+" fields with Fall no-till flagged by OpTIS the last year this crop was grown, but tillage reduction is assigned as a practice change.")
+		print("Fields with OpTIS / MRV tillage incongruencies")
+		print(b.values)
+
+for b in bad_fields_tillage3:
+	if b.empty == True:
+		pass
+	else:
+		print("There are "+str(bad_till_year)+" fields with Spring no-till flagged by OpTIS the last year this crop was grown, but tillage reduction is assigned as a practice change.")
+		print("Fields with OpTIS / MRV tillage incongruencies")
+		print(b.values)
+
+
 ### END TILLAGE SECTION 
 ###################################
 # PRACTICE CHANGE - Determine when last time commodity crop was grown 
@@ -448,17 +520,31 @@ if LastCropYear == eyMin3:
 # cover crop eligibility check 
 if dataEnrollment['practice_name'].str.contains('Cover').any():
 	#print(coverCropCountLastCropYear)
-	if coverCropCountLastCropYear >= 1:
-		projectCoverCropStatus = """
+	try:
+		if coverCropCountLastCropYear >= 1:
+			projectCoverCropStatus = """
+
 Failed
 
 In the last year this crop was grown, OpTis flagged cover crop or winter commodity occurrence. 
 However, Cover Cropping is listed as a practice change.
-"""
+	"""
+		else:
+			projectCoverCropStatus = """
+	Cover Crop Check - Passed
+	"""
+	except:
+		projectCoverCropStatus = """
+	Cover Crop Check - Passed
+	"""
+
 
 if percentCCNull >= 0.5:
 
 	projectCCStatusNull = """
+
+Failed
+
 At least half of the fields are missing cover crop data for the enrollment year. 
 """
 else:
