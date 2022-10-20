@@ -2,6 +2,20 @@ import csv
 import pandas as pd
 import numpy as np
 
+# Cover Crop Key
+# 0 - no winter cover
+# 1 - cover crop (full season or general)
+# 2 - winter commodity crop 
+# Null - No data
+# If conf_index_cover_crop <= 0.7, ignore OpTIS.
+
+# Fall and Spring Tillage Key
+# 1 - Conventional Tillage
+# 2 - Reduced Till
+# 3 - No Till
+# Null - No data
+# If conf_index_spring_tillage or conf_index_fall_tillage <= 40, ignore OpTIS.
+
 pd.set_option("display.max_colwidth", 10000)
 
 enrollment_year = 2021
@@ -23,8 +37,8 @@ bad_fields_tillage3 = []
 # Load Data
 file1 = 'mrv_data.csv'
 file2 = 'optis_data.csv'
-#project_name = "Benson_Hill"
-project_name = "Corteva"
+project_name = "Benson_Hill"
+#project_name = "Corteva"
 
 # dump your merged MRV-Optis data frames here 
 dataBucket = []
@@ -194,9 +208,9 @@ percentFallTillNull = NullFallTill/row_count
 percentSpringTillNull = NullSpringTill/row_count
 percentCCNull = NullCC/row_count
 print("NULL Values in Project Year:")
-print("Percent of Fields with missing 2021 Fall Tillage Estimates: " +str(percentFallTillNull*100)+"%")
-print("Percent of Fields with missing 2021 Spring Tillage Estimates: "+str(percentSpringTillNull*100)+"%")
-print("Percent of Fields with missing 2021 Cover Crop Estimates: "+str(percentCCNull*100)+"%")
+print("Percent of Fields with missing 2021 Fall Tillage Estimates: " +str(round(percentFallTillNull*100, 2))+"%")
+print("Percent of Fields with missing 2021 Spring Tillage Estimates: "+str(round(percentSpringTillNull*100, 2))+"%")
+print("Percent of Fields with missing 2021 Cover Crop Estimates: "+str(round(percentCCNull*100, 2))+"%")
 print("--------------------------------------------------------------------")
 cc_fail1 = []
 cc_fail2 = []
@@ -215,7 +229,7 @@ if cc_fail1.any():
 	print(str(enrollment_year)+" Fields with Failed Cover Crop Confidence Index:")
 	print(cc_fail1)
 	percent_CC_ConfFail = len(cc_fail1)/row_count
-	print("Percent of "+str(enrollment_year)+" Fields with Failed Cover Crop Confidence Index: " +str(percent_CC_ConfFail*100)+"%")
+	print("Percent of "+str(enrollment_year)+" Fields with Failed Cover Crop Confidence Index: " +str(round(percent_CC_ConfFail*100, 2))+"%")
 	print("--------------------------------------------------------------------")
 else:
 	print("All "+str(enrollment_year)+" Fields Pass Cover Crop Confidence Index")
@@ -225,7 +239,7 @@ if cc_fail2.any():
 	print(str(eyMin1)+" Fields with Failed Cover Crop Confidence Index:")
 	print(cc_fail2)
 	percent_CC_ConfFail = len(cc_fail2)/row_count
-	print("Percent of "+str(eyMin1)+" Fields with Failed Cover Crop Confidence Index: " +str(percent_CC_ConfFail*100)+"%")
+	print("Percent of "+str(eyMin1)+" Fields with Failed Cover Crop Confidence Index: " +str(round(percent_CC_ConfFail*100, 2))+"%")
 	print("--------------------------------------------------------------------")
 else:
 	print("All "+str(eyMin1)+" Fields Pass Cover Crop Confidence Index")
@@ -235,7 +249,7 @@ if cc_fail3.any():
 	print(str(eyMin2)+" Fields with Failed Cover Crop Confidence Index:")
 	print(cc_fail3)
 	percent_CC_ConfFail = len(cc_fail3)/row_count
-	print("Percent of "+str(eyMin2)+" Fields with Failed Cover Crop Confidence Index: " +str(percent_CC_ConfFail*100)+"%")
+	print("Percent of "+str(eyMin2)+" Fields with Failed Cover Crop Confidence Index: " +str(round(percent_CC_ConfFail*100, 2))+"%")
 	print("--------------------------------------------------------------------")
 else:
 	print("All "+str(eyMin2)+" Fields Pass Cover Crop Confidence Index")
@@ -245,7 +259,7 @@ if cc_fail4.any():
 	print(str(eyMin3)+" Fields with Failed Cover Crop Confidence Index:")
 	print(cc_fail4)
 	percent_CC_ConfFail = len(cc_fail4)/row_count
-	print("Percent of "+str(eyMin3)+" Fields with Failed Cover Crop Confidence Index: " +str(percent_CC_ConfFail*100)+"%")
+	print("Percent of "+str(eyMin3)+" Fields with Failed Cover Crop Confidence Index: " +str(round(percent_CC_ConfFail*100, 2))+"%")
 	print("--------------------------------------------------------------------")
 else:
 	print("All "+str(eyMin3)+" Fields Pass Cover Crop Confidence Index")
@@ -271,7 +285,7 @@ if Falltill_fail1.any():
 	print(str(enrollment_year)+" Fields with Failed Fall Tillage Confidence Index:")
 	print(Falltill_fail1)
 	percent_FallTill_ConfFail = len(Falltill_fail1)/row_count
-	print("Percent of "+str(enrollment_year)+" Fields with Failed Fall Tilage Confidence Index: " +str(percent_FallTill_ConfFail *100)+"%")
+	print("Percent of "+str(enrollment_year)+" Fields with Failed Fall Tillage Confidence Index: " +str(round(percent_FallTill_ConfFail *100, 2))+"%")
 	print("--------------------------------------------------------------------")
 else:
 	print("All "+str(enrollment_year)+" Fields Pass Fall Tillage Confidence Index")
@@ -281,7 +295,7 @@ if Falltill_fail2.any():
 	print(str(eyMin1)+" Fields with Failed Fall Tillage Confidence Index:")
 	print(Falltill_fail2)
 	percent_FallTill_ConfFail = len(Falltill_fail2)/row_count
-	print("Percent of "+str(eyMin1)+" Fields with Failed Fall Tilage Confidence Index: " +str(percent_FallTill_ConfFail *100)+"%")
+	print("Percent of "+str(eyMin1)+" Fields with Failed Fall Tillage Confidence Index: " +str(round(percent_FallTill_ConfFail *100, 2))+"%")
 	print("--------------------------------------------------------------------")
 else:
 	print("All "+str(eyMin1)+" Fields Pass Fall Tillage Confidence Index")
@@ -291,7 +305,7 @@ if Falltill_fail3.any():
 	print(str(eyMin2)+" Fields with Failed Fall Tillage Confidence Index:")
 	print(Falltill_fail3)
 	percent_FallTill_ConfFail = len(Falltill_fail3)/row_count
-	print("Percent of "+str(eyMin2)+" Fields with Failed Fall Tilage Confidence Index: " +str(percent_FallTill_ConfFail *100)+"%")
+	print("Percent of "+str(eyMin2)+" Fields with Failed Fall Tillage Confidence Index: " +str(round(percent_FallTill_ConfFail *100, 2))+"%")
 	print("--------------------------------------------------------------------")
 else:
 	print("All "+str(eyMin2)+" Fields Pass Fall Tillage Confidence Index")
@@ -301,7 +315,7 @@ if Falltill_fail4.any():
 	print(str(eyMin3)+" Fields with Failed Fall Tillage Confidence Index:")
 	print(Falltill_fail4)
 	percent_FallTill_ConfFail = len(Falltill_fail4)/row_count
-	print("Percent of "+str(eyMin3)+" Fields with Failed Fall Tilage Confidence Index: " +str(percent_FallTill_ConfFail *100)+"%")
+	print("Percent of "+str(eyMin3)+" Fields with Failed Fall Tillage Confidence Index: " +str(round(percent_FallTill_ConfFail *100, 2))+"%")
 	print("--------------------------------------------------------------------")
 else:
 	print("All "+str(eyMin3)+" Fields Pass Fall Tillage Confidence Index")
@@ -327,7 +341,7 @@ if Springtill_fail1.any():
 	print(str(enrollment_year)+" Fields with Failed Spring Tillage Confidence Index:")
 	print(Springtill_fail1)
 	percent_SpringTill_ConfFail = len(Springtill_fail1)/row_count
-	print("Percent of "+str(enrollment_year)+" Fields with Failed Spring Tilage Confidence Index: " +str(percent_SpringTill_ConfFail *100)+"%")
+	print("Percent of "+str(enrollment_year)+" Fields with Failed Spring Tillage Confidence Index: " +str(round(percent_SpringTill_ConfFail *100, 2))+"%")
 	print("--------------------------------------------------------------------")
 else:
 	print("All "+str(enrollment_year)+" Fields Pass Spring Tillage Confidence Index")
@@ -337,7 +351,7 @@ if Springtill_fail2.any():
 	print(str(eyMin1)+" Fields with Failed Spring Tillage Confidence Index:")
 	print(Springtill_fail2)
 	percent_SpringTill_ConfFail = len(Springtill_fail2)/row_count
-	print("Percent of "+str(eyMin1)+" Fields with Failed Spring Tillage Confidence Index: " +str(percent_SpringTill_ConfFail *100)+"%")
+	print("Percent of "+str(eyMin1)+" Fields with Failed Spring Tillage Confidence Index: " +str(round(percent_SpringTill_ConfFail *100, 2))+"%")
 	print("--------------------------------------------------------------------")
 else:
 	print("All "+str(eyMin1)+" Fields Pass Spring Tillage Confidence Index")
@@ -347,7 +361,7 @@ if Springtill_fail3.any():
 	print(str(eyMin2)+" Fields with Failed Spring Tillage Confidence Index:")
 	print(Springtill_fail3)
 	percent_SpringTill_ConfFail = len(Springtill_fail3)/row_count
-	print("Percent of "+str(eyMin2)+" Fields with Failed Spring Tillage Confidence Index: " +str(percent_SpringTill_ConfFail *100)+"%")
+	print("Percent of "+str(eyMin2)+" Fields with Failed Spring Tillage Confidence Index: " +str(round(percent_SpringTill_ConfFail *100, 2))+"%")
 	print("--------------------------------------------------------------------")
 else:
 	print("All "+str(eyMin2)+" Fields Pass Spring Tillage Confidence Index")
@@ -357,7 +371,7 @@ if Springtill_fail4.any():
 	print(str(eyMin3)+" Fields with Failed Spring Tillage Confidence Index:")
 	print(Springtill_fail4)
 	percent_SpringTill_ConfFail = len(Springtill_fail4)/row_count
-	print("Percent of "+str(eyMin3)+" Fields with Failed Spring Tillage Confidence Index: " +str(percent_SpringTill_ConfFail *100)+"%")
+	print("Percent of "+str(eyMin3)+" Fields with Failed Spring Tillage Confidence Index: " +str(round(percent_SpringTill_ConfFail *100, 2))+"%")
 	print("--------------------------------------------------------------------")
 else:
 	print("All "+str(eyMin3)+" Fields Pass Spring Tillage Confidence Index")
@@ -365,32 +379,32 @@ else:
 
 # CDL Check 
 
-print("OpTIS CDL to MRV Crop Check")
+# print("OpTIS CDL to MRV Crop Check")
 
-if mrvCDL_0 == True:
-	print("2021 MRV and CDL Pass Check")
-else:
-	print("2021 MRV and CDL Fail Check")
-	mrv_CDL_errors.append(project_years[0])
-if mrvCDL_1 == True:
-	print("2020 MRV and CDL Pass Check")
-else:
-	print("2020 MRV and CDL Fail Check")
-	mrv_CDL_errors.append(project_years[1])
-if mrvCDL_2 == True:
-	print("2019 MRV and CDL Pass Check")
-else:
-	print("2019 MRV and CDL Fail Check")
-	mrv_CDL_errors.append(project_years[2])
-if mrvCDL_3 == True:
-	print("2018 MRV and CDL Pass Check")
-else:
-	print("2018 MRV and CDL Fail Check")
-	mrv_CDL_errors.append(project_years[3])
+# if mrvCDL_0 == True:
+# 	print("2021 MRV and CDL Pass Check")
+# else:
+# 	print("2021 MRV and CDL Fail Check")
+# 	mrv_CDL_errors.append(project_years[0])
+# if mrvCDL_1 == True:
+# 	print("2020 MRV and CDL Pass Check")
+# else:
+# 	print("2020 MRV and CDL Fail Check")
+# 	mrv_CDL_errors.append(project_years[1])
+# if mrvCDL_2 == True:
+# 	print("2019 MRV and CDL Pass Check")
+# else:
+# 	print("2019 MRV and CDL Fail Check")
+# 	mrv_CDL_errors.append(project_years[2])
+# if mrvCDL_3 == True:
+# 	print("2018 MRV and CDL Pass Check")
+# else:
+# 	print("2018 MRV and CDL Fail Check")
+# 	mrv_CDL_errors.append(project_years[3])
 
-print("""
------------------------------------------------------------------------------- 
-""")
+# print("""
+# ------------------------------------------------------------------------------ 
+# """)
 # TILLAGE 
 projectTillStatus1 = "Passed"
 projectTillStatus2 = "Passed"
@@ -461,34 +475,46 @@ for b in bad_fields_tillage:
 	if b.empty == True:
 		pass
 	else:
-		print("There are "+str(enrollment_year)+" fields in the project year with Fall conventional tillage flagged by OpTIS, but tillage reduction is assigned as a practice change.")
-		print("Fields with OpTIS / MRV tillage incongruencies")
+		print("There are "+str(bad_till_year)+" fields with Fall conventional tillage flagged by OpTIS, but tillage reduction is assigned as a practice change.")
+		percent_badFallTillFields = len(b)/row_count
+		print("Fields with Fall Conventional Till Mismatch:")
 		print(b.values)
+		print("Percent of "+str(bad_till_year)+" Fields with Fall Till Mismatch: " +str(round(percent_badFallTillFields *100, 2))+"%")
+
 
 for b in bad_fields_tillage1:
 	if b.empty == True:
 		pass
 	else:
-		print("There are "+str(enrollment_year)+" fields in the project year with Spring conventional tillage flagged by OpTIS, but tillage reduction is assigned as a practice change.")
-		print("Fields with OpTIS / MRV tillage incongruencies")
+		print("")
+		print("There are "+str(bad_till_year)+" fields with Spring conventional tillage flagged by OpTIS, but tillage reduction is assigned as a practice change.")
+		percent_badSpringTillFields = len(b)/row_count
+		print("Fields with Spring Conventional Till Mismatch")
 		print(b.values)
+		print("Percent of "+str(bad_till_year)+" Fields with Spring Till Mismatch: " +str(round(percent_badSpringTillFields *100, 2))+"%")
 
 
 for b in bad_fields_tillage2:
 	if b.empty == True:
 		pass
 	else:
+		print("")
 		print("There are "+str(bad_till_year)+" fields with Fall no-till flagged by OpTIS the last year this crop was grown, but tillage reduction is assigned as a practice change.")
-		print("Fields with OpTIS / MRV tillage incongruencies")
+		percent_badFallNoTillFields = len(b)/row_count
+		print("Fields with Fall No-Till Mismatch")
 		print(b.values)
+		print("Percent of "+str(bad_till_year)+" Fields with Fall No-Till Mismatch: " +str(round(percent_badFallNoTillFields *100, 2))+"%")
 
 for b in bad_fields_tillage3:
 	if b.empty == True:
 		pass
 	else:
+		print("")
 		print("There are "+str(bad_till_year)+" fields with Spring no-till flagged by OpTIS the last year this crop was grown, but tillage reduction is assigned as a practice change.")
-		print("Fields with OpTIS / MRV tillage incongruencies")
+		percent_badSpringNoTillFields = len(b)/row_count
+		print("Fields with Spring No-Till Mismatch")
 		print(b.values)
+		print("Percent of "+str(bad_till_year)+" Fields with Spring No-Till Mismatch: " +str(round(percent_badSpringNoTillFields *100, 2))+"%")
 
 
 ### END TILLAGE SECTION 
@@ -556,8 +582,10 @@ for b in bad_fields_cc:
 	if b.empty == True:
 		pass
 	else:
-		print("Fields with OpTIS / cover crop incongruencies")
+		percent_badCCFields = len(b)/row_count
+		print("Fields with cover crop mismatch")
 		print(b.values)
+		print("Percent of "+str(LastCropYear)+" Fields with Cover Crop Mismatch: " +str(round(percent_badCCFields *100, 2))+"%")
 print("""
 ------------------------------------------------------------------------------ 
 """)
