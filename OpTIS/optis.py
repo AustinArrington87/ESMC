@@ -37,8 +37,13 @@ bad_fields_tillage3 = []
 # Load Data
 file1 = 'mrv_data.csv'
 file2 = 'optis_data.csv'
-project_name = "Benson_Hill"
+#project_name = "Benson_Hill"
 #project_name = "Corteva"
+#project_name = "Corteva_Nutrien"
+#project_name = "General_Mills"
+#project_name = "IL_Corn"
+#project_name = "MOCS"
+project_name = "TNC_MN"
 
 # dump your merged MRV-Optis data frames here 
 dataBucket = []
@@ -83,9 +88,21 @@ def MergeDataByYear (season, project, mrv_file, opt_file):
 	if project == "Corteva":
 		mrv_projName = "Corteva"
 		opt_projName = "Corteva 2021 Fields"
-	# if project == "Corteva":
-	# 	mrv_projName = "Corteva"
-	# 	opt_projName = "Corteva 2021 Fields"
+	if project == "Corteva_Nutrien":
+		mrv_projName = "Corteva-Nutrien"
+		opt_projName = "Corteva-Nutrien 2021 Fields"
+	if project == "General_Mills":
+		mrv_projName = "General Mills"
+		opt_projName = "General Mills 2021 Fields"
+	if project == "IL_Corn":
+		mrv_projName = "Illinois Corn Growers"
+		opt_projName = "ICG 2021 Fields"
+	if project == "MOCS":
+		mrv_projName = "Missouri Partnership Pilot"
+		opt_projName = "MOCS 2021 Fields"
+	if project == "TNC_MN":
+		mrv_projName = "TNC Minnesota"
+		opt_projName = "TNC MN 2021 Fields"
 
 	MRVprojectFrame = df_mrv.loc[df_mrv['project_name'] == mrv_projName]
 	MRVprojFrameByYear = MRVprojectFrame[MRVprojectFrame['season'] == season]
@@ -109,6 +126,21 @@ def OPT (season, project, opt_file):
 		opt_projName = "Benson Hill 2021 Fields"
 	if project == "Corteva":
 		opt_projName = "Corteva 2021 Fields"
+	if project == "Corteva_Nutrien":
+		mrv_projName = "Corteva-Nutrien"
+		opt_projName = "Corteva-Nutrien 2021 Fields"
+	if project == "General_Mills":
+		mrv_projName = "General Mills"
+		opt_projName = "General Mills 2021 Fields"
+	if project == "IL_Corn":
+		mrv_projName = "Illinois Corn Growers"
+		opt_projName = "ICG 2021 Fields"
+	if project == "MOCS":
+		mrv_projName = "Missouri Partnership Pilot"
+		opt_projName = "MOCS 2021 Fields"
+	if project == "TNC_MN":
+		mrv_projName = "TNC Minnesota"
+		opt_projName = "TNC MN 2021 Fields"
 
 	OPTprojectFrame = df_opt.loc[df_opt['source'] == opt_projName]
 	OPTprojFrameByYear = OPTprojectFrame[OPTprojectFrame['year'] == season]
