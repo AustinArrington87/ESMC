@@ -22,8 +22,11 @@ enrollment_year = 2021
 eyMin1 = enrollment_year-1
 eyMin2 = enrollment_year-2
 eyMin3 = enrollment_year-3
+eyMin4 = enrollment_year-4
+eyMin5 = enrollment_year-5
+eyMin6 = enrollment_year-6
 project_years = [enrollment_year, eyMin1, eyMin2, eyMin3]
-optis_lookback = [enrollment_year-4, enrollment_year-5, enrollment_year-6]
+optis_lookback = [eyMin4, eyMin5, eyMin6]
 field_ids = []
 crops = []
 projects = []
@@ -37,13 +40,13 @@ bad_fields_tillage3 = []
 # Load Data
 file1 = 'mrv_data.csv'
 file2 = 'optis_data.csv'
-#project_name = "Benson_Hill"
+project_name = "Benson_Hill"
 #project_name = "Corteva"
 #project_name = "Corteva_Nutrien"
 #project_name = "General_Mills"
 #project_name = "IL_Corn"
 #project_name = "MOCS"
-project_name = "TNC_MN"
+#project_name = "TNC_MN"
 
 # dump your merged MRV-Optis data frames here 
 dataBucket = []
@@ -173,11 +176,12 @@ dataEnrollmentMin1 = dataBucket[1]
 dataEnrollmentMin2 = dataBucket[2]
 #2018 (2021 minus 3)
 dataEnrollmentMin3 = dataBucket[3]
-
-print(dataEnrollment)
-print(dataEnrollmentMin1)
-print(dataEnrollmentMin2)
-print(dataEnrollmentMin3)
+#2017
+dataEnrollmentMin4 = optisLookback[0]
+#2016
+dataEnrollmentMin5 = optisLookback[1]
+#2015
+dataEnrollmentMin6 = optisLookback[2]
 
 mrv_CDL_errors = []
 # check if crops are equal from MRV to Optis / CDL 
@@ -190,6 +194,9 @@ mrvCDL_3 = dataEnrollmentMin3['crop_name'].equals(dataEnrollmentMin3['name'])
 cropYearMin1 = dataEnrollment['crop_name'].equals(dataEnrollmentMin1['crop_name'])
 cropYearMin2 = dataEnrollment['crop_name'].equals(dataEnrollmentMin2['crop_name'])
 cropYearMin3 = dataEnrollment['crop_name'].equals(dataEnrollmentMin3['crop_name'])
+cropYearMin4 = dataEnrollment['crop_name'].equals(dataEnrollmentMin4['name'])
+cropYearMin5 = dataEnrollment['crop_name'].equals(dataEnrollmentMin5['name'])
+cropYearMin6 = dataEnrollment['crop_name'].equals(dataEnrollmentMin6['name'])
 
 if cropYearMin1 == True:
 	LastCropYear = project_years[1]
@@ -206,9 +213,19 @@ elif cropYearMin3 == True:
 else:
 	LastCropYear = None
 
+# optis lookback
+if cropYearMin4 == True:
+	LookBackYear = optis_lookback[0]
+if cropYearMin5 == True:
+	LookBackYear = optis_lookback[1]
+if cropYearMin6 == True:
+	LookBackYear = optis_lookback[2]
+else:
+	LookBackYear = None
+
 # check for acreage, reference field ID list 
-print(dataEnrollment['id'])
-print(dataEnrollment['acres'])
+#print(dataEnrollment['id'])
+#print(dataEnrollment['acres'])
 print("""
 ------------------------------OpTIS Report----------------------------------- 
 """)
@@ -219,12 +236,6 @@ row_count, col_count = dataEnrollment.shape
 print("Total Fields: ", row_count)
 # sum acres 
 print("Total Acres: ", dataEnrollment['acres'].sum())
-
-# check if full rotation was captured, and wwhat is the last year crop was grown 
-# if LastCropYear == None:
-# 	pass
-# else:
-# 	print("Last Crop Year for Practice Change Check:", LastCropYear)
 
 print("Practice Changes by Field")
 print(dataEnrollment['field_name'].values+" ("+dataEnrollment['id'].values+")"+": "+dataEnrollment['practice_name'].values)
@@ -248,14 +259,23 @@ cc_fail1 = []
 cc_fail2 = []
 cc_fail3 = []
 cc_fail4 = []
+cc_fail5 = []
+cc_fail6 = []
+cc_fail7 = []
 cc_fail1.append(dataEnrollment.loc[dataEnrollment['conf_index_cover_crop'] <= 0.7, 'id'].values)
 cc_fail2.append(dataEnrollmentMin1.loc[dataEnrollmentMin1['conf_index_cover_crop'] <= 0.7, 'id'].values)
 cc_fail3.append(dataEnrollmentMin2.loc[dataEnrollmentMin2['conf_index_cover_crop'] <= 0.7, 'id'].values)
 cc_fail4.append(dataEnrollmentMin3.loc[dataEnrollmentMin3['conf_index_cover_crop'] <= 0.7, 'id'].values)
+cc_fail5.append(dataEnrollmentMin4.loc[dataEnrollmentMin4['conf_index_cover_crop'] <= 0.7, 'Id'].values)
+cc_fail6.append(dataEnrollmentMin5.loc[dataEnrollmentMin5['conf_index_cover_crop'] <= 0.7, 'Id'].values)
+cc_fail7.append(dataEnrollmentMin6.loc[dataEnrollmentMin6['conf_index_cover_crop'] <= 0.7, 'Id'].values)
 cc_fail1 = unique(cc_fail1)
 cc_fail2 = unique(cc_fail2)
 cc_fail3 = unique(cc_fail3)
 cc_fail4 = unique(cc_fail4)
+cc_fail5 = unique(cc_fail5)
+cc_fail6 = unique(cc_fail6)
+cc_fail7 = unique(cc_fail7)
 
 if cc_fail1.any():
 	print(str(enrollment_year)+" Fields with Failed Cover Crop Confidence Index:")
@@ -297,20 +317,60 @@ else:
 	print("All "+str(eyMin3)+" Fields Pass Cover Crop Confidence Index")
 	print("--------------------------------------------------------------------")
 
+if cc_fail5.any():
+	print(str(eyMin4)+" Fields with Failed Cover Crop Confidence Index:")
+	print(cc_fail5)
+	percent_CC_ConfFail = len(cc_fail5)/row_count
+	print("Percent of "+str(eyMin4)+" Fields with Failed Cover Crop Confidence Index: " +str(round(percent_CC_ConfFail*100, 2))+"%")
+	print("--------------------------------------------------------------------")
+else:
+	print("All "+str(eyMin4)+" Fields Pass Cover Crop Confidence Index")
+	print("--------------------------------------------------------------------")
+
+if cc_fail6.any():
+	print(str(eyMin5)+" Fields with Failed Cover Crop Confidence Index:")
+	print(cc_fail6)
+	percent_CC_ConfFail = len(cc_fail6)/row_count
+	print("Percent of "+str(eyMin5)+" Fields with Failed Cover Crop Confidence Index: " +str(round(percent_CC_ConfFail*100, 2))+"%")
+	print("--------------------------------------------------------------------")
+else:
+	print("All "+str(eyMin5)+" Fields Pass Cover Crop Confidence Index")
+	print("--------------------------------------------------------------------")
+
+if cc_fail7.any():
+	print(str(eyMin6)+" Fields with Failed Cover Crop Confidence Index:")
+	print(cc_fail7)
+	percent_CC_ConfFail = len(cc_fail7)/row_count
+	print("Percent of "+str(eyMin6)+" Fields with Failed Cover Crop Confidence Index: " +str(round(percent_CC_ConfFail*100, 2))+"%")
+	print("--------------------------------------------------------------------")
+else:
+	print("All "+str(eyMin6)+" Fields Pass Cover Crop Confidence Index")
+	print("--------------------------------------------------------------------")
+
+
 # till confidence check 
 
 Falltill_fail1 = []
 Falltill_fail2 = []
 Falltill_fail3 = []
 Falltill_fail4 = []
+Falltill_fail5 = []
+Falltill_fail6 = []
+Falltill_fail7 = []
 Falltill_fail1.append(dataEnrollment.loc[dataEnrollment['conf_index_fall_res'] <= 40, 'id'].values)
 Falltill_fail2.append(dataEnrollmentMin1.loc[dataEnrollmentMin1['conf_index_fall_res'] <= 40, 'id'].values)
 Falltill_fail3.append(dataEnrollmentMin2.loc[dataEnrollmentMin2['conf_index_fall_res'] <= 40, 'id'].values)
 Falltill_fail4.append(dataEnrollmentMin3.loc[dataEnrollmentMin3['conf_index_fall_res'] <= 40, 'id'].values)
+Falltill_fail5.append(dataEnrollmentMin4.loc[dataEnrollmentMin4['conf_index_fall_res'] <= 40, 'Id'].values)
+Falltill_fail6.append(dataEnrollmentMin5.loc[dataEnrollmentMin5['conf_index_fall_res'] <= 40, 'Id'].values)
+Falltill_fail7.append(dataEnrollmentMin6.loc[dataEnrollmentMin6['conf_index_fall_res'] <= 40, 'Id'].values)
 Falltill_fail1 = unique(Falltill_fail1)
 Falltill_fail2 = unique(Falltill_fail2)
 Falltill_fail3 = unique(Falltill_fail3)
 Falltill_fail4 = unique(Falltill_fail4)
+Falltill_fail5 = unique(Falltill_fail5)
+Falltill_fail6 = unique(Falltill_fail6)
+Falltill_fail7 = unique(Falltill_fail7)
 
 
 if Falltill_fail1.any():
@@ -353,20 +413,60 @@ else:
 	print("All "+str(eyMin3)+" Fields Pass Fall Tillage Confidence Index")
 	print("--------------------------------------------------------------------")
 
+if Falltill_fail5.any():
+	print(str(eyMin4)+" Fields with Failed Fall Tillage Confidence Index:")
+	print(Falltill_fail5)
+	percent_FallTill_ConfFail = len(Falltill_fail5)/row_count
+	print("Percent of "+str(eyMin4)+" Fields with Failed Fall Tillage Confidence Index: " +str(round(percent_FallTill_ConfFail *100, 2))+"%")
+	print("--------------------------------------------------------------------")
+else:
+	print("All "+str(eyMin4)+" Fields Pass Fall Tillage Confidence Index")
+	print("--------------------------------------------------------------------")
+
+if Falltill_fail6.any():
+	print(str(eyMin5)+" Fields with Failed Fall Tillage Confidence Index:")
+	print(Falltill_fail6)
+	percent_FallTill_ConfFail = len(Falltill_fail6)/row_count
+	print("Percent of "+str(eyMin5)+" Fields with Failed Fall Tillage Confidence Index: " +str(round(percent_FallTill_ConfFail *100, 2))+"%")
+	print("--------------------------------------------------------------------")
+else:
+	print("All "+str(eyMin5)+" Fields Pass Fall Tillage Confidence Index")
+	print("--------------------------------------------------------------------")
+
+if Falltill_fail7.any():
+	print(str(eyMin6)+" Fields with Failed Fall Tillage Confidence Index:")
+	print(Falltill_fail7)
+	percent_FallTill_ConfFail = len(Falltill_fail7)/row_count
+	print("Percent of "+str(eyMin6)+" Fields with Failed Fall Tillage Confidence Index: " +str(round(percent_FallTill_ConfFail *100, 2))+"%")
+	print("--------------------------------------------------------------------")
+else:
+	print("All "+str(eyMin6)+" Fields Pass Fall Tillage Confidence Index")
+	print("--------------------------------------------------------------------")
+
+
 # Spring TIll check 
 
 Springtill_fail1 = []
 Springtill_fail2 = []
 Springtill_fail3 = []
 Springtill_fail4 = []
+Springtill_fail5 = []
+Springtill_fail6 = []
+Springtill_fail7 = []
 Springtill_fail1.append(dataEnrollment.loc[dataEnrollment['conf_index_spring_res'] <= 40, 'id'].values)
 Springtill_fail2.append(dataEnrollmentMin1.loc[dataEnrollmentMin1['conf_index_spring_res'] <= 40, 'id'].values)
 Springtill_fail3.append(dataEnrollmentMin2.loc[dataEnrollmentMin2['conf_index_spring_res'] <= 40, 'id'].values)
 Springtill_fail4.append(dataEnrollmentMin3.loc[dataEnrollmentMin3['conf_index_spring_res'] <= 40, 'id'].values)
+Springtill_fail5.append(dataEnrollmentMin4.loc[dataEnrollmentMin4['conf_index_spring_res'] <= 40, 'Id'].values)
+Springtill_fail6.append(dataEnrollmentMin5.loc[dataEnrollmentMin5['conf_index_spring_res'] <= 40, 'Id'].values)
+Springtill_fail7.append(dataEnrollmentMin6.loc[dataEnrollmentMin6['conf_index_spring_res'] <= 40, 'Id'].values)
 Springtill_fail1 = unique(Springtill_fail1)
 Springtill_fail2 = unique(Springtill_fail2)
 Springtill_fail3 = unique(Springtill_fail3)
 Springtill_fail4 = unique(Springtill_fail4)
+Springtill_fail5 = unique(Springtill_fail5)
+Springtill_fail6 = unique(Springtill_fail6)
+Springtill_fail7 = unique(Springtill_fail7)
 
 
 if Springtill_fail1.any():
@@ -409,34 +509,36 @@ else:
 	print("All "+str(eyMin3)+" Fields Pass Spring Tillage Confidence Index")
 	print("--------------------------------------------------------------------")
 
-# CDL Check 
+if Springtill_fail5.any():
+	print(str(eyMin4)+" Fields with Failed Spring Tillage Confidence Index:")
+	print(Springtill_fail5)
+	percent_SpringTill_ConfFail = len(Springtill_fail5)/row_count
+	print("Percent of "+str(eyMin4)+" Fields with Failed Spring Tillage Confidence Index: " +str(round(percent_SpringTill_ConfFail *100, 2))+"%")
+	print("--------------------------------------------------------------------")
+else:
+	print("All "+str(eyMin4)+" Fields Pass Spring Tillage Confidence Index")
+	print("--------------------------------------------------------------------")
 
-# print("OpTIS CDL to MRV Crop Check")
+if Springtill_fail6.any():
+	print(str(eyMin5)+" Fields with Failed Spring Tillage Confidence Index:")
+	print(Springtill_fail6)
+	percent_SpringTill_ConfFail = len(Springtill_fail6)/row_count
+	print("Percent of "+str(eyMin5)+" Fields with Failed Spring Tillage Confidence Index: " +str(round(percent_SpringTill_ConfFail *100, 2))+"%")
+	print("--------------------------------------------------------------------")
+else:
+	print("All "+str(eyMin5)+" Fields Pass Spring Tillage Confidence Index")
+	print("--------------------------------------------------------------------")
 
-# if mrvCDL_0 == True:
-# 	print("2021 MRV and CDL Pass Check")
-# else:
-# 	print("2021 MRV and CDL Fail Check")
-# 	mrv_CDL_errors.append(project_years[0])
-# if mrvCDL_1 == True:
-# 	print("2020 MRV and CDL Pass Check")
-# else:
-# 	print("2020 MRV and CDL Fail Check")
-# 	mrv_CDL_errors.append(project_years[1])
-# if mrvCDL_2 == True:
-# 	print("2019 MRV and CDL Pass Check")
-# else:
-# 	print("2019 MRV and CDL Fail Check")
-# 	mrv_CDL_errors.append(project_years[2])
-# if mrvCDL_3 == True:
-# 	print("2018 MRV and CDL Pass Check")
-# else:
-# 	print("2018 MRV and CDL Fail Check")
-# 	mrv_CDL_errors.append(project_years[3])
+if Springtill_fail7.any():
+	print(str(eyMin6)+" Fields with Failed Spring Tillage Confidence Index:")
+	print(Springtill_fail7)
+	percent_SpringTill_ConfFail = len(Springtill_fail7)/row_count
+	print("Percent of "+str(eyMin6)+" Fields with Failed Spring Tillage Confidence Index: " +str(round(percent_SpringTill_ConfFail *100, 2))+"%")
+	print("--------------------------------------------------------------------")
+else:
+	print("All "+str(eyMin6)+" Fields Pass Spring Tillage Confidence Index")
+	print("--------------------------------------------------------------------")
 
-# print("""
-# ------------------------------------------------------------------------------ 
-# """)
 # TILLAGE 
 projectTillStatus1 = "Passed"
 projectTillStatus2 = "Passed"
@@ -471,7 +573,7 @@ At least half of the fields are missing both Spring and Fall Tillage data for th
 """
 
 else:
-	projectTillStatusNull = ""
+	projectTillStatusNull = "Passed"
 
 # check for tillage practice change eligibility. If they are doing tillage reduction,
 # should not have feilds with conventional till in the practice change year. If confidence index >= 40 then the estimate is "reliable"
@@ -497,6 +599,18 @@ if dataEnrollment['practice_name'].str.contains('Tillage').any():
 		bad_fields_tillage2.append(dataEnrollmentMin3.loc[(dataEnrollmentMin3['fall_till_class'] == 3) & (dataEnrollmentMin3['conf_index_fall_res'] >= 40), 'id'])
 		bad_fields_tillage3.append(dataEnrollmentMin3.loc[(dataEnrollmentMin3['spring_till_class'] == 3) & (dataEnrollmentMin3['conf_index_spring_res'] >= 40), 'id'])
 		bad_till_year = eyMin3
+	if LastCropYear == eyMin4:
+		bad_fields_tillage2.append(dataEnrollmentMin4.loc[(dataEnrollmentMin4['fall_till_class'] == 3) & (dataEnrollmentMin4['conf_index_fall_res'] >= 40), 'Id'])
+		bad_fields_tillage3.append(dataEnrollmentMin4.loc[(dataEnrollmentMin4['spring_till_class'] == 3) & (dataEnrollmentMin4['conf_index_spring_res'] >= 40), 'Id'])
+		bad_till_year = eyMin4
+	if LastCropYear == eyMin5:
+		bad_fields_tillage2.append(dataEnrollmentMin5.loc[(dataEnrollmentMin5['fall_till_class'] == 3) & (dataEnrollmentMin5['conf_index_fall_res'] >= 40), 'Id'])
+		bad_fields_tillage3.append(dataEnrollmentMin5.loc[(dataEnrollmentMin5['spring_till_class'] == 3) & (dataEnrollmentMin5['conf_index_spring_res'] >= 40), 'Id'])
+		bad_till_year = eyMin5
+	if LastCropYear == eyMin6:
+		bad_fields_tillage2.append(dataEnrollmentMin6.loc[(dataEnrollmentMin6['fall_till_class'] == 3) & (dataEnrollmentMin6['conf_index_fall_res'] >= 40), 'Id'])
+		bad_fields_tillage3.append(dataEnrollmentMin6.loc[(dataEnrollmentMin6['spring_till_class'] == 3) & (dataEnrollmentMin6['conf_index_spring_res'] >= 40), 'Id'])
+		bad_till_year = eyMin6
 
 
 
@@ -562,7 +676,6 @@ if LastCropYear == eyMin1:
 	percentSpringTillNull_Prac = NullSpringTillMin1/row_count
 	coverCropCountLastCropYear = dataEnrollmentMin1['cover_crop'].sum()
 	bad_fields_cc.append(dataEnrollmentMin1.loc[(dataEnrollmentMin1['cover_crop'] >= 1) & (dataEnrollmentMin1['conf_index_cover_crop'] >= 0.7), 'id'])
-
 if LastCropYear == eyMin2:
 	# tillage 
 	percentFallTillNull_Prac = NullFallTillMin2/row_count
@@ -575,6 +688,18 @@ if LastCropYear == eyMin3:
 	percentSpringTillNull_Prac = NullSpringTillMin3/row_count
 	coverCropCountLastCropYear = dataEnrollmentMin3['cover_crop'].sum()
 	bad_fields_cc.append(dataEnrollmentMin3.loc[(dataEnrollmentMin3['cover_crop'] >= 1) & (dataEnrollmentMin3['conf_index_cover_crop'] >= 0.7), 'id'])
+
+if LastCropYear == eyMin4:
+	coverCropCountLastCropYear = dataEnrollmentMin4['cover_crop'].sum()
+	bad_fields_cc.append(dataEnrollmentMin4.loc[(dataEnrollmentMin4['cover_crop'] >= 1) & (dataEnrollmentMin4['conf_index_cover_crop'] >= 0.7), 'Id'])
+if LastCropYear == eyMin5:
+	coverCropCountLastCropYear = dataEnrollmentMin5['cover_crop'].sum()
+	bad_fields_cc.append(dataEnrollmentMin5.loc[(dataEnrollmentMin5['cover_crop'] >= 1) & (dataEnrollmentMin5['conf_index_cover_crop'] >= 0.7), 'Id'])
+if LastCropYear == eyMin6:
+	coverCropCountLastCropYear = dataEnrollmentMin6['cover_crop'].sum()
+	bad_fields_cc.append(dataEnrollmentMin6.loc[(dataEnrollmentMin6['cover_crop'] >= 1) & (dataEnrollmentMin6['conf_index_cover_crop'] >= 0.7), 'Id'])
+
+
 # cover crop eligibility check 
 if dataEnrollment['practice_name'].str.contains('Cover').any():
 	#print(coverCropCountLastCropYear)
@@ -588,13 +713,9 @@ In the last year this crop was grown, OpTis flagged cover crop or winter commodi
 However, Cover Cropping is listed as a practice change.
 	"""
 		else:
-			projectCoverCropStatus = """
-	Cover Crop Check - Passed
-	"""
+			projectCoverCropStatus = "Passed"
 	except:
-		projectCoverCropStatus = """
-	Cover Crop Check - Passed
-	"""
+		projectCoverCropStatus = "Passed"
 
 
 if percentCCNull >= 0.5:
