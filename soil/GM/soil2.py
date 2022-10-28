@@ -1,8 +1,6 @@
 import csv 
 from datetime import date
 
-today = date.today()
-
 # script to get lat lons using the Core ID as reference
 
 csv_file = "KS_GM.csv"
