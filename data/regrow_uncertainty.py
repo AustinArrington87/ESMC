@@ -1,6 +1,6 @@
 import json
 import numpy as np
-
+import statistics
 
 # load JSON file 
 loadData = open("benson_hill_dndc_results.json", 'r')
@@ -22,8 +22,13 @@ def calcUncertainty (field):
 	# baseline - SOC
 	b_dSOC = baseline['dsoc']
 	b_dSOC_uncertainty = b_dSOC['distribution']
+
+	#b_dSOC_std_test = statistics.stdev(b_dSOC_uncertainty)
+	#print("Baseline dSOC Std: ", str(b_dSOC_std_test))
+	
 	b_dSOC_uncertainty = round(np.percentile(b_dSOC_uncertainty, 52.5),4)
 	b_dSOC_std = round(b_dSOC['standard_deviation'],4)
+
 	# baseline direct n2o
 	b_N2O = baseline['direct_n2o']
 	b_N2O_uncertainty= b_N2O['distribution']
@@ -37,8 +42,14 @@ def calcUncertainty (field):
 	# practice - SOC
 	p_dSOC = practice['dsoc']
 	p_dSOC_uncertainty = p_dSOC['distribution']
+
+	#p_dSOC_std_test = statistics.stdev(p_dSOC_uncertainty)
+	#print("Practice dSOC Std: ", str(p_dSOC_std_test))
+
 	p_dSOC_uncertainty = round(np.percentile(p_dSOC_uncertainty, 47.5),4)
 	p_dSOC_std = round(p_dSOC['standard_deviation'],4)
+
+
 	# practice - direct n2o
 	p_N2O = practice['direct_n2o']
 	p_N2O_uncertainty= p_N2O['distribution']
