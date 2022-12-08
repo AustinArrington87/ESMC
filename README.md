@@ -8,3 +8,12 @@ API Steps
 
 Working with Data
 Run Data/mrvQuery.py on a JSON file from MRVv1 / Producer Portal to explore the data being fed to models 
+
+=====
+
+Run mrvApi.py
+
+$ python3
+$ import mrvApi
+$ c = mrvApi.configure(".env")
+$ res = mrvApi.dndcGetProject("Missouri Partnership Pilot-11-22-22-17:22","MOCS.json")
