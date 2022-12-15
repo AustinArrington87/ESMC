@@ -1,5 +1,5 @@
 # %%
-# Setup utilities for the API
+# Setup utilities for the MRV API
 
 # Import libraries
 import argparse
