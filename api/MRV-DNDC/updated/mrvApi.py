@@ -1,5 +1,5 @@
 # %%
-# Setup utilities for the MRV API
+# Setup utilities for the API
 
 # Import libraries
 import argparse
@@ -402,6 +402,12 @@ def projectId(projectName):
         return projId[0]['id']
     else:
         return None
+    
+
+# %%
+def projects():
+    
+    return(json.loads(requests.get(config['mrvUrl']+'/api/base/projects').text))
     
 
 # %%
